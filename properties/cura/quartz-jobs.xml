@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--
+  Quartz scheduler, jobs declaration file
+  Camille Laibe <camille.laibe@ebi.ac.uk>
+  20120629
+-->
+
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+          http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+        version="1.5">
+    
+    <job>
+        <job-detail>
+            <name>MiriamResourcesDailyCheck-job</name>
+            <group>MIRIAM-job</group>
+            <description>Checks the responsiveness of all the resources</description>
+            <job-class>uk.ac.ebi.miriam.tools.UrlCheckScheduler</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>MiriamResourcesDailyCheck-trigger</name>
+                <group>MIRIAM-trigger</group>
+                <description>Fires daily at 3:30am, UK time</description>
+                <job-name>MiriamResourcesDailyCheck-job</job-name>
+                <job-group>MIRIAM-job</job-group>
+                <cron-expression>0 30 3 * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </job>
+    
+    <job>
+        <job-detail>
+            <name>MiriamResourcesHealthWarning-job</name>
+            <group>MIRIAM-job</group>
+            <description>Warns the curator(s) about resources which have been down for several consecutive days</description>
+            <job-class>uk.ac.ebi.miriam.tools.UrlWarningScheduler</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>MiriamResourcesHealthWarning-trigger</name>
+                <group>MIRIAM-trigger</group>
+                <description>Fires weekly at 5:30am (UK time) on Tuesdays</description>
+                <job-name>MiriamResourcesHealthWarning-job</job-name>
+                <job-group>MIRIAM-job</job-group>
+                <cron-expression>0 30 5 ? * TUE</cron-expression>
+            </cron>
+        </trigger>
+    </job>
+</quartz>

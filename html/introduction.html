@@ -1,0 +1,150 @@
+<h2>Persistent identification for life science data</h2>
+
+
+<p>
+  The <b><a href="http://co.mbine.org/standards/miriam" title="MIRIAM set of guidelines, that the Registry was initially created to support">MIRIAM</a> Registry</b> provides a set of online services for the generation of unique and perennial identifiers, in the form of <abbr title="Uniform Resource Identifiers">URIs</abbr>. It provides the core data which is used by <a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a>.
+</p>
+<p>
+  The core of the <em>Registry</em> is a catalogue of data collections (corresponding to controlled vocabularies, databases, ...), their <abbr title="Uniform Resource Identifiers">URIs</abbr> and the corresponding physical <abbr title="Uniform Resource Locators">URLs</abbr> (or resources). These resources are monitored daily to ensure data accessibility and the validity of the resolution mechanism.
+</p>
+<p>
+  Access to the Registry's dataset is made available via exports (<abbr title="Extensible Markup Language">XML</abbr> and <abbr title="Resource Description Framework">RDF</abbr>) and Web Services (<abbr title="Simple Object Access Protocol">SOAP</abbr> and <abbr title="Representational State Transfer">REST</abbr>).
+</p>
+<p>
+  All provided data and services are free for use by all.
+</p> 
+
+<!--
+<div class="announcement">
+	<span style="color:#E65555; font-weight:bold; font-style:normal;">MIRIAM URN/Identifier structure survey</span>
+	<br />
+	Please take a few minutes to look at the <a href="http://biomodels.net/miriam/URN_survey.html" title="MIRIAM URN Scheme: Request for Community Feedback">documentation</a> and fill the <a href="http://www.surveymonkey.com/s/SF6H9HX" title="MIRIAM URN Scheme Survey">very short survey</a>.
+	<br />
+	Thank you!
+</div>
+-->
+
+<!--
+<br />
+<div class="commentsbox" style="text-align: center; font-size:110%;">
+    <span class="red_bold">INFORMATION: New MIRIAM URIs now in usage!</span>
+    <br />
+    Don't forget to use the latest version of the Java library to access the Web Services.
+</div>
+-->
+
+
+<!-- Maintenance warning
+<div style="text-align: center; border: 1px solid rgb(191, 191, 191); color: black; font-weight: bold; background-color: rgb(244, 182, 182); margin-left: 2em; margin-right: 2em; padding-bottom: 8px; margin-top: 1em; margin-bottom: 1em;">
+  <p style="font-size:14px">
+    Due to problems with the WTSI/EBI data centre cooling system, a complete shutdown is planned from Friday, 7th January 2011 (16:30 GMT) to Sunday, 9th January 2011 (21:00 GMT).
+  </p>
+  <p style="font-size:14px">
+    This will affect access to all services hosted at the EBI, including BioModels Database, the Systems Biology Ontology, MIRIAM Registry, as well as all Compneur related webpages.
+  </p>
+  <p style="font-size:14px">
+    BioModels Database will, however, still be available through the mirror hosted at Caltech: <a href="http://biomodels.caltech.edu/" title="BioModels Database, mirror at Caltech">http://biomodels.caltech.edu/</a>.
+  </p>
+  <p style="font-size:14px">
+    We apologise for this unavoidable disruption to our services, and for any inconvenience this may cause.
+  </p>
+</div>
+-->
+
+<section>
+<div class="grid_8 alpha">
+<h3>Access data</h3>
+
+<ul style="list-style-type: none; padding-left: 10%;">
+    <li><a href="collections/" title="Browse data types by name">Browse by data collection name</a></li>
+    <li><a href="tags/" title="Browse data types by tag(s)">Browse by types of data (categories &amp; tags)</a></li>
+    <li><a href="mdb?section=ws" title="What web services are available and how to access them">Web services</a></li>
+    <!-- <li><a href="mdb?section=request" title="Web Services Demonstration">query services (online demonstration)</a></li> -->
+    <li><a href="export/" title="XML export">Download complete dataset (XML)</a></li>
+    <li><a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a></li>
+</ul>
+</div>
+
+<div class="grid_8">
+<h3>Contribute</h3>
+
+<ul style="list-style-type: none;">
+	<li><a href="mdb?section=contribute#communicate" title="Contact the team and community">Contact the team and community</a></li>
+	<li><a href="mdb?section=contribute#edit" title="Edit existing data collection">Edit existing data collection</a></li>
+    <li><a href="mdb?section=contribute#request" title="Request new data collection(s)">Request new data collection(s)</a></li>
+    <li><a href="mdb?section=support&amp;info=generic" title="Send us questions, comments and suggestions">Provide feedback</a></li>
+</ul>
+</div>
+
+<div class="grid_8">
+<h3>Learn &amp; discover</h3>
+
+<ul style="list-style-type: none;">
+    <li><a href="mdb?section=faq#MIRIAMRegistry" title="New to the Registry">Getting started with the Registry</a></li>
+    <li><a href="mdb?section=faq" title="Frequently asked questions and their answers">Frequently Asked Questions</a></li>
+    <li><a href="mdb?section=media" title="Publications, presentations, posters, ...">Publications, presentations, posters, ...</a></li>
+    <li><a href="mdb?section=uris" title="Review of URI based identification systems">Review of URI based identification systems</a></li>
+    <li><a href="mdb?section=docs" title="Documentation">Documentation</a></li>
+    <li><a href="mdb?section=about" title="About the Registry">About the Registry</a></li>
+</ul>
+</div>
+</section>
+
+<!--
+<section>  
+<h3>Registry</h3>
+
+<p>
+  The <em>MIRIAM Registry</em> is composed of four components: <a href="#database" title="Database">a database</a>, <a href="#webservices" title="Web Services">some Web Services</a>, <a href="#javalibrary" title="Java Library">a Java library</a> and <a href="#webapp" title="Web Application">this web application</a>.
+</p>
+
+<h4 id="database">Database</h4>
+<p>
+  The core of the system is a <a href="http://www.mysql.com/" title="MySQL">MySQL</a> database. It allows us to store the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=faq#DataCollection" title="data collection definition from the FAQ">data collections</a> (which can be controlled vocabularies or databases), their <abbr title="Uniform Resource Identifiers">URIs</abbr> and the corresponding physical <abbr title="Uniform Resource Locators">URLs</abbr>, and other <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=faq#MIRIAMInfo" title="information stored for data collections">details</a> such as documentation and resource  identifier patterns.
+</p>
+<p>
+  Each entry contains a diverse set of details about the data collection: official name and synonyms, root <abbr title="Uniform Resource Identifier">URI</abbr>, pattern of identifiers, documentation, etc. Moreover, each data collection can be associated with several resources (or physical locations).
+</p>
+
+<h4 id="webservices">Web Services</h4>
+<p>
+  Programmatic access to the data is available via Web Services (based on <a href="http://ws.apache.org/axis/" title="Apache Axis">Apache Axis</a> and <a href="http://en.wikipedia.org/wiki/SOAP" title="SOAP on Wikipedia">SOAP</a> messages). In addition, REST-based services are currently being developed. This <abbr title="Application Programming Interface">API</abbr> allows one to not only resolve <abbr title="Uniform Resource Identifiers">URIs</abbr>, but also to generate appropriate ones, based upon the provision of a data collection name and an accession number. A list of <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=ws_help" title="list of available web services">available web services</a>, and a <a href="http://www.ebi.ac.uk/miriamws/main/MiriamWebServices?wsdl" title="Web Services Description Language of MIRIAM Web Services">WSDL</a> are provided. A browser-based <a href="mdb?section=request" title="Web Services Demonstration">online demonstration</a> of the Web Services is also available to try. 
+</p>
+
+<h4 id="javalibrary">Java Library</h4>
+<p>
+  A Java library is provided to access the Web Services. The <a href="mdb?section=ws" title="Java Library documentation">documentation</a> explains where to download it, its dependencies, and how to use it. 
+</p>
+
+<h4 id="webapp">Web Application</h4>
+<p>
+  A Web application, using an <a href="http://tomcat.apache.org/" title="Apache Tomcat">Apache Tomcat</a> server, offers access to the whole data set via a Web browser. It is possible to <a href="collections/" title="Browse data types by name">browse by data type names</a> as well as <a href="tags/" title="Browse data types by tag(s)">browse by tags</a>. A <a href="mdb?section=search" title="MIRIAM Search">search engine</a> is also provided.
+</p>
+<p>
+  <a href="export/" title="Database exports">Exports</a> of the whole content of the database and <a href="mdb?section=submit" title="Submission of new data collections">submission of new data collection</a> are available. Documentation relating to either the Registry or the Guidelines are available in the <a href="mdb?section=docs" title="MIRIAM related documents">Documents</a> section.
+</p>
+<p>
+The <a href="mdb?section=request" title="Web Services Demonstration">Web Services demo</a> enables users to perform queries such as the retrieval of valid physical locations (<abbr title="Uniform Resource Locators">URLs</abbr>) corresponding to a given <abbr title="Uniform Resource Identifier">URI</abbr>, or generating a valid MIRIAM URI given a data collection name and an accession identifier. These results are immediately displayed in the browser, in a dynamic way, using <a href="http://en.wikipedia.org/wiki/AJAX" title="AJAX on Wikipedia">Asynchronous JavaScript and XML</a> (AJAX). 
+</p>
+</section>
+-->
+
+
+<section>
+<h3>Latest publication</h3>
+
+<dl>
+  <dt class="biblio-title" style="padding-left: 2em;">
+      Identifiers.org and MIRIAM Registry: community resources to provide persistent identification.
+  </dt>
+  <dd class="biblio-authors">
+  	Juty N., Le Novère N., Laibe C.
+  </dd>
+  <dd>
+      <span class="biblio-secondary-title">Nucleic Acids Research</span>. <span class="biblio-year">2012</span>; <span class="biblio-volume">40</span> <span class="biblio-number">(Database issue)</span>: <span class="biblio-page">D580-D586</span>
+  </dd>
+  <dd class="biblio-links">
+      [<a href="http://europepmc.org/abstract/MED/22140103" title="Access this publication via Europe PubMed Central">Europe PMC</a>]&nbsp;[<a href="http://nar.oxfordjournals.org/content/40/D1/D580" title="Publication on Oxford Journals, Nucleic Acids Research">Oxford Journals</a>]
+  </dd>
+</dl>
+</section>

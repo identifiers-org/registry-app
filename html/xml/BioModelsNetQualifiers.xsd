@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    XML Schema of the XML export of the BioModels.net Qualifiers
+
+    BioModels.net
+    Ref. http://www.biomodels.net/
+
+    Copyright (C) 2007-2009  Camille Laibe <camille.laibe@ebi.ac.uk>
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+    For more information: http://www.gnu.org/licenses/gpl.txt
+
+    version:  20090520
+    Author :  Camille Laibe
+    E-Mail :  camille.laibe@ebi.ac.uk
+    Address:  Computational Neurobiology,
+              EMBL - European Bioinformatics Institute,
+              Wellcome-Trust Genome Campus
+              Hinxton, CAMBRIDGE
+              CB10 1SD
+              United Kingdom
+ -->
+
+
+<xs:schema targetNamespace="http://www.biomodels.net/qualifiers/" 
+            xmlns="http://www.biomodels.net/qualifiers/" 
+            xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+            elementFormDefault="qualified" 
+            attributeFormDefault="unqualified">
+  
+  <!-- Definition of a qualifier -->
+  <xs:complexType name="qualifier">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="definition" type="xs:string" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Definition of a group of qualifiers -->
+  <xs:complexType name="qualifiers">
+    <xs:sequence>
+      <xs:element name="qualifier" type="qualifier" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="definition" type="xs:string" use="required" />
+    <xs:attribute name="type" type="xs:string" use="required" />
+    <xs:attribute name="namespace" type="xs:string" use="required" />
+  </xs:complexType>
+  
+  <!-- Top level element of a BioModelsNetQualifiers document -->
+  <xs:element name="biomodels_net">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="qualifiers" type="qualifiers" minOccurs="2" maxOccurs="2" />
+      </xs:sequence>
+      <xs:attribute name="date" type="xs:dateTime" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

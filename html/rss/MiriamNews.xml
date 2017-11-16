@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <channel>
+        
+        <title>Identifiers.org Registry News</title>
+        <link>@MIR_DYNAMIC_URL@/mdb?section=news</link>
+        <description>Identifiers.org Registry News Feed</description>
+        <language>en-gb</language>
+        <copyright>Copyright 2006-2013, BioModels.net</copyright>
+        <managingEditor>camille.laibe@ebi.ac.uk (Camille Laibe)</managingEditor>
+        <category>EMBL-EBI</category>
+        <generator>My little hands (so far...)</generator>
+        <docs>http://en.wikipedia.org/wiki/RSS</docs>
+        <atom:link href="@MIR_STATIC_URL@/rss/MiriamNews.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Wed, 28 Aug 2013 15:47:01 GMT</lastBuildDate>
+        
+        <!--
+        Categories:
+        Web Interface/Web Services/New Feature/New Data Type/Database Content/General/User/Document/Test/Publication
+        -->
+        
+        <image>
+            <title>Identifiers.org Registry News</title>
+            <url>@MIR_STATIC_URL@/img/miriam_small_border.png</url>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=news</link>      
+        </image>
+
+		<item>
+            <title>Dataset descriptor and RDF representations</title>
+            <description><![CDATA[The Registry now provides a dataset descriptor and RDF representations of the whole Registry and individual data collections (in RDF/XML and Turtle formats). <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=news#20130828" title="Read more about this news">Read more about this news.</a>]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">201308_void_rdf</guid>
+            <pubDate>Wed, 28 Aug 2013 15:47:00 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Primary resources</title>
+            <description><![CDATA[As requested by a number of our users, <a href="http://identifiers.org" title="Identifiers.org">Identifiers.org</a> and its <a href="http://identifiers.org/registry/" title="Identifiers.org Registry">Registry</a> now highlight the "primary resource" for data collections. This represents the resource that is maintained by the provider of the original data, and thereby acknowledges the original source. Please note that not all data collections have a primary resource; for example where multiple collaborating institutes are equally responsible, no primary resource is specified.]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">201307_primary_resources</guid>
+            <pubDate>Mon, 8 Jul 2013 10:00:02 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>New design for the Registry</title>
+            <description><![CDATA[Launch of the new design of the <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">Registry</a>. By following new guidelines and simplifying the interface, we hope this will make the resource more accessible to all.]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">201303_design2013</guid>
+            <pubDate>Mon, 4 Mar 2013 12:20:02 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>Identifiers.org at SWAT4LS 2012</title>
+            <description><![CDATA[<a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> and its <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">Registry</a> were presented during the 2012 edition of <a href="http://www.swat4ls.org/workshops/paris2012/" title="Semantic Web Applications and Tools for Life Sciences">SWAT4LS</a>. Proceedings (including our position paper) are available from <a href="http://ceur-ws.org/Vol-952/" title="CEUR SWAT4LS 2012 Proceedings">CEUR</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">2012011_SWAT4LS2012</guid>
+            <pubDate>Fri, 30 Nov 2012 16:20:01 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>Identifiers.org at COMBINE 2012</title>
+            <description><![CDATA[<a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> and the <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a> were presented at the <a href="http://co.mbine.org/events/COMBINE_2012" title="Computational modeling in biology network">COMBINE</a> meeting in Toronto, Canada. The presentation is available <a href="http://co.mbine.org/events/COMBINE_2012/agenda?q=system/files/2012-08-18-combine-juty-miriam.pdf" title="MIRIAM Registry and Identifiers.org presentation">here</a>, and a poster <a href="http://identifiers.org/media/2012-COMBINE.pdf" title="COMBINE_2012 poster">here</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">2012008_COMBINE2012</guid>
+            <pubDate>Mon, 20 Aug 2012 16:20:03 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>MiriamJavaLib version 1.1.5</title>
+            <description><![CDATA[Release of the version 1.1.5 of the Java library, available from <a href="https://sourceforge.net/projects/miriam/files/Miriam%20Java%20Library/1.1.5/" title="MiriamJavaLib version 1.1.5 on SourceForge.net">SourceForge</a> and the <a href="http://www.ebi.ac.uk/~maven/m2repo/uk/ac/ebi/miriam/miriam-lib/" title="MiriamJavaLib version 1.1.5 in the EBI Maven repository">EBI Maven repository</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20120215_JavaLibraryVersion1.1.5</guid>
+            <pubDate>Wed, 15 Feb 2012 16:20:02 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>Web Services updated</title>
+            <description><![CDATA[Web Services updated in order to allow the conversion of <a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> URLs into their equivalent MIRIAM URIs. Cf. <a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help#ID_convertURL_1" title="Documention of the method: convertURL(String)">the documentation</a> for more information. Batch queries are also <a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help#ID_convertURLs_1" title="Documention of the method: convertURLs(String[])">available</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20120215_WebServiceUpdated</guid>
+            <pubDate>Wed, 15 Feb 2012 16:20:01 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        
+        
+        <item>
+            <title>MiriamJavaLib version 1.1.4</title>
+            <description><![CDATA[Release of the version 1.1.4 of the Java library, available from <a href="https://sourceforge.net/projects/miriam/files/Miriam%20Java%20Library/1.1.4/" title="MiriamJavaLib version 1.1.4 on SourceForge.net">SourceForge</a> and the <a href="http://www.ebi.ac.uk/~maven/m2repo/uk/ac/ebi/miriam/miriam-lib/" title="MiriamJavaLib version 1.1.4 in the EBI Maven repository">EBI Maven repository</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20120117_JavaLibraryVersion1.1.4</guid>
+            <pubDate>Tue, 17 Jan 2012 18:40:02 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>Web Services updated</title>
+            <description><![CDATA[Web Services updated in order to allow the conversion of MIRIAM URIs into their equivalent <a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> URLs. Cf. <a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help#ID_convertURN_1" title="Documention of the method: convertURN(String)">the documentation</a> for more information. Batch queries are also <a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help#ID_convertURNs_1" title="Documention of the method: convertURNs(String[])">available</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20120117_WebServiceUpdated</guid>
+            <pubDate>Tue, 17 Jan 2012 18:40:02 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>Updated XML export and its schema</title>
+            <description><![CDATA[The XML export and XML Schema have been updated. For each data collection, the XML export now includes various new elements such as the namespace, the root Identifiers.org URL or the list of restrictions (if any recorded).]]></description>
+            <link>@MIR_DYNAMIC_URL@/export/xml/</link>
+            <guid isPermaLink="false">20111220_XMLExportWithURLs</guid>
+            <pubDate>Tue, 20 Dec 2011 14:30:02 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Data collections with restrictions on some of their potential usages</title>
+            <description><![CDATA[Introduction of a mechanism to state specific restrictions associated with certain data collections. These restrictions include restricted licenses (which for example may preclude the use of a data collection by commercial organisations) and non-stable identifiers (which for example may differ for a specific record between releases or versions of a data collection). The introduction of this system will enable us to publish data collections that were previously not compliant with the Registry's requirements. However, although this will ensure provision of URIs for records provided by those data collections, the level of support and services (such as the resolution one) may be affected. We welcome feedback on this recent development, and suggestions for its future refinement.]]></description>
+            <link>@MIR_DYNAMIC_URL@/collections/</link>
+            <guid isPermaLink="false">20111220_Restrictions</guid>
+            <pubDate>Tue, 20 Dec 2011 14:30:01 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Database Content</category>
+        </item>
+        
+        <item>
+            <title>Identifiers.org and MIRIAM Registry: community resources to provide persistent identification</title>
+            <description><![CDATA[<a href="http://nar.oxfordjournals.org/cgi/content/abstract/gkr1097" title="More about this publication" class="external">Identifiers.org and MIRIAM Registry: community resources to provide persistent identification</a> published. In this paper, we describe the <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a>, which provides unique, perennial and location-independent identifiers for data used in the biomedical domain. We also introduce the new <a href="http://identifiers.org" title="Identifiers.org">Identifiers.org</a> service that is built upon the information stored in the Registry and which provides directly resolvable identifiers, in the form of Uniform Resource Locators (URLs). The flexibility of the identification scheme and resolving system allows its use in many different fields, where unambiguous and perennial identification of data entities are necessary.]]></description>
+            <link>http://nar.oxfordjournals.org/cgi/content/abstract/gkr1097</link>
+            <guid isPermaLink="false">20111204_Publication</guid>
+            <pubDate>Sun, 04 Dec 2011 21:03:00 GMT</pubDate>
+            <category>Publication</category>
+        </item>
+        
+        <item>
+            <title>MiriamJavaLib version 1.1.3</title>
+            <description><![CDATA[Release of the version 1.1.3 of the Java library, available from <a href="https://sourceforge.net/projects/miriam/files/Miriam%20Java%20Library/1.1.3/" title="MiriamJavaLib version 1.1.3 on SourceForge.net">SourceForge</a> and the <a href="http://www.ebi.ac.uk/~maven/m2repo/uk/ac/ebi/miriam/" title="MiriamJavaLib version 1.1.3 in the EBI Maven repository">EBI Maven repository</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20110629_JavaLibraryVersion1.1.3</guid>
+            <pubDate>Mon, 28 Nov 2011 17:26:02 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>Web Services updated</title>
+            <description><![CDATA[Web Services updated in order to allow batch queries for getting MIRIAM URIs. Cf. <a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help#ID_getURIs_1" title="Documention of the method: getURIs(String[], String[])">the documentation</a> for more information.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20111128_WebServiceUpdated</guid>
+            <pubDate>Mon, 28 Nov 2011 17:26:01 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>MIRIAM Resources renamed MIRIAM Registry</title>
+            <description><![CDATA[In order to prevent confusion when talking about <i>MIRIAM Resources</i> and the concept of "resource", we decided to rename the whole infrastructure <i>MIRIAM Registry</i>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/</link>
+            <guid isPermaLink="false">20110629_MiriamResourcesRenamedRegistry</guid>
+            <pubDate>Wed, 29 Jun 2011 10:40:01 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>Updated XML export: resource state and reliability information now provided</title>
+            <description><![CDATA[The <a href="@MIR_DYNAMIC_URL@/export/xml/" title="XML export">XML export</a> and <a href="@MIR_STATIC_URL@/xml/MiriamXML.xsd" title="XML schema">XML Schema</a> have been updated: the current state and general reliability (provided as a percentage) of the resources are now included in the file.]]></description>
+            <link>@MIR_DYNAMIC_URL@/export/xml/</link>
+            <guid isPermaLink="false">20110617_XMLExportWithReliability</guid>
+            <pubDate>Fri, 17 Jun 2011 17:50:02 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Updated way to browse the data types</title>
+            <description><![CDATA[Updated way to <a href="@MIR_DYNAMIC_URL@/datatypes/" title="">browse the data types</a>: direct access to data types which name starts by a given letter or set of letters.]]></description>
+            <link>@MIR_DYNAMIC_URL@/datatypes/</link>
+            <guid isPermaLink="false">20110617_DataTypesBrowsing</guid>
+            <pubDate>Fri, 17 Jun 2011 17:50:01 GMT</pubDate>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>MiriamJavaLib version 1.1.2</title>
+            <description><![CDATA[Release of the version 1.1.2 of the Java library, available from <a href="https://sourceforge.net/projects/miriam/files/Miriam%20Java%20Library/1.1.2/" title="MiriamJavaLib version 1.1.2 on SourceForge.net">SourceForge</a> and the <a href="http://www.ebi.ac.uk/~maven/m2repo/uk/ac/ebi/miriam/" title="MiriamJavaLib version 1.1.2 in the EBI Maven repository">EBI Maven repository</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws</link>
+            <guid isPermaLink="false">20110616_JavaLibraryVersion1.1.2</guid>
+            <pubDate>Thu, 16 Jun 2011 18:20:02 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>New Web Services method: getLocationsWithToken()</title>
+            <description><![CDATA[Web Services updated: new method getLocationsWithToken() for retrieving generic physical locations (URLs) of web pageS providing the dataset of a given data type.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=ws_help</link>
+            <guid isPermaLink="false">20110616_NewWebServicesMethod_getLocationsWithToken</guid>
+            <pubDate>Thu, 16 Jun 2011 18:20:01 GMT</pubDate>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>URI based identification systems comparision</title>
+            <description><![CDATA[New page describing the <a href="@MIR_DYNAMIC_URL@/mdb?section=uris" title="URI based identification systems">URI based identification systems</a> currently available. If you have any information you wish to contribute, feel free to <a href="@MIR_DYNAMIC_URL@/mdb?section=contribute#team" title="Contact details">contact us</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=uris</link>
+            <guid isPermaLink="false">20110331_NewPageUriBasedIdentificationSystems</guid>
+            <pubDate>Thu, 31 Mar 2011 13:00:02 GMT</pubDate>
+            <category>Document</category>
+        </item>
+        
+        <item>
+            <title>Use of MIRIAM Guidelines and MIRIAM Resources</title>
+            <description><![CDATA[New page describing the current <a href="@MIR_DYNAMIC_URL@/mdb?section=use" title="Use of MIRIAM Guidelines and MIRIAM Resources">use of MIRIAM Guidelines and MIRIAM Resources</a>. If you have any information you wish to contribute, feel free to <a href="@MIR_DYNAMIC_URL@/mdb?section=contribute#team" title="Contact details">contact us</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=use</link>
+            <guid isPermaLink="false">20110331_NewPageMiriamUse</guid>
+            <pubDate>Thu, 31 Mar 2011 13:00:01 GMT</pubDate>
+            <category>Document</category>
+        </item>
+        
+        <item>
+            <title>Search results page now bookmarkable</title>
+            <description><![CDATA[The search results page is now bookmarkable. For example, you can access to the results of a search for <a href="@MIR_DYNAMIC_URL@/search?query=protein+interaction" title="Search results for 'protein interaction'">protein interaction</a>.]]></description>
+            <link>@MIR_DYNAMIC_URL@/mdb?section=search</link>
+            <guid isPermaLink="false">20110113_SearchResultsBookmarkable</guid>
+            <pubDate>Thu, 13 Jan 2011 14:15:02 GMT</pubDate>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>MIRIAM URN/Identifier structure survey</title>
+            <description><![CDATA[<b>MIRIAM URN/Identifier structure survey</b>: please take a few minutes to look at the <a href="http://biomodels.net/miriam/URN_survey.html" title="MIRIAM URN Scheme: Request for Community Feedback">documentation</a> and fill the <a href="http://www.surveymonkey.com/s/SF6H9HX" title="MIRIAM URN Scheme Survey">very short survey</a>. Thank you.]]></description>
+            <link>http://biomodels.net/miriam/URN_survey.html</link>
+            <guid isPermaLink="false">20110113_MiriamUrnSurvey</guid>
+            <pubDate>Thu, 13 Jan 2011 14:15:01 GMT</pubDate>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Web Services updated</title>
+            <description><![CDATA[Web Services updated: <em>getURI()</em> and <em>getLocations()</em> now perform a check of the validity of the identifier provided. In case it is not valid, the result returned is <em>null</em>. For more information about these methods, please refer to the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=ws_help" title="List of services available">Web Services documentation</a>.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100421_WebServicesUpdate</guid>
+            <pubDate>Wed, 21 Apr 2010 15:30:01 GMT</pubDate>
+            <category>Web Services</category>
+        </item>
+        
+        <item>
+            <title>Java library available via EBI Maven repository</title>
+            <description><![CDATA[The Java library is now available via the EBI Maven repository.  Cf. the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=ws" title="Web Services library">library page</a> for more details.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100408_LibraryViaMaven</guid>
+            <pubDate>Thu, 08 Apr 2010 13:20:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Deprecated resources not displayed by default</title>
+            <description><![CDATA[On the detail page of a data type, the deprecated resources are not displayed by default.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_DeprecatedResources</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:06 GMT</pubDate>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Nicer URLs</title>
+            <description><![CDATA[Access to the data is now done via shorter and nicer URLs. More details are available on the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=news" title="MIRIAM Resources news">news page</a>.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_NicerURLs</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:05 GMT</pubDate>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Web Services records now available</title>
+            <description><![CDATA[Information about Web Services provided by the various data types is now available via a fourth tab. These records will be gradually completed.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_WebServicesInfo</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:04 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Resource health information now available</title>
+            <description><![CDATA[We started to perform a daily check of the health of all the resources several months ago, for maintenance purposes. Now this information is available to everybody. You just need to click on a resource identifier to access its health history. Moreover, the resources are displayed ordered by reliability.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_ResourcesHealthInfo</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:03 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Export of the BioModels.net qualifiers</title>
+            <description><![CDATA[The BioModels.net qualifiers are now available to download as an <a href="http://www.ebi.ac.uk/miriam/main/qualifiers/xml/" title="BioModels.net qualifiers: XML export">XML file</a> and <a href="http://www.ebi.ac.uk/miriam/main/qualifiers/rdf/" title="BioModels.net qualifiers: RDF export">RDF file</a>. We welcome any suggestions and comments to improve these.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_BioModelNetQualifiersExport</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:02 GMT</pubDate>
+            <category>New Feature</category>
+            <category>Web Interface</category>
+        </item>
+        
+        <item>
+            <title>Updated XML export and XML Schema</title>
+            <description><![CDATA[A new version of the <a href="http://www.ebi.ac.uk/miriam/main/export/" title="Exports">XML export</a> is now available, with <a href="http://www.ebi.ac.uk/miriam/main/export/xml/" title="XML export">direct access to the file XML file</a>. This file is generated on demand, so you are sure to always get an up-to-date export.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100323_XMLexport</guid>
+            <pubDate>Tue, 23 Mar 2010 16:20:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Updated Java Library</title>
+            <description><![CDATA[New version of the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=ws" title="MIRIAM Java Library">Java library</a> now available (<a href="http://sourceforge.net/projects/miriam/files/" title="MIRIAM download page on SourceForge.net">download from SourceForge</a>).]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100310_JavaLibraryUpdated</guid>
+            <pubDate>Wed, 10 Mar 2010 21:20:03 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Updated SOAP Web Services</title>
+            <description><![CDATA[SOAP Web Services updated: various new kind of parameters now accepted by the method <em>getOfficialDataTypeURI()</em>. Cf. the page describing the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=ws_help" title="List of available services">available services</a> for more information.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100310_SoapWebServicesUpdated</guid>
+            <pubDate>Wed, 10 Mar 2010 21:20:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>REST Web Services available (BETA)</title>
+            <description><![CDATA[REST Web Services are now available from <a href="http://www.ebi.ac.uk/miriamws/main/rest/" title="MIRIAM Resources: REST Web Services">http://www.ebi.ac.uk/miriamws/main/rest/</a> for you to test and give us feedback!]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100310_RestWebServicesBeta</guid>
+            <pubDate>Wed, 10 Mar 2010 16:20:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>More than 100 data types in MIRIAM Resources!</title>
+            <description><![CDATA[More than <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=browse" title="List of data types">100 data types</a> now in MIRIAM Resources!]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20100114_OneHundredDataTypes</guid>
+            <pubDate>Thu, 14 Jan 2010 11:30:01 GMT</pubDate>
+            <category>Database Content</category>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>New way to access the data</title>
+            <description><![CDATA[Various new data types have been added to the resource, cf. <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=browse" title="List of data types">current list</a>.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20091117_NewDataTypes</guid>
+            <pubDate>Mon, 16 Nov 2009 14:50:03 GMT</pubDate>
+            <category>Database Content</category>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>Update of the XML export and XML Schema</title>
+            <description><![CDATA[The <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=export" title="XML export">XML export</a> and XML Schema have been updated.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20090520_XmlSchemaUpdated</guid>
+            <pubDate>Wed, 20 May 2009 14:50:02 GMT</pubDate>
+            <category>Database Content</category>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>New way to access the data</title>
+            <description><![CDATA[Access to the record of a specific data type can now be done in an easy way: just by putting the identifier at the end of the URL. For example: <a href="http://www.ebi.ac.uk/miriam/main/MIR:00000008" title="Access to the record of MIRIAM Resources">http://www.ebi.ac.uk/miriam/main/MIR:00000008</a>.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20090318_DirectAccessToDataType</guid>
+            <pubDate>Wed, 18 Mar 2009 14:50:02 GMT</pubDate>
+            <category>Web Interface</category>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Resource Health Check System</title>
+            <description><![CDATA[A resource health check system has been implemented. It queries every resources in the database in order to know which ones are responsive. This is automatically launched every day. It will allow us to easily detect changes in the way to access the data and quickly update the corresponding records.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20090318_ResourceHealthChechSystem</guid>
+            <pubDate>Wed, 18 Mar 2009 14:50:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>New features</title>
+            <description><![CDATA[As the content of the database grows, we improved the user interface for browsing and editing the data types stored. Moreover, a summary of some basic statictics of MIRIAM Resources is available on the export page which allow you to easily check if the content of the database has been updated recently.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/</link>
+            <guid isPermaLink="false">20080723_UserInterfaceImproved</guid>
+            <pubDate>Tue, 22 Jul 2008 14:50:03 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Tags</title>
+            <description><![CDATA[In order to improve the user experience, we introduced tags: each data type is now associated with one or more tags. Of course, you can easily use them to search data types matching one or several concepts. Moreover, we updated the XML export (and the XML Schema) in order to provide them in the file.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=metadata</link>
+            <guid isPermaLink="false">20080723_TagsReleased</guid>
+            <pubDate>Tue, 22 Jul 2008 14:50:02 GMT</pubDate>
+            <category>Database Content</category>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>Search engine</title>
+            <description><![CDATA[A search engine is now available to easily retrieve the data types your are looking for. The search is based on all the textual data stored about the data types, except the tags (a specific search engine <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=metadata" title="Search by tags">is available</a>) and the examples of annotations. It includes the information stored about the resources as well.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=search</link>
+            <guid isPermaLink="false">20080723_SearchEngineReleased</guid>
+            <pubDate>Tue, 22 Jul 2008 14:50:01 GMT</pubDate>
+            <category>New Feature</category>
+        </item>
+        
+        <item>
+            <title>XML Schema updated</title>
+            <description><![CDATA[The XML Schema of the XML export of the content of MIRIAM Database has been updated to match the recent changes on the format. This export now includes some examples of annotation in various formats (for example SBML, BioPAX or CellML). Moreover, the format now follows a nested structure for 'uris', 'resources', 'synonyms' and 'documentations'.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=export</link>
+            <guid isPermaLink="false">20080423_XmlSchemaUpdated</guid>
+            <pubDate>Wed, 23 Apr 2008 15:00:01 GMT</pubDate>
+            <category>Database Content</category>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>New XML export</title>
+            <description><![CDATA[The XML export has been updated in order to contain more information. The examples of annotation in several formats (such as SBML, BioPAX or CellML) are now available in this XML file. The XML Schema has also been updated and will be available soon.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=export</link>
+            <guid isPermaLink="false">20080421_XmlExportUpdated</guid>
+            <pubDate>Mon, 21 Apr 2008 10:45:01 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>Web Services updated</title>
+            <description><![CDATA[MIRIAM Web Services have been updated in order to provide an easy way for users to manage the transition between the old to the new MIRIAM URIs. For example the method 'getOfficialEntryURI()' allows you to convert an old MIRIAM URI into its official one. Don't forget to download the latest Java library to use these new features.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=ws</link>
+            <guid isPermaLink="false">20080421_WebServicesUpdated</guid>
+            <pubDate>Mon, 21 Apr 2008 10:45:01 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>New Scheme for MIRIAM URIs (Beta)</title>
+            <description><![CDATA[We released the new MIRIAM URIs, based on URN. These are more coherent and reliable than the ones used previously. In order to make the transition easier, don't forget to use the latest version of the Web Services and the associated library.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=browse</link>
+            <guid isPermaLink="false">20080421_NewUriScheme</guid>
+            <pubDate>Mon, 21 Apr 2008 10:45:01 GMT</pubDate>
+            <category>Database Content</category>
+        </item>
+        
+        <item>
+            <title>New BioModels.net qualifier: "occursIn"</title>
+            <description><![CDATA[New BioModels.net qualifier: "occursIn". For example: "MAP-kinase cascade <b>occursIn</b> human". For more information, cf. <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=qualifiers" title="Access to the BioModels.net qualifiers section">qualifiers section</a>.]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=qualifiers</link>
+            <guid isPermaLink="false">20080320_NewQualifierOccursIn</guid>
+            <pubDate>Thu, 20 Mar 2008 16:50:01 GMT</pubDate>
+            <category>General</category>
+        </item>
+        
+        <item>
+            <title>XML Schema updated</title>
+            <description><![CDATA[The XML Schema of the XML export of the content of MIRIAM Database has been updated to match (slight) recent changes on the format (cf. news about the DOI support in documentation).]]></description>
+            <link>http://www.ebi.ac.uk/miriam/main/mdb?section=export</link>
+            <guid isPermaLink="false">20080319_XmlSchemaUpdated</guid>
+            <pubDate>Wed, 19 Mar 2008 14:30:01 GMT</pubDate>
+            <category>Database Content</category>
+            <category>General</category>
+        </item>
+        
+		<item>
+			<title>A curator for MIRIAM Resources and the Systems Biology Ontology</title>
+			<description><![CDATA[A curator, Nick Juty, has been hired to work on <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Resources">MIRIAM Resources</a> and the <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">Systems Biology Ontology</a>, as part of the <a href="http://www.elixir-europe.org/" title="European Life sciences Infrastructure for Biological Information">European project ELIXIR</a>.]]></description>
+			<link>http://www.ebi.ac.uk/miriam/main/mdb?section=news</link>
+			<guid isPermaLink="false">20080306_CuratorHired</guid>
+			<pubDate>Thu, 06 Mar 2008 14:30:06 GMT</pubDate>
+			<category>General</category>
+		</item>
+		
+		<item>
+			<title>DOI support for pieces of documentation</title>
+			<description><![CDATA[Pieces of documentation for a data type can now be stored using a DOI (as well as a PMID or a physical location).]]></description>
+			<link>http://www.ebi.ac.uk/miriam/main/mdb?section=submit</link>
+			<guid isPermaLink="false">20080220_DoiSupportForDocumentation</guid>
+			<pubDate>Wed, 20 Feb 2008 16:00:01 GMT</pubDate>
+			<category>Web Interface</category>
+			<category>New Feature</category>
+		</item>
+		
+		<item>
+			<title>New data type in MIRIAM Resources: SABIO-RK Reaction</title>
+			<description><![CDATA[SABIO-RK is a relational database system that contains information about biochemical reactions, their kinetic equations with their parameters, and the experimental conditions under which these parameters were measured.]]></description>
+			<link>http://www.ebi.ac.uk/miriam/main/mdb?section=browse&amp;data=MIR:00000038</link>
+			<guid isPermaLink="false">20080131_NewDataTypeSabioRkReaction</guid>
+			<pubDate>Thu, 31 Jan 2008 01:06:43 GMT</pubDate>
+			<category>Database Content</category>
+			<category>New Data Type</category>
+		</item>
+		
+		<item>
+			<title>Welcome to MIRIAM News Feed!</title>
+			<description><![CDATA[New RSS feed to keep track of what happen on <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Resources">MIRIAM Resources</a>.]]></description>
+			<link>http://www.ebi.ac.uk/miriam/main/rss/MiriamNews.xml</link>
+			<guid isPermaLink="false">20080130_RssFeedReleased</guid>
+			<pubDate>Wed, 30 Jan 2008 08:05:02 GMT</pubDate>
+			<category>Web Interface</category>
+			<category>New Feature</category>
+		</item>
+		
+		<!-- 
+		<item>
+			<title></title>
+			<description><![CDATA[   ]]></description>
+			<link></link>
+			<guid isPermaLink="false"></guid>
+			<pubDate></pubDate>
+			<category></category>
+		</item>
+		-->
+		
+	</channel>
+</rss>

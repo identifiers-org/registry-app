@@ -1,0 +1,706 @@
+/* role     : CSS style sheet for MIRIAM Registry */
+/*                                                */
+/* THIS CSS IS OBSOLETE: OLD DESIGN               */
+/* SHOULD NOT BE USED                             */
+/*                                                */
+/* location : http://www.ebi.ac.uk/miriam/        */
+/* author   : Camille Laibe                       */
+/* version  : 20120629                            */
+/* copyright: BioModels.net, EMBL-EBI             */
+
+
+/* properties for the menu (previously an iframe) */
+div#leftmenu2 {
+    margin: 0;
+    border: 0;
+    width: 145px;
+    height: 700px;
+    visibility: visible;
+    display: block;
+    z-index: 2;
+}
+
+/* log box: displays the user logged */
+div#loginfo {
+    position: absolute;
+    top: 38px;
+    right: 2em;
+}
+
+/* info about which version of the app is running (not displayed for 'main') */
+div#versioninfo {
+    position: absolute;
+    top: 7px;
+    right: 2em;
+    font-size: 110%;
+    font-weight: bold;
+    color: rgb(230,85,85);
+}
+
+table.sqlresult {
+    border: 1px solid rgb(191, 191, 191);
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+table.sqlresult th {
+    background-color: rgb(94, 158, 158);
+    color: rgb(255, 255, 255);
+    padding-right: 1em;
+    padding-left: 1em;
+    text-align: center;
+    border: 1px solid rgb(191, 191, 191);
+}
+
+table.sqlresult th a:link {
+    color: rgb(255, 255, 255);
+}
+
+table.sqlresult th a:visited {
+    color: rgb(255, 255, 255);
+}
+
+table.sqlresult th a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+table.sqlresult th.sortable a {
+    background-image: url(../img/arrow_up_down.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+}
+
+table.sqlresult th.order1 a {
+    background-image: url(../img/arrow_down.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+}
+
+table.sqlresult th.order2 a {
+    background-image: url(../img/arrow_up.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+}
+
+table.sqlresult tr.even {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+}
+
+table.sqlresult tr.odd {
+    background-color: rgb(238, 245, 245);
+    color: inherit;
+}
+
+table.sqlresult td {
+    border: 1px solid rgb(191, 191, 191);
+}
+
+table.sqlresult td.normal {
+    text-align: left;
+    padding-left: 5px;
+    font: inherit;
+}
+
+table.sqlresult td.par {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+}
+
+table.sqlresult td.odd {
+    background-color: rgb(238, 245, 245);
+    color: inherit;
+}
+
+table.simple {
+    border: 1px solid rgb(191, 191, 191);
+    margin-top: 1em;
+}
+
+table.gridCalendar {
+    border: 1px solid rgb(191, 191, 191);
+    border-collapse: collapse;
+    text-align: left;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+table.gridCalendar th {
+    background-color: rgb(94, 158, 158);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-bottom: 1px solid rgb(191, 191, 191);
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+table.gridCalendar th.topLeftCell {
+    border-bottom: 1px solid rgb(191, 191, 191);
+    border-right: 1px solid rgb(191, 191, 191);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    background-color: inherit;
+}
+
+table.gridCalendar td {
+    border: 1px solid rgb(191, 191, 191);
+}
+
+table.gridCalendar td.firstColumn {
+    border: 1px solid rgb(191, 191, 191);
+    padding-left: 2px;
+    padding-right: 6px;
+    font-style: italic
+}
+
+/* resource down (table.gridCalendar) */ 
+td.state_0 {
+    background-color: #f4b6b6;
+}
+
+/* resource up (table.gridCalendar) */
+td.state_1 {
+    background-color: #a1c7c7;
+}
+
+/* resource state unknown (table.gridCalendar) */
+td.state_2 {
+    background-color: #deebeb;
+}
+
+/* probably up (table.gridCalendar) */
+td.state_3 {
+    background-color: #cae2c3;
+}
+
+/* obsolete (table.gridCalendar) */
+td.state_4 {
+    background-color: #5e5e5e;
+}
+
+/* access restricted (table.gridCalendar) */
+td.state_5 {
+    background-color: #feca5b;
+}
+
+/* no data available (yet) (table.gridCalendar) */
+td.state_8 {
+    background-color: inherit;
+}
+
+/* no data available (table.gridCalendar) */
+td.state_9 {
+    background-color: rgb(191, 191, 191);
+}
+
+table.sqlresult tr.down td.state {
+    background-color: #f4b6b6;
+}
+
+table.sqlresult tr.up td.state {
+    background-color: #a1c7c7;
+}
+
+table.sqlresult tr.unknown td.state {
+    background-color: #deebeb;
+}
+
+table.sqlresult tr.probably td.state {
+    background-color: #cae2c3;
+}
+
+table.sqlresult tr.obsolete td.state {
+    background-color: #5e5e5e;
+    color: white;
+}
+
+table.sqlresult tr.restricted td.state {
+    background-color: #feca5b;
+}
+
+span.pagebanner {
+    border: 1px dotted rgb(94, 158, 158);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+span.pagelinks {
+    float: right;
+}
+
+option.line-above {
+    border-top: 1px dotted rgb(191, 191, 191);
+}
+
+fieldset {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(191, 191, 191);
+}
+
+table.tagsCloud {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+table.tagsCloud tr {
+    height: 40px;
+}
+
+table.tagsCloud td {
+    width: 25%;
+}
+
+legend {
+    padding: 1px 4px;
+    border-color: rgb(191, 191, 191);
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgb(238, 245, 245);
+    color: rgb(0, 0, 0);
+}
+
+fieldset.request {
+    width: 400px;
+    margin-left: 3em;
+    margin-top: 1em;
+    background-color: rgb(238, 245, 245);
+    color: inherit;
+}
+
+div.request {
+    margin-bottom: 1em;
+}
+
+div.answer {
+    background-color: rgb(94, 158, 158);
+    color: rgb(255, 255, 255);
+    font-weight: bold; 
+    border: 1px solid rgb(173, 173, 173);
+    min-height: 4em;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+}
+
+div.answer ul {
+    padding-left: 1em;
+    margin-left: 1em;
+    list-style-type: square;
+}
+
+div.answerStatus {
+    background-color: rgb(94, 158, 158);
+    border: 1px dashed rgb(173, 173, 173);
+    color: rgb(255, 255, 255);
+    margin-top: 1px;
+    height: 3em;
+}
+
+table.table_help {
+    margin-left: 3em;
+    background-color: rgb(238, 245, 245);
+    border-collapse: collapse;
+}
+
+table.table_help td.help_element {
+    border: 1px solid rgb(191, 191, 191);
+    font-weight: bold;
+    padding-right: 1em;
+    padding-left: 1px;
+}
+
+table.table_help td.help_value {
+    border: 1px solid rgb(191, 191, 191);
+    /*font-style: italic;*/
+    padding-right: 1em;
+    padding-left: 1px;
+}
+
+table.table_help td.help_result {
+    border: 1px solid rgb(191, 191, 191);
+    font-style: italic;
+    padding-right: 1em;
+    padding-left: 1px;
+}
+
+table.resources {
+    border-bottom: 1px solid rgb(191, 191, 191);
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+}
+
+div.docSubmitForm {
+    border-bottom: 1px solid rgb(191, 191, 191);
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+}
+
+table.datatyperesult {
+    margin-top: 1em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(109, 169, 219);
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+table.datatyperesult th {
+    background-color: rgb(94, 158, 158);
+    color: rgb(255, 255, 255);
+    padding-right: 1em;
+    padding-left: 1em;
+    text-align: center;
+    border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+table.datatyperesult td.desc {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+    border: 1px solid rgb(191, 191, 191);
+    width: 20em;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+table.datatyperesult td.desc2 {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+    border: 1px solid rgb(191, 191, 191);
+    width: 10em;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+table.datatyperesult td.desc3 {
+    color: inherit;
+    border: 1px solid rgb(191, 191, 191);
+    width: 10em;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+table.datatyperesult td.element {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+    border: 1px solid rgb(191, 191, 191);
+    padding-left: 5px;
+}
+
+table.datatyperesult td.subElement {
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+    padding-left: 5px;
+}
+
+table.nothing {
+    width: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table.nothing tr, td {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+li.optional {
+    display: none;
+    margin-left: 1em;
+}
+
+ul.noPoint {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+acronym.idInfo {
+    text-decoration: none;
+    border: none;
+    cursor: help;
+}
+
+p.source {
+    text-indent: 0;
+    color: black;
+    background-color: rgb(238, 245, 245);
+    border: 1px solid rgb(191, 191, 191);
+    font-family: courier, Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    text-align: left;
+    padding-left: 1em;
+}
+
+span.source {
+    font-family: courier, Arial, Helvetica, sans-serif;
+}
+
+pre.indent {
+    margin-left: 2em;
+}
+
+pre.source {
+    text-indent: 0;
+    color: black;
+    background-color: rgb(238, 245, 245);
+    border: 1px solid rgb(191, 191, 191);
+    font-family: courier, Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    padding-left: 1em;
+}
+
+p.indentParagraph {
+    margin-left: 2em;
+}
+
+span.pubtitle {
+    background-color: #FFFFFF;
+    color: #006666;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* message between two requests */
+div.message_display {
+    color: #ea6e6e;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+/* tabs menu */
+div.menutabs {
+    background-color: inherit;
+    padding-left: 2em;
+    border-bottom: 1px solid #9e9e9e;
+    padding-top: 3px;
+}
+div.menutabs a {
+	color: #1f7979;
+	font-size: 110%;
+	margin-right: 3px;
+	text-decoration: none;
+	border-left: 1px solid #9e9e9e;
+	border-right: 1px solid #9e9e9e;
+	border-top: 1px solid #9e9e9e;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+div.menutabs a.tab {
+	background-color: #eef5f5;
+	text-decoration: none;
+}
+div.menutabs a.active {
+	background-color: #bdd7d7;
+	color: #1f7979;
+	font-weight: bold;
+	text-decoration: none;
+	border-bottom: 1px solid #bdd7d7;
+}
+div.menutabs a.restriction {
+	background-color: #ffecc4;
+	text-decoration: none;
+	font-style: italic;
+}
+div.menutabs a.active_restriction {
+	background-color: #feca5b;
+	color: #1f7979;
+	font-weight: bold;
+	text-decoration: none;
+	font-style: italic;
+}
+div.menutabs a.tab:hover, a.tab:active {
+    background-color: #bdd7d7;
+    color: white;
+    border-bottom: 1px solid #bdd7d7;
+}
+div.menutabs a.active:hover, a.active:active {
+	cursor: default;
+	color: #1f7979;
+}
+div.menutabs a.restriction:hover, a.restriction:active {
+	background-color: #feca5b;
+	color: white;
+	font-style: italic;
+	border-bottom: 1px solid #feca5b;
+}
+div.menutabs a.active_restriction:hover, a.active_restriction:active {
+	cursor: default;
+	color: #1f7979;
+}
+/* separator between content and bottom info/links */
+.bottomSeparator {
+    border-bottom: 1px solid #BFBFBF;
+}
+
+/* important  warning message */
+div.warning {
+    border: 1px solid #bfbfbf;
+    margin: 5px 5px 5px 5px;
+    background-color: #FF5858;
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+div.infoBox {
+   float: right;
+   padding-left: 10px;
+   background-color: white; 
+}
+
+div.detailsBoxRight {
+    float: right;
+    /*right: 10px;
+    top: 200px;
+    position: fixed;
+    overflow: auto;*/
+    width: 420px;
+    min-height: 160px;
+    border: 1px solid rgb(191, 191, 191);
+    margin: 20px 0;
+    padding: 2px;
+    background-color: white;
+}
+
+div.ajaxMsgBox {
+    text-align: center;
+    border: 1px solid rgb(191, 191, 191);
+    background-color: #EDF5EA;
+    width: 420px;
+    padding: 2px;
+    position: absolute;
+    top: 340px;
+    right: 12px;
+}
+
+div.announcement {
+    background-color: #E4E4E4;
+    border: 1px dotted #006666;
+    font-size: 16px;
+    font-style: italic;
+    margin: 0 auto 10px;
+    padding: 5px;
+    text-align: center;
+    width: 600px;
+    margin-top: 8px;
+}
+
+a.toc_link {
+    font-weight: bold;
+}
+
+p.obsolete {
+    color: red;
+}
+
+p.nospace {
+	margin-top: 0;
+}
+
+span.obsolete {
+    color: red;
+    font-style: italic;
+}
+
+img {
+    border: 0;
+}
+
+.action_button {
+    cursor: pointer;
+}
+
+/* uptime colour indication */
+.uptime_1 {
+    background-color: #5e9e9e;
+}
+.uptime_2 {
+    background-color: #bdd7d7;
+}
+.uptime_3 {
+    background-color: #f8cfcf;
+}
+.uptime_4 {
+    background-color: #ed8585;
+}
+
+/* spam filter, not visible by a human */
+fieldset.SpicedHam {
+    display: none;
+}
+
+/* external links opened in a popup (displayed with an arrow) */
+a.external:link, a.external:visited {
+    background: transparent url(img/external_link.gif) no-repeat scroll right center;
+    padding-right: 13px;
+}
+a.external:hover, a.external:active {
+    background: transparent url(img/external_active.gif) no-repeat scroll right center;
+    padding-right: 13px;
+}
+
+/* identifier scheme characteristics comparison matrix */
+table#matrix_shemes {
+    text-align: center;
+    border: 1px solid #BFBFBF;
+    border-collapse: collapse;
+    margin-top: 6px;
+}
+#matrix_shemes tr, #matrix_shemes td, #matrix_shemes th {
+	border: 1px solid #BFBFBF;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+#matrix_shemes td {
+	height: 34px;
+	vertical-align: middle;
+	text-align: center;
+}
+#matrix_shemes td.matrix_shemes_header {
+    font-style: italic;
+    text-align: left;
+}
+#matrix_shemes td.matrix_shemes_good {
+    background-color: #a7cf9b;
+}
+#matrix_shemes td.matrix_shemes_med {
+    background-color: #ffd98f;
+}
+#matrix_shemes td.matrix_shemes_bad {
+    background-color: #ed8585;
+}
+#matrix_shemes td.matrix_shemes_na {
+    background-color: #9e9e9e;
+}
+#matrix_shemes acronym {
+	cursor: help;
+	text-decoration: none;
+	border-bottom: none;
+}
+#matrix_shemes img {
+   cursor: help;
+}

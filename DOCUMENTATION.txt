@@ -1,0 +1,44 @@
+MIRIAM Registry Documentation
+Camille Laibe <camillle.laibe@ebi.ac.uk>
+Version 20110118
+
+
+(*) Compile and deploy the application:
+
+An Ant file is available for all the version, called 'build-version.xml' (where 'version' equals 'demo' or 'main')
+All the war regenerated are stored in 'dist'
+
+Usage:
+  - generate the war for the 'demo' version:
+    ant -Dapp.version=demo
+  - copy the static pages for 'demo' to the proper location used by the Web server (this also transforms the token with the proper links):
+    ant -Dapp.version=demo update-static-html
+
+
+(*) Organisation of the source code
+
+- only one directory for the Java code ('src')
+- JSPs stored in the 'WebContent' folder
+  - version specific URLs are handled by various means:
+    - usage of variables and parameters, for example: ${initParam.www} or ${initParam.version}
+    - JSTL tags, for example: <c:url value='collections' />
+  - the <h1> tag, for the title of each page, shows the version, except for 'main' 
+  - WARNING: no different handling of sid and alpha, which need to include 'head.html' and 'foot.html' with a full path
+- static pages (stubs to be included by 'static.jsp') stored in the 'html' folder
+  - version specific URLs are handled by using tokens which are converted at build time (in .html, .js, ...) by Ant:
+    - @MIR_DYNAMIC_URL@  -> http://www.ebi.ac.uk/miriam/main   (example for main)
+    - @MIR_STATIC_URL@   -> http://www.ebi.ac.uk/miriam/static/main   (example for main)
+- Log4J properties file, stored in 'properties' in subfolders according to the version of the application.
+
+
+(*) Dependencies
+
+All libraries are in the 'lib' folder.
+- 'app': libraries needed by the application (these should be included in the war)
+- 'build': libraries needed for the build process but not required for running the application
+- 'tomcat': libraries already provided by Tomcat (by default + the ones added by ES to the EBI setup)
+
+
+(*) Author and current maintainer:
+
+Camille Laibe <camille.laibe@ebi.ac.uk>

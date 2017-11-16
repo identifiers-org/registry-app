@@ -1,0 +1,577 @@
+<h2>Frequently Asked Questions</h2>
+
+<p>
+  This FAQ addresses many of the common questions regarding the <em>Registry</em> and its relationship with <a href="http://identifiers.org/" Title="Identifiers.org Web site">Identifiers.org </a>.
+</p>
+
+<!-- table of contents -->
+<ul>
+  <li>General questions and definitions
+    <ul>
+      <li><a href="#TheRegistry" title="The Registry">What is the Registry?</a></li>
+      <li><a href="#Acronym" title="MIRIAM acronym definition">What is MIRIAM, and what does it stand for?</a></li>
+      <li><a href="#DataCollection" title="Data collection definition">What is a data collection?</a></li>
+      <li><a href="#FindDataCollection" title="Where is my data collection?">Why can't I find my favourite data collection in the Registry?</a></li>
+      <li><a href="#MoreDataCollections" title="Are there plans to include more data collections?">Are there plans to include more data collections?</a></li>
+      <li><a href="#Resource" title="Resource definition">What is a resource?</a></li>
+      <li><a href="#RegistryRequirements" title="Requirements for inclusion in the Registry">Which collections are suitable for the Registry?</a></li>
+      <li><a href="#CollectionsRestrictions" title="Definition of 'restrictions'?">What are 'restrictions'?</a></li>
+      <li><a href="#RegistryInfo" title="Registry information stored">What information is stored in the Registry?</a></li>
+    </ul>
+  </li>
+  <li>Identifiers.org
+    <ul>
+      <li><a href="#Identifiers.org" title="Identifiers.org introduction">What is Identifiers.org?</a></li>
+      <li><a href="#Identifiers.org_URI" title="Identifiers.org URI introduction">What are Identifiers.org URIs?</a></li>
+      <li><a href="#URINeeds" title="Uses for Identifiers.org URIs">Why do we need Identifiers.org URIs?</a></li>
+      <li><a href="#URIsGeneration" title="Generate Identifiers.org URIs">How to generate Identifiers.org URIs?</a></li>
+      <!--<li><a href="#URIResolution" title="URI resolution services">What are the resolving services provided for Identifiers.org URIs?</a></li>-->
+      <!--li><a href="#MIRIAMcolon" title="Colon encoding in MIRIAM URIs">Why is there a '%3A' in some MIRIAM URIs?</a></li-->
+      <li><a href="#LegacyURIs" title="Legacy URI schemes including URNs">What types of legacy URIs exist?</a></li>
+    </ul>
+  </li>
+  <li>Create, edit and update data collections
+    <ul>
+      <li><a href="#CreateDataCollection" title="Add a new collection">How are new collections added to the Registry?</a></li>
+      <li><a href="#SubmitDataCollection" title="Collection submission tips">What is the best way to make a submission to the Registry?</a></li>
+      <li><a href="#PublishDataCollection" title="publication process">What is the process by which submitted collections are made publicly available for use?</a></li>
+      <li><a href="#MaintainDataCollection" title="Maintenance of the data">Who maintains URIs and their associated data?</a></li>
+      <li><a href="#UpdateDataCollection" title="Modify a collection">How do you modify an existing collection?</a></li>
+      <li><a href="#DeleteDataCollection" title="Deletion of a URI">Who can delete a Identifiers.org URI or collection?</a></li>
+    </ul>
+  </li>
+  <li>Services and availability
+    <ul>
+      <li><a href="#RegistryTags" title="Registry tag system">How do I find a collection suitable for a particular kind of annotation?</a></li>
+      <li><a href="#TaggingInfo" title="Tag system information">Are there any plans to improve the tagging system?</a></li>
+      <li><a href="#RegistryHealthCheck" title="Registry Health Check">Is there any way to determine the reliability of a resource before I use it?</a></li>
+      <li><a href="#NoHealthCheck" title="Registry Health Check note">Why can I not find a health check for my resource?</a></li>
+      <li><a href="#ServicesAvailable" title="Web Services available">Which services are available?</a></li>
+      <li><a href="#WebServicesUsage" title="hoe to use the Web Services">Using available web services</a></li>
+      <li><a href="#SourceCode" title="Source Code">Where can I get the source code?</a></li>
+    </ul>
+  </li>
+  <li>Questions about users and curators
+    <ul>
+      <li><a href="#RegistryCurator" title="Curators">Who are the Registry curators?</a></li>
+      <li><a href="#RegistryUser" title="General users">Which general features are available to Registry users?</a></li>
+      <li><a href="#RegistryLogin" title="Login to registry">How to login to the Registry?</a></li>
+    </ul>
+  </li>
+  <li>Registry citation and contact information
+    <ul>
+      <li><a href="#RegistryCitation" title="Citation details">How to cite the Registry and Identifiers.org</a></li>
+      <li><a href="#ContactUs" title="Contact information">How to contact us</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+<!-- General Qs and defs -->
+<h2 id="Definitions">General questions and definitions</h2>
+
+<h3 id="TheRegistry">What is the Registry?</h3>
+<p>
+  The <em>Registry</em> provides the necessary information for the generation and resolution of unique and perennial identifiers for life science data. Those identifiers are of the <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier" title="Uniform resource identifier">URI</a> form and make use of <a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> to provide direct access to the identified data records on the Web. Examples of these identifiers:
+</p>
+<ul>
+  <li><a href="http://identifiers.org/pubmed/22140103" title="Example Identifiers.org URI for a publication">http://identifiers.org/pubmed/22140103</a></li>
+  <li><a href="http://identifiers.org/taxonomy/9606" title="Example Identifiers.org URI for an organism">http://identifiers.org/taxonomy/9606</a></li>
+  <li>...</li>
+</ul>
+<p>
+  In order to fulfil this task, the Registry lists <a href="#DataCollection" title="Go to the Data collection section (in this FAQ)">data collections</a> and is composed of several services and resources:
+</p>
+<ul>
+  <li><em>This website</em> (and the underlying database): provides interactive access to the list of recorded data collections and the associated information.</li>
+  <li><em>Web Services</em>: provide programmatic access to the data collections, via <abbr title="Simple Object Access Protocol">SOAP</abbr>-based, and <abbr title="Representational State Transfer">REST</abbr>-based Web Services.</li>
+  <li><em>A Java library</em>: allows easy query of the SOAP-based Web Services.</li>
+</ul>
+<p>
+  The <em>Registry</em> is available at: <a href="http://www.ebi.ac.uk/miriam/" title="Registry main page">http://www.ebi.ac.uk/miriam/</a>.
+</p>
+<p>
+  Additionally, the Registry hosts the core information required to the resolving infrastructure <a href="#Identifiers.org" title="Identifiers.org">Identifiers.org</a>. 
+</p>
+
+<h3 id="Acronym">What is MIRIAM, and what does it stand for?</h3>
+<p>
+  <abbr title="Minimal Information Requested In the Annotation of Models">MIRIAM</abbr> is an acronym for the <a href="http://dx.doi.org/10.1038/nbt1156" title="MIRIAM publication in Nature Biotechnology">Minimal Information Required In the Annotation of Models</a>. It is important to distinguish between the <a href="http://co.mbine.org/standards/miriam" title="MIRIAM Guidelines">MIRIAM Guidelines</a>, and the <a href="#TheRegistry" title="Go to the MIRIAM Registry section (in this FAQ)">Registry</a>. Both are part of the wider <a href="http://biomodels.net/" title="BioModels.net">BioModels.net</a> initiative.
+</p>
+  Whilst originally designed to meet the needs of the computational modelling community, the Registry has previously been referred to as the 'MIRIAM Resources' and 'MIRIAM Registry'. Since then, to reflect its increased scope and diverse utility, it is currently known as the 'Registry' or <a href="http://identifiers.org/registry">'Identifiers.org Registry'</a>. 
+<p>  
+
+<h3 id="DataCollection">What is a data collection?</h3>
+<p>
+  A data collection is defined as a set of data of the same kind, which usually originates from a specific data provider or is associated with a particular database. This primary data set may be available from a number of different physical locations on the Web or 'resources', but the core or essential information content across all those resources should be identical. By referring to a 'collection', we are able to reference this data set independently of where it is located. For example, protein entities could be referred to using <abbr title="The UniProtein Knowledgebase">UniProt</abbr>, while a book could use <abbr title="The International Standard Book Number">ISBN</abbr>. These are both 'data collections'.
+</p>
+<p>
+  The Registry stores for each data collection the list of <a href="#Resource" title="Resolving locations">resource(s)</a> (or physical locations) that provide access to the data. Additional information is recorded; for more details, see <a href="#RegistryInfo" title="Information stored in the Registry">below</a>.
+</p>
+<p>
+  The scope or domain of each collection must be strictly defined: where a data provider references many types of data (for example genes and proteins), the collection scope must be clearly demarcated. On way to achieve this is by '<a href="#sub-classing" title="data collection sub-classing in this FAQ">sub-classing</a>' the different collections which may be provided by a particular data provider.
+</p>
+<p>
+  <em>Note</em>: data collections were historically known as 'data types', but this nomenclature was changed as its meaning was ambiguous.
+</p>
+
+<h3 id="FindDataCollection">Why can't I find my favourite data collection in the Registry?</h3>
+<p>
+  There are two main methods, besides <a href="mdb?section=browse" title="Browse collections">browsing</a>, that can be used to determine whether a particular collection exists in the Registry database; a keyword-based <a href="mdb?section=search" title="generic keyword search">search</a> function, and a <a href="tags" title="access to the list of categories and tags">tag &amp; collection cloud</a>. Both methods are described <a href="#RegistryTags" title="locating collections">below</a>. Failure to locate a collection could be due to one of the following reasons:
+</p>
+<ul>
+   <li>The collection you are looking for may have been submitted, but is in the <a href="#PublishDataCollection" title="steps to publication">curation</a> pipeline and hence not yet publicly available.</li>
+   <li>The collection does not exist in the Registry, as it has never been submitted. You may <a href="http://sourceforge.net/p/identifiers-org/new-collection/" title="Request new data collection">request a new collection</a>.</li>
+   <li>The collection does exist, but the keyword you are using to search was not found in the Registry. Modifications to collections, such as the inclusion of a new synonym, can be suggested using the link ('Suggest modifications to this collection') which appears on the bottom right of each entry in the Registry.</li>
+   <li>The collection does exist, but the 'tag' or 'category' you are using to search is not associated with that collection. Modifications to a collection, such as the association of new 'tag' or 'category', can be suggested using the link ('Suggest modifications to this collection') which appears on the bottom right of each entry in the Registry. This information should be included in the user information section of the form.</li>
+</ul>
+
+<h3 id="MoreDataCollections">Are there plans to include more data collections?</h3>
+<p>
+  The content of the Registry is based on users needs. Therefore new data collections are primarily submitted by individual users or projects. However we do perform an internal curation: submitted data collections are retained in the curation pipeline until any issues preventing their publication are addressed, or else can be made public through the association with various <a href=#CollectionsRestrictions title="current restrictions">restrictions</a>.
+<p>
+  Additionally we also collaborate with various projects, which leads to the submission of whole batches of collections in order to cover specific requirements. For example, in collaboration with the <a href="http://bio2rdf.org/" title="Bio2RDF">Bio2RDF</a> effort, we have incorporated a large proportion of data collections from their listings into the Registry.
+</p>
+
+<h3 id="Resource">What is a resource?</h3>
+<p>
+  We refer to resources as services which provide information about entities or elements from a <a href="#DataCollection">collection</a>. To be recorded in the Registry, those should be accessible on-line. For each collection there are potentially many resources which may exist to provide information regarding their constituent entities. Some directly mirror the main resource, while others may provide slightly different views on the same core information. For example, <abbr title="PubMed collection">PubMed</abbr> is a <a href="#DataCollection">collection</a>, has a main resource, as well as others, through which the same information can be accessed. Where possible, the Registry identifies the 'primary' resource.  
+</p>
+
+<h3 id="RegistryRequirements">Which collections are suitable for the Registry?</h3>
+<p>
+  There are a number of requirements for a <a href="#DataCollection">collection</a> to be suitable for addition to the Registry. Collections which do not comply with these requirements can still potentially be incorporated, but will likely be associated with <a href=#CollectionsRestrictions title="Restrictions">restriction(s)</a>. Each rule and rationale for its necessity is listed below:  
+</p>
+<ul>
+  <li>The access should ideally be freely accessible to both academic and commercial users, with no restrictions, as this is essential for collaborative working.</li>
+  <li>Access to information from the provider's webpage or through other services should not require any form of registration, whether or not it is free to use subsequently.</li>
+  <li>The <a href="#DataCollection">collection</a> and should be actively maintained and community recognised, with at least one associated resource providing the dataset for this collection. There are many instances where short-term projects are abandoned and fast become outdated. Inclusion of such <a href="#DataCollection">collections</a> in the Registry could generate unnecessary clutter, detract from the other more suitable collections, and potentially result in the referencing of outdated information.</li>
+  <li>Individual entities from a data collection should have an identifier which is stable, perennial and unique when used within the context of this collection. This is necessary to be able to generate unambiguous URIs. Additionally, this identifier should be used by each resource when providing access to it.</li>
+  <li>The granularity of the data provided by the associated <a href="#Resource">resource(s)</a> must reflect that described by the <a href="#DataCollection">collection</a>. For instance, a resource that claims to provide information on pathways should contain at least some pathway information, rather than purely individual reactions.</li>
+  <li id="sub-classing">The atomicity of the information provided by a <a href="#DataCollection">collection</a> must be of the appropriate level, referring to one particular type of data. <abbr title="Kyoto Encyclopedia of Genes and Genomes">KEGG</abbr> provides a good example of this: the Registry classifies the data available from KEGG into its constituent <a href="#DataCollection">collections</a>, each of which possesses a different root URI. For example, <code>http://identifiers.org/kegg.pathway</code> and <code>http://identifiers.org/kegg.drug</code> describe different collections (domain areas).</li>
+<!-- 
+  <li>The collection must follow a sensible identifier scheme. It is difficult to build services that check identifier rules or conventions where none are followed. In addition, where identifiers are comprised purely of grammatical structures with intervening underscores, for example, the URIs generated become ungainly and annotation becomes unintuitive. The difference in URI could be as dramatic as <code>http://identifiers.org/collectionX:phosphorylated_protein_in_cytoplasm</code>, versus <code>http://identifiers.org/collectionX/PR302</code>.</li>
+  -->
+</ul>
+
+<h3 id="CollectionsRestrictions">What are 'restrictions'?</h3>
+<p>
+  Restrictions indicate the potential limitation(s) of (re)using the URIs identifying entities from some data collections. Collections with restrictions can be used (for example in cross-references), but the user must be aware that these will be limited in some way, and that it may be advisable to find a more suitable alternative collection. Collections with such restrictions are clearly indicated in the Registry. The current list of restrictions is as follows:
+</p>
+<ul>
+  <li><b>Access restriction</b>: the way this data collection is distributed prevents linking to one specific entity. For example, access may require user authentication or the data might be distributed as a whole set and preclude links to individual records.</li>
+  <li><b>Collection maintenance</b>: while this collection is included in the Registry, it is unclear whether records or resource(s) are actively maintained and up-to-date. Collections bearing this restriction are unlikely to have been updated in some time, and should be used with caution.</li>
+  <li><b>Collection subset</b>: this data collection reuses an identifier scheme associated with another collection, as well as potentially reusing a significant portion of the data from that collection. Users should be wary of associating the appropriate namespace when constructing URIs, since it is possible that individual entities may exist in both collections, or exclusively in one of them.</li>
+  <li><b>Data aggregation</b>: this restriction is associated with data collections which are an aggregated set of different types of data. For example, they could allow identification of protein, DNA and RNA within the same collection. One should therefore not expect each record within data collections with this restriction to refer to directly comparable entities.</li>
+  <li><b>Identifier independence</b>: this restriction is associated with identifiers that do not originate from any particular data collection. These collection-independent identifiers may potentially be used to both identify an entity, as well as provide some further information. Examples include InChi and InChiKey, which provide structural information for chemical entities, and can be used to access records in a variety of data collections.</li>
+  <li><b>Identifier instability</b>: records from this data collection use non-perennial identifiers. This may be the result of the reallocation of identifiers between subsequent data releases. Users are strongly advised to find an alternative data collection with which to identify information of interest.</li>
+  <li><b>Identifier multiplicity</b>: this restriction is associated with data collections which assign more than one identifier for a given record. This may be due to a revision of the identification scheme used by a data provider, who wishes to continue to allow historical identifiers to remain valid. </li>
+  <li><b>Identifier non-conformity</b>: this restriction is associated with data collections whose published identifier scheme does not follow the recommended requirements. For example, such identifiers may contain too much semantic information which could hinder their future stability (such as being composed of words, partial sentences, or in some cases even provide a full structural representation of substances). Users should consult the specific documentation given by the data provider. </li>
+  <li><b>License restriction</b>: this restriction is associated to data collections which are made available under restrictive licenses. For example, this may preclude their use by commercial organisations or for commercial purposes. Users should consult the specific terms and conditions given by the data provider.</li>
+</ul>
+
+<h3 id="RegistryInfo">What information is stored in the Registry?</h3>
+<p>
+  The Registry records for each data collection the following information:
+</p>
+<ul>
+  <li>Name: the name assigned to the collection, which is often based upon the most commonly associated resource.</li>
+  <li>Synonym(s): alternative names by which the collection may be known, including deprecated names.</li>
+  <li>Description: a brief description of the type of information found in the collection.</li>
+  <li>Identifier pattern: the most restrictive Perl-style regular expression which we consider to match any internal identifier used in the collection.</li>
+  <li>Namespace: small string of character used to identify the collection in the generated <abbr title="Uniform Resource Identifier">URIs</abbr>.</li>
+  <li>Identification schemes: list root URIs (includes obsolete ones) which can be used to identify entities from the collection.</li>
+  <li>Physical Locations: list of <a href="#Resource">resources</a> that provide access to record from the collection.</li>
+  <li>References: access to documentation and relevant publications.</li>
+  <li>Tags &amp; categories: list of <a href="#RegistryTags">tags</a> associated with the collection.</li>
+  <li>Restrictions (optional): list of <a href="#CollectionsRestrictions">restriction(s)</a> associated to the collection (also provides supplementary information and links for further information).</li>
+  <li>Examples of usage: provides examples of elements which may be suitable for cross-reference with the collection. This is format specific and currently modelling oriented.</li>
+  <li>Date of creation: when the collection was added to the Registry.</li>
+  <li>Date of last modification: date of the last modification to this collection record in the Registry.</li>
+</ul>
+<p>
+  In addition, most of the elements recorded by the Registry (such as collections and resources) have unique identifiers associated to them.
+</p>
+
+
+<h2>Identifiers.org</h2>
+
+<h3 id="Identifiers.org">What is Identifiers.org?</h3>
+<p>
+  <a href="http://identifiers.org/" title="Identifiers.org">Identifiers.org</a> provides a complete identification infrastructure. This system relies on an identification scheme using resolvable (which can be used online) <a href="#Identifiers.org_URI">URIs</a>.
+</p>
+<p>
+  The aim is to provide a community-agreed means to create stable, perennial and globally unique identifiers, which can be used to reference data with a primary focus on life sciences. Additionally, the system decouples the identification of records from the physical locations on the web where they can be retrieved.
+</p>
+
+<h3 id="Identifiers.org_URI">What are Identifiers.org URIs?</h3>
+<p>
+  They are stable, perennial and globally unique <abbr title="Uniform Resource Identifier">URIs</abbr> which can be used to annotate a wide range of entities or concepts from a plethora of fields, including proteins, diseases, publications and ontological terms. They can be used unchanged for a wide range of tasks, as they are both unique and directly usable online. 
+</p>
+<p>
+  Identifiers.org URIs are <em>persistent</em> since they shield the user from changes in the underlying, resource specific, <abbr title="Uniform Resource Locators">URLs</abbr>.
+</p>
+<p>
+  Example: <code>http://identifiers.org/pubmed/23584831</code>, which is the <abbr title="Uniform Resource Identifier">URI</abbr> that identifies the latest publication about this system in PubMed.
+</p>
+<p>
+  Identifiers.org URIs are composed of three main parts:
+</p>
+<ul>
+  <li><code>http://identifiers.org/</code> is the root URI, which allows the resolving mechanism to work</li>
+  <li><code>pubmed</code> defines the collection under consideration (this bit is called the 'namespace')</li>
+  <li><code>16333295</code> precisely identifies the record '16333295' within this collection (this is assigned by the data provider and reused without any modification)</li>
+</ul>
+<p>
+ Additional examples, showing the different types of URIs:
+</p>
+<ul>
+  <li>EC-code <em>collection</em>: <code>http://identifiers.org/ec-code/</code></li>
+  <li>EC-code <em>record</em>: <code>http://identifiers.org/ec-code/1.1.1.1</code></li>
+  <li>Intenz <em>resource</em>: <code>http://identifiers.org/miriam.resource/MIR:00100001</code></li>
+</ul>
+<p>
+  This URI scheme relies on a list of community agreed 'namespaces' which are recorded in the <a href="#TheRegistry">Registry</a>. Please refer to the list of detailed <a href="http://identifiers.org/documentation" title="Identifiers.org examples">examples</a> for more information about how to use the URIs.
+</p>
+
+
+<h3 id="URINeeds">Why do we need Identifiers.org URIs?</h3>
+<p>
+  The use of <em><abbr title="Uniform Resource Identifiers">URIs</abbr></em> allows one to:
+</p>
+<ul>
+  <li>uniquely and unambiguously identify an entity in a stable and perennial manner</li>
+  <li>link an identified entity to one or more online resources which provides additional information or access to the identified data</li>
+  <li>store cross-references in files or databases and at the same time display them to end users, as they are both stable and directly resolvable</li>
+</ul>
+<h4 id="Resolvable_URLs">Resolvable persistent URLs</h4>
+<p>
+  With the progress of <a href="http://linkeddata.org/" title="Linked Data website">Linked Data</a> and <a href="http://www.w3.org/2001/sw/" title="Semantic Web website">Semantic Web</a> initiatives, as well as feedback and suggestions from the community, it is necessary to provide identifiers in the form of resolvable URIs (URLs). These persistent URL forms are better suited to the Linked Data vision, and provide users the clickable links for which they expressed a desire.
+</p>
+<ul>
+  <li>Resolvable URL forms are listed alongside <a href="#LegacyURIs">legacy URI</a> forms in the Registry.</li>
+  <li>Both URL and legacy URI forms will be offered with comparable associated services.</li>
+  <li>Both URL and legacy URI forms will be interconvertable.</li>
+  <li>The resolvable URL form will itself be of a structured syntax.</li>
+  <li>The URL form will resolve to one of the <a href="#Resource" title="definition of resources">resources</a> serving the information for that <a href="#DataCollection" title="definition of collection">collection</a>.</li>
+</ul>
+
+<h3 id="URIsGeneration">How to generate Identifiers.org URIs?</h3>
+<p>
+  The first step is to make sure the data you need to identify comes from a collection which is already recorded in the Registry. You can launch a search to find that out. If the collection is not present in the Registry, then you will need to <a href="https://sf.net/p/identifiers-org/new-collection/" title="Register a new data collection">submit it</a>.
+</p>
+<p>
+  Then, there are 2 main ways to create the URIs you need.
+</p>
+<p>
+  Option 1: use the Registry web services to generate the URIs for you. There are 2 main methods which can help this: <a href="mdb?section=ws_help#ID_getURI_2" title="getURI">getURI</a> and <a href="mdb?section=ws_help#ID_convertURN_1" title="convertURN">convertURN</a>.
+</p>
+<p>
+  Option 2: retrieve the necessary 'namespace' of the data collection record from the Registry and just build up the URI with any tool you want. Please refer to the <a href="#Identifiers.org_URI" title="Identifiers.org URIs">structure of Identifiers.org URIs</a> for more details.
+</p>
+
+<!--
+<h3 id="URIResolution">What are the resolving services provided for Identifiers.org URIs?</h3>
+<p>
+  The <em>Registry</em> provides a number of <a href="#ServicesAvailable" title="FAQ entry about: available Services">services</a> to perform several resolution processes. There are two different ways in which the resolution services may be used: the services can be used to add links from model components to external resources; the services can also be used to dereference the annotations within a model, for example, resolving them to physical addresses. Both types of resolving services are illustrated below.
+</p>
+<h4>URI creation</h4>
+<p>
+  There is a mandatory requirement to provide additional information in the form of URIs, if the model is to be <abbr title="Minimal Information Requested In the Annotation of Models">MIRIAM</abbr> compliant. This requirement is without regard to the model format, be it <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a>, <a href="http://www.cellml.org/" title="CellML">CellML</a>, <a href="http://www.biopax.org/" title="BioPAX">BioPAX</a>, or some other encoding. All model components must be linked with a <em><abbr title="Uniform Resource Identifier">URIs</abbr></em> to an external resource. In the case of <abbr title="Systems Biology Markup Language">SBML</abbr>, this information can be simply added to a model using a software editor such as  <a href="http://www.ebi.ac.uk/compneur-srv/SBMLeditor.html" title="SBMLeditor">SBMLeditor</a>. A curator, for example, could link the model component <code>F-actin capping protein subunit beta</code> to its primary accession number in UniProt: <code>P47757</code> through a Identifiers.org URI.
+</p>
+-->
+
+<!-- Within the editor, this can be accomplished by using the method '<code>getURI()</code>' from <em>MIRIAM Web Services</em>.
+</p>
+<p>
+  For example, if a user wants to retrieve the <em>MIRIAM <abbr title="Uniform Resource Identifier">URI</abbr></em> of the protein <code>P47757</code> (via UniProt), the result returned will be: <code>urn:miriam:uniprot:P47757</code>.
+</p>
+<h4>URI dereferencing</h4>
+<p>
+  A developer, on the other hand, may wish to display model information, either through a Web-based or rich client interface. To retrieve the information from the digitally encoded model, the developer may wish to convert all the <em>MIRIAM <abbr title="Uniform Resource Identifiers">URIs</abbr></em> into physical addresses, which can then be used to retrieve the knowledge stored in the annotations (mainly through online resources). The conversion from <em>MIRIAM <abbr title="Uniform Resource Identifiers">URIs</abbr></em> to physical addresses can be done using the '<code>getDataEntries()</code>' method of <em>MIRIAM Web Services</em>. For a Web-based interface, the developer will then be able to link all the model constituents to more detailed information.
+</p>
+
+<p id="MIRIAMcolonExample">
+  For example, if a developer wished to retrieve the physical locations of extra information about the entity <code>urn:miriam:obo.go:GO%3A0006915</code>, the following list of URLs would be returned from the '<code>getLocations()</code>' method:
+</p>
+<ul>
+  <li><code>http://www.ebi.ac.uk/ego/GTerm?id=GO:0006915</code></li>
+  <li><code>http://www.godatabase.org/cgi-bin/amigo/go.cgi?view=details&amp;query=GO:0006915</code></li>
+  <li><code>http://www.informatics.jax.org/searches/GO.cgi?id=GO:0006915</code></li>
+</ul>
+<p>
+  More information is available from the <a href="mdb?section=ws" title="MIRIAM Web Services">Web Services page</a>.
+-->
+
+<!--h3 id="MIRIAMcolon">Why is there a '%3A' in some MIRIAM URIs?</h3>
+<p>
+  The identifiers used by many data providers tend to be of a form where there is a prefix identifying the database, followed by a separator, and ending with some alphanumeric key to uniquely identify an entry. The separator in many cases is either an 'underscore', or a 'colon'. In the case of MIRIAM URIs, the colon character is used as a delimiter between the different parts of the URI and therefore is considered a "reserved" character. In accordance with the <a href="http://www.ietf.org/rfc/rfc3986.txt" title="RFC 3986: URI Generic Syntax">URI Generic Syntax</a>, this character must be percent-encoded. So any ':' in final segement of a MIRIAM URI, which form the collection-specific identifier, must always be encoded with '%3A'. An example is shown <a href="#MIRIAMcolonExample">above</a>.
+</p-->
+
+<h3 id="LegacyURIs">What types of legacy URIs exist?</h3>
+<p>
+  Initially, the Registry associated up to two official URIs with each collection: one <abbr title="Uniform Resource Namespace">URN</abbr> and one <abbr title="Uniform Resource Locator">URL</abbr>. These URIs were based on some existing identifiers (for example LSIDs) and some domain names, whenever possible. This can still be observed in the list of deprecated URIs <a href="@MIR_DYNAMIC_URL@/collections/MIR:00000007" title="Example of deprecated URIs for BioModels Database (please refer to the 'URIs' section of the table)">maintained</a> for the collections. However, it became apparent that there were various issues with these inconsistent URIs.
+</p>
+<p>
+  During the <a href="http://www.sbgn.org/Events/SBGN-3.5" title="Super-hackathon in Okinawa">Super-hackathon about Standards and ontologies for Systems Biology</a> in Okinawa, Japan (January 2008), there was a consensus to provide only <abbr title="Uniform Resource Namespace">URNs</abbr>. Those were of the form: <code>urn:miriam:pubmed:16333295</code>. For more information about the URN Namespace that was previously used by the Registry, please refer to the <a href="http://www.ebi.ac.uk/miriam/doc/MIRIAM_URN_Namespace_RFC.txt" title="MIRIAM URN Namespace: Request for Comments">RFC</a>, also available from <a href="http://sourceforge.net/p/identifiers-org/code/12/tree/Doc/RFC/MIRIAM_URN_Namespace_RFC.txt" title="MIRIAM URN Namespace: Request for Comments">SourceForge</a>.
+</p>
+<p>
+  Since 2011, these URNs have been superseded by Identifiers.org URIs. The later a built in a very similar way (they share the same 'namespaces') with the benefit that Identifiers.org URIs do not require any encoding of the entity identifier (the one supplied by the data provider). Both forms, URNs and URLs, are inter-convertible and the Registry's <a href="mdb?section=ws" title="Registry web services">web services</a> can perform this task.
+</p>
+
+
+<h2 id="RegistryMaintenance">Create, edit and update collections</h2>
+
+<h3 id="CreateDataCollection">How are new collections added to the Registry?</h3>
+<p>
+  It is important to note that the content of the Registry is based on users needs. The curators may add new data collections from time to time as they encounter them, but generally the creation of new collections should be considered as being 'on demand' from the community. Therefore new data collections are primarily submitted by individual users or projects as they need them.
+</p>
+<p>
+  The main method by which the community requests the addition of a new collection is through the <a href="https://sf.net/p/identifiers-org/new-collection/" title="Submit a new collection">SourceForge request page</a>. This submission process is open to absolutely everyone. There are some <a href="#SubmitDataCollection">suggestions</a> on how make a submission.
+</p>
+<p>  
+  Community requests of course may entail the incorporation of large sets of collections, in this case, we suggest you to <a href="mdb?section=contact" title="Contact the team maintenaining Identifiers.org and its Registry">contact us</a>, so that we can provide you a more convenient way to handle your submissions.  
+</p>
+<p>
+  In all cases, we do perform an internal curation: submitted data collections are retained in the curation pipeline until any issues preventing their publication are addressed, or else can be made public through the association with various <a href=#CollectionsRestrictions title="current restrictions">restrictions</a>.
+</p>
+
+<h3 id="SubmitDataCollection">What is the best way to make a submission to the Registry?</h3>
+<p>
+  There are a number of checks that can be done in advance to speed entry of a requested <a href="#DataCollection">collection</a> into the Registry:
+</p>
+<ul>
+  <li>check that the requested resource meets with <a href="#RegistryRequirements">requirements</a> for entry into the Database</li>
+  <li>complete as many of the optional fields presented on the <a href="https://sf.net/p/identifiers-org/new-collection/" title="Submit a new collection">submission page</a></li>
+  <li>provide a contact email - though optional, this enables discussion between requester and curator to clarify any requirements</li>
+</ul>
+<p>
+  Once the form is completed, and the request submitted, an online confirmation of your request is displayed in the browser window. Please do not expect to receive an email confirmation of your request, particularly if you did not provide an email address with the submission form.
+</p>
+
+<h3 id="PublishDataCollection">What is the process by which submitted collections are made publicly available for use?</h3>
+<p>
+  Once submitted, requested <a href="#DataCollection">collections</a> enter a curation pipeline. This is to ensure suitability for use in annotation, and to confirm that such use would not infringe copyright and license issues of the corresponding <a href="#Resource">resource</a>. In effect, the resource is evaluated against the <a href="#RegistryRequirements">principles</a> for Registry inclusion. In some cases the curator may wish to contact the submitter to clarify some aspect of the submission, for example to determine which particular <a href="#DataCollection">collection</a> the user would like to be able to reference if the submission is ambiguous. Also, the curator may contact the provider of the resource to clarify any issues, for example with identifier range, or with copyright issues. Once this process is completed, the new collection is 'published' in the <a href="#TheRegistry">Registry</a>, for use by the community.
+</p>
+
+<h3 id="MaintainDataCollection">Who maintains URIs and their associated data?</h3>
+<p>
+  As with <a href="#CreateDataCollection">submissions</a>, it is important to note that <a href="#DataCollection">collection</a> entries are not updated automatically, should their associated <a href="#Resource">resources</a> change. We endeavour to regularly check the <a href="#RegistryHealthCheck">validity</a> and access to the associated resources, and do our best to keep information it up to date. However, if you are are frequent user of a particular <a href="#DataCollection">collection</a>, and notice an issue with, for example, dereferencing an Identifiers.org <abbr title="Uniform Resource Identifier">URI</abbr>, please let us know. Similarly, if you are the maintainer of a <a href="#Resource">resource</a> and you are aware of some upcoming change that would affect our systems, please contact us and let us know. For this purpose, you can use our <a href="mdb?section=support&amp;info=From-FAQ" title="Support form">support form</a>. Thank you in advance for your assistance.
+</p>
+
+<h3 id="UpdateDataCollection">How do you modify an existing collection?</h3>
+<p>
+  Absolutely anyone can request the modification of an existing collection. To do so, one must locate the <a href="#DataCollection">collection</a> of interest, for example through <a href="mdb?section=browse" title="Browse collections">browsing</a>. Once the details of a <a href="#DataCollection">collection</a> are displayed, a 'Suggest modifications to this data collection' link is displayed for each page. This brings up a form containing an editable version of the completed information for that collection. Modifications can be freely made here, to specify precisely any suggested changes. Additional information that is not suitable for entry within the fixed fields of this form may be supplied within the 'User notes' field. Suggested modifications need to be confirmed by a curator prior to publication to the main site.
+</p>
+
+<h3 id="DeleteDataCollection">Who can delete an Identifiers.org URI or collection?</h3>
+<p>
+  <em>Identifiers.org <abbr title="Uniform Resource Identifiers">URIs</abbr></em> entered in the Registry are not subject to complete removal, but may become deprecated. This preserves legacy references that utilised the deprecated URI, without the need to specifically revisit those and update them. Deprecated URIs therefore can still be used to access the same information, but any new annotations created should use the latest URI roots stored in the <a href="#TheRegistry">Registry</a>. Any existing deprecated URIs are clearly listed in the main entry page for each collection.
+</p>
+<p>
+  Collections entered in the Registry also cannot be deleted completely, but can be deprecated if it is not maintained any more and the underlying data becomes unavailable. In this case, collections are clearly marked as being deprecated, and users are recommended to use the alternatives that are suggested, or find another collection with which to generate Identifiers.org <abbr title="Uniform Resource Identifiers">URIs</abbr>.
+</p>
+
+
+<!-- features and availability -->
+<h2 id="RegistryFeatures">Services and availability</h2>
+
+<h3 id="RegistryTags">How do I find a collection suitable for a particular kind of annotation?</h3>
+<p>
+  Since the number of <a href="#DataCollection" title="FAQ entry about: collection">collections</a> listed in the Registry is continuously increasing, it can become difficult to find a suitable collection to annotate a particular kind of entity, for instance a 'protein'. In addition, there may be a substantial number of suitable collections with which one could generate an appropriate Identifiers.org URI. To address these issues, a tagging system is used in the <a href="#TheRegistry" title="FAQ entry about: The Registry">Registry</a>: each of the registered collections in the Registry is associated with one or more tags or categories, each of which indicate the kind of data provided by a particular collection. For instance, the <abbr title="The Universal Protein Resource">Uniprot</abbr> collection is tagged with 'protein' and 'sequence'. The tags associated with a particular collection are listed on the main collection page, and are represented as icons. 
+</p>
+<p>
+  There are two ways in which the listed <a href="#DataCollection" title="FAQ entry about: collection">collections</a> can be searched:
+</p>
+<ul>
+  <li>The <a href="mdb?section=search" title="access to the generic search">search</a> function can be used to retrieve collections, based on their name, definition and other associated information.</li>
+  <li>The <a href="tags" title="access to the list of tags">'tags'</a> system can be used to display a cloud of the available tag names, where the font size of the tag name indicates the number of collection occurrences associated with this tag. In addition, 'mouse over' of the tag name states specifically the number of occurrences of that tag. This listing can be viewed <a href="@MIR_DYNAMIC_URL@/tags/" title="Tag cloud list">here.</a></li>
+</ul>
+
+<h3 id="TaggingInfo">Are there any plans to improve the tagging system?</h3>
+<p>
+  Currently, the tag system is based upon a set of approximately 40 terms that were created in ad hoc fashion, when the system was implemented. This is sufficient in number to allow the association of each collection registered with two or three tags. The tags are of a coarse granularity, describing resource and collection specific information such as the type of data recorded ('sequence', 'expression', 'phenotype'), the subject of those data ('gene', 'protein', 'drug'), the domain area to which they relate ('disease', 'pharmacogenomics', 'neuroscience'), and taxonomic associations of the data ('mammalian', 'human'). The purposes of the tags at this gross level is to allow users to quickly locate suitable collections, using high level keywords. 
+</p>
+<p>
+  Additional tags can be created as needed by curators, or when requested by users. In addition, resource and collection descriptions will be further enhanced by the incorporation of information from ontologies such as the <a href="http://bioportal.bioontology.org/ontologies/1104" title="BRO">Biomedical Resource Ontology</a>. These modifications will allow users to ascertain the appropriateness of use of particular data collections, and will improve existing search facilities.
+</p>
+<p>
+  We would welcome any suggestions for additional tags which would be useful to the community, as well as for tag information that could be added to existing collections. Such requests can be submitted as <a href="#UpdateDataCollection" title="FAQ entry about: collection update">described</a>, making use of the 'User notes' section.
+</p>
+
+<h3 id="RegistryHealthCheck">Is there any way to determine the reliability of a resource before I use it?</h3>
+<p>
+  Some <a href="#Resource" title="FAQ entry about: resource">resources</a> are more reliable than others, for the <em>same collection</em>. Therefore, users may wish to make a choice as to which resource to use. For this reason, we have implemented a 'Health Check' status and history for the resources listed in the <a href="#TheRegistry" title="FAQ entry about: The Registry">Registry</a>. This allows one to differentiate the stability or reliability of the various resources recorded in the Registry. The features of this utility are listed below:
+</p>
+<ul>
+  <li id="HealthSummary" title="FAQ entry about: resource health summary"><em>Resource summary table</em>: the main information page for each <a href="#DataCollection" title="FAQ entry about: collection">collection</a> lists the <a href="#Resource" title="FAQ entry about: resource">resources</a> that can be used to access the information for that particular collection. This tabulated list of resources is arranged in descending order of uptime, where the first resource  will be the most reliable site through which collection information can be accessed. Uptime records are initiated from the time the resource is entered into the <a href="#TheRegistry" title="FAQ entry about: the Registry">Registry</a>, or from the time that the Health Check system was implemented (for resources listed prior to this implementation).</li>
+  <li><em>Resource colour coding</em>: each of the resources listed in the <a href="#HealthSummary" title="FAQ entry about: resource health summary">summary table</a> is colour coded to signify its uptime. The range of colours scale from green (up and responsive), to red (resource down). More information on this scale can be found <a href="#HealthColours" title="FAQ entry about: resource health colour code">below</a>.</li>
+  <li><em>Resource uptime</em>: the precise uptime for each resource listed in the <a href="#HealthSummary" title="FAQ entry about: resource health summary">summary table</a> is available as a mouse over display, when holding the cursor over the resource identifier in the left-most cell of each table row.</li>
+  <li><em>Resource history</em>: each individual resource for a collection in the <a href="#HealthSummary" title="FAQ entry about: resource health summary">summary table</a> is hyper-linked to more detailed information. This displays a summary of the checks that have been executed since the collection was introduced into the <a href="#TheRegistry" title="FAQ entry about: The Registry">Registry</a>. This includes information on the 'current state', time of the last check, and the URL used to execute the health check. In addition, there is a calendar view for each resource, colour-coded with the status of that resource since its introduction into the <a href="#TheRegistry" title="FAQ entry about: the Registry">Registry</a>.</li>
+</ul>
+<p>
+  The Health Check status is meant only to signify broadly the uptime of a particular resource, and is in no way to be perceived as an accurate depiction of true reliability. For example, our system is unable to reliably detect uptime for pages whose content is loaded via JavaScript, and these will be listed as 'probably up'. In addition, some resources may be slow at the particular time of day when our checks are executed, and consequently may be listed as 'down', while they are actually 'up'.
+</p>
+<p id="HealthColours">
+  The colour-coded display of uptime in the <a href="#HealthSummary" title="FAQ entry about: resource health summary">summary table</a> follows this scheme:
+</p>
+<ul>
+  <li>90% or more 'uptime': dark green</li>
+  <li>65% to 89% 'uptime': pale green</li>
+  <li>21% to 64% 'uptime': pink</li>
+  <li>20% or less 'uptime': red</li>
+</ul>
+<p>
+  For Registry curators, this <a href="#RegistryHealthCheck" title="FAQ entry about: resource health check">'Health Check'</a> also provides an early warning system for changes made to collections listed in the <a href="#TheRegistry" title="FAQ entry about: The Registry">the Registry</a>. This allows a rapid update of the information held, for example, where servers have moved to a new location, or where access URLs or identifiers have been modified. This minimises connectivity issues and other disruptions that would otherwise be the result for users of our systems.
+</p>
+<p>
+  We welcome feedback from users of this system, and on any further suggestions on how it could be improved. We also encourage data providers to contact us if they have any concerns on the information we display, and on ways this could be improved in the future. We can be contacted through the <a href="mdb?section=contact" title="Contact information">contact</a> page.
+</p>
+
+<h3 id="NoHealthCheck">Why can I not find a health check for my resource?</h3>
+<p>
+  Once a resource is registered against a particular data collection, there is a small delay before the newly incorporated information is used to perform routine health checks. Since the health checks are performed daily at a particular time, it is usual for these newly registered resources to appear in the automated checks the subsequent day. Hence, there is potentially a 24 hour delay between the registering on a new resource, and its incorporation into the health check system. 
+</p>
+
+<h3 id="ServicesAvailable">Which services are available?</h3>
+<p>
+  The Registry provides various services to handle URIs, particularly for <a href="#URIResolution" title="FAQ entry about: resolving services">resolving URIs</a>:
+</p>
+<ul>
+  <!--li><em>Demonstration interface</em>: a <a href="mdb?section=request" title="Web Services demonstration">simple interface</a> designed to show a few of the most common queries available via the Web Services.</li-->
+  <li><em>SOAP based Web Services</em>: <a href="mdb?section=ws_help" title="access to the queries available">numerous queries</a> are available and a <a href="mdb?section=ws" title="Information about the library and its usage">Java library</a> is provided for a quick and easy usage.</li>
+  <li><em>REST based Web Services</em>: the most used queries are now available via simple HTTP queries from <a title="REST Web Services" href="http://www.ebi.ac.uk/miriamws/main/rest/">http://www.ebi.ac.uk/miriamws/main/rest/</a>, and provide XML and JSON responses.</li>
+  <li><em>XML and RDF exports</em>: for those that prefer not rely on a network connection for their queries, the whole Registry dataset is available via XML and RDF (RDF/XML and Turtle) dumps. Those and the XML Schema used are available from the <a href="export" title="access to the export feature">export page</a>. Additionally, individual RDF exports per data collection are available from each collection page.</li>
+</ul>
+
+<h3 id="WebServicesUsage">Using the web services</h3>
+<p>
+  The easiest way to use the Web Services provided by Registry is to use the provided <a href="mdb?section=ws" title="Registry Library">Java library</a>. The documentation gives full examples of use.
+</p>
+<p>
+  For information about the usage of the REST Web Services, please refer to the <a href="http://www.ebi.ac.uk/miriamws/main/rest/" title="information about how to use the REST Web Services">documentation page</a>.
+</p>
+
+<h3 id="SourceCode">Where can I get the source code?</h3>
+<p>
+  The source code for the <em>Registry Library</em> is available, under the terms of the GNU General Public License, through the <a href="http://sourceforge.net/projects/identifiers-org/" title="Registry and Identifiers.org on SourceForge.net">SourceForge project</a>.
+</p>
+<p>
+  The source code of <em>Registry Web Services</em> and <em>Registry Web Application</em> is available, under the same license, in the SVN repository of the SourceForge project.
+</p>
+<p>
+  Please note that SourceForge this is not our main hosting repository (we use the EBI internal Subversion system), therefore the code available from SourceForge might be out of date. Please <a href="mdb?section=contact" title="Contact information">contact us</a> if you have any enquiries about the software and its source code.
+</p>
+
+
+<h2 id="RegistryUsers">Questions about users and curators</h2>
+
+<h3 id="RegistryCurator">Who are the Registry curators?</h3>
+<p>
+  Curators are users from the <a href="http://biomodels.net/" title="BioModels.net">BioModels.net</a> initiative who have curation rights on the Registry.
+</p>
+
+<h3 id="RegistryUser">Which general features are available to Registry users?</h3>
+<p>
+  All users can perform several actions through the <a href="http://www.ebi.ac.uk/miriam/" title="Registry">web interface</a>:
+</p>
+<ul>
+  <li>access the <a href="collections/" title="Browse collections">list</a> of all available collections</li>
+  <li>view all the information stored about a collection</li>
+  <li><a href="https://sf.net/p/identifiers-org/new-collection/" title="Submit a new collection">submit</a> new collections</li> 
+  <li>suggest modifications to existing collections</li>
+  <!--li>access an <a href="mdb?section=request" title="Perform queries">overview of the Web Services deployed</a></li-->
+  <li>use the <a href="mdb?section=ws" title="registry Web Services">Web Services</a></li>
+  <li><a href="export/" title="Exports of the database">export the content of the database</a></li>
+<!--
+  <li>access documentation for: <a href="http://biomodels.net/miriam/" title="MIRIAM Guidelines">The MIRIAM Guidelines</a>, <a href="http://biomodels.net/qualifiers/" title="BioModels.net Qualifiers">BioModels.net qualifiers</a> (<a href="qualifiers/" title="BioModels.net Qualifiers">use this link</a> if you wish to download them in a computer readable format) and <a href="mdb?section=faq" title="Frequently Asked Questions">frequently asked questions</a></li>
+-->
+</ul>
+
+<h3 id="RegistryLogin">How to login to the Registry?</h3>
+<p>
+  Users can login to the registry using their <a href="http://openid.net/">OpenID</a> or by requesting a user id from the Registry. For easy access, Google and Yahoo accounts are explicitly stated.
+  If you are using a different OpenID provider, we provide a general field to enter this.
+</p>
+
+<h2 id="CiteAndContact">Registry citation and contact information</h2>
+
+<h3 id="RegistryCitation">How to cite the Registry and Identifiers.org</h3>
+<p>
+  The following list of publications can be cited to reference Identifiers.org, the Registry and the associated services:
+</p>
+<ul>
+  <li>
+  	<dl>
+      <dt style="padding-left:0;">
+        <a href="http://identifiers.org/pubmed/23584831" title="Access to this publication via PudMed">Towards the collaborative curation of the registry underlying Identifiers.org</a>
+      </dt>
+      <dd style="margin-left:0;">
+        Juty N., Le Novère N., Hermjakob H., Laibe C.
+      </dd>
+      <dd style="margin-left:0;">
+        <div class="pubjournal"><em>Database: the Journal of Biological Databases and Curation</em> (2013) bat017.</div>
+      </dd>
+    </dl>
+  </li>
+  <li>
+  	<dl>
+      <dt style="padding-left:0;">
+        <a href="http://identifiers.org/pubmed/22140103" title="Access to this publication via PudMed">Identifiers.org and MIRIAM Registry: community resources to provide persistent identification</a>
+      </dt>
+      <dd style="margin-left:0;">
+        Juty N., Le Novère N. and Laibe C.
+      </dd>
+      <dd style="margin-left:0;">
+        <div class="pubjournal"><em>Nucleic Acids Research</em> (2012) 40 (D1): D580-D586.</div>
+      </dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt style="padding-left:0;">
+        <a href="http://identifiers.org/pubmed/19939940" title="Access to this publication via PudMed">BioModels.net Web Services, a free and integrated toolkit for computational modelling software</a>
+      </dt>
+      <dd style="margin-left:0;">
+        Li C., Courtot M., Le Novère N.,  Laibe C.
+      </dd>
+      <dd style="margin-left:0;">
+        <div class="pubjournal"><em>Brief. Bioinformatics</em> (2009)</div>
+      </dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt style="padding-left:0;">
+        <a href="http://identifiers.org/pubmed/18078503" title="Access to this publication via PudMed">MIRIAM Resources: tools to generate and resolve robust cross-references in Systems Biology</a>
+      </dt>
+      <dd style="margin-left:0;">
+        Laibe C., Le Novère N.
+      </dd>
+      <dd style="margin-left:0;">
+        <div class="pubjournal"><em>BMC Systems Biology</em> (2007) 1: 58</div>
+      </dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt style="padding-left:0;">
+        <a href="http://identifiers.org/pubmed/16333295" title="Access to this publication via PudMed">Minimum Information Required In the Annotation of Models (MIRIAM)</a>
+      </dt>
+      <dd style="margin-left:0;">
+        Le Novère N., Finney A., Hucka M., Bhalla U., Campagne F., Collado-Vides J., Crampin E., Halstead M., Klipp E., Mendes P., Nielsen P., Sauro H.,  Shapiro B., Snoep J.L., Spence H.D., Wanner B.L.
+      </dd>
+      <dd style="margin-left:0;">
+        <div class="pubjournal"><em>Nature Biotechnology</em> (2005) 23: 1509-1515.</div>
+      </dd>
+    </dl>
+  </li>
+</ul>
+
+<h3 id="ContactUs">How to contact us</h3>
+<p>
+  If you have any queries or concerns that are not addressed on this FAQ, you can contact us for further assistance using the links on the <a href="mdb?section=contact" title="Contact information">contact</a> page.
+</p>
+
+<br />
+  <!--li><em>Web Services</em>: lists the Web Services provided by the resources for the collection. You may want to check the <a href="http://www.biocatalogue.org/" title="BioCatalogue">BioCatalogue</a> project for more detailed information about some Web Services.</li-->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context displayName="MIRIAM Registry ([VERSION])" docBase="[PATH_WAR]">
+    <Resource name="mail/Session" type="javax.mail.Session" auth="Container" />
+    <ResourceParams name="mail/Session">
+            <parameter>
+                <name>mail.smtp.host</name>
+                <value>localhost</value>
+            </parameter>
+        </ResourceParams>
+    
+    <Resource name="jdbc/miriam"
+        url="jdbc:mysql://[SERVER]:[PORT]/[REGISTRY_DATABASE]?autoReconnect=true" 
+        username="[REGISTRY_USER]" 
+        password="[REGISTRY_PASS]" 
+        auth="Container" 
+        type="javax.sql.DataSource" 
+        removeAbandoned="true" 
+        removeAbandonedTimeout="60" 
+        autoReconnect="true" 
+        maxActive="30" 
+        maxIdle="10" 
+        maxWait="10000" 
+        driverClassName="com.mysql.jdbc.Driver"
+        testOnBorrow="true" 
+        validationQuery="SELECT '1'" />
+        
+    <Resource name="jdbc/auth"
+        url="jdbc:mysql://[SERVER]:[PORT]/[AUTH_DATABASE]?autoReconnect=true" 
+        username="[AUTH_USER]" 
+        password="[AUTH_PASS]" 
+        auth="Container" 
+        type="javax.sql.DataSource" 
+        removeAbandoned="true" 
+        removeAbandonedTimeout="60" 
+        autoReconnect="true" 
+        maxActive="30" 
+        maxIdle="10" 
+        maxWait="10000" 
+        driverClassName="com.mysql.jdbc.Driver"
+        testOnBorrow="true" 
+        validationQuery="SELECT '1'" />
+    
+</Context>

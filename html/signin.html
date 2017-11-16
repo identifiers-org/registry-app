@@ -1,0 +1,62 @@
+<h2>Sign In</h2>
+
+<p>
+	Sign in here using your username and password:
+</p>
+
+<form method="post" action="signIn">
+	<table width="100" summary="SignIn form">
+		<tr>
+			<td>
+				<label for="login_id">Username:</label>
+			</td>
+			<td>
+				<input type="text" size="16" name="username" id="login_id" onfocus="javascript:this.select();" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="pass_id">Password:</label>
+			</td>
+			<td>
+				<input type="password" size="16" name="password" id="pass_id" onfocus="javascript:this.select();" />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<input type="submit" value="SignIn" class="submit_button" />
+		<input type="reset" value="Reset" class="reset_button" />
+	</p>
+</form>
+
+
+<h2>Forgot your password?</h2>
+<p>
+	Type your username below and click the <i>Reset Pass</i> button. A newly generated password will be sent to you by email.
+</p>
+
+<form method="post" action="passReset">
+	<table width="100" summary="Password reminder form">
+		<tr>
+			<td>
+				<label for="username_id">Username:</label>
+			</td>
+			<td>
+				<input type="text" size="16" name="username" id="username_id" onfocus="javascript:this.select();" />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<input type="submit" value="Reset Pass" class="submit_button" />
+	</p>
+</form>
+
+<h2>Warning</h2>
+<p>
+	You need to enable <i>cookies</i> in your web browser in order to use the <b>Sign In</b> functionality.
+</p>
+
+<!-- focus on the input field of the login -->
+<script type="text/javascript">
+	document.forms[1]['login_id'].focus();
+</script>

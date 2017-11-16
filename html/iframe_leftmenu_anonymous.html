@@ -1,0 +1,62 @@
+<!-- NB. Please note if left menu gets bigger than 600px in height it will not fully display on the page  -->
+
+<a href="@MIR_DYNAMIC_URL@/" title="MIRIAM Registry"><img src="@MIR_STATIC_URL@/img/miriam_small_logo.png" title="MIRIAM Logo" alt="MIRIAM Logo" width="79" height="52" border="0" /></a>
+
+<ul id="sidemenuid" class="sidemenu">
+  <!-- 
+  <li class="" style="background: url('http://www.ebi.ac.uk/inc/images/leftmenu/level1_link.gif') no-repeat scroll left top transparent; cursor: default;"><a href="@MIR_DYNAMIC_URL@/collections/" title="Browse the database">Browse</a> | <a href="@MIR_DYNAMIC_URL@/tags/" title="Browse by tags">Tags</a></li>
+  -->
+  <li><a href="@MIR_DYNAMIC_URL@/collections/" title="Browse the data collections">Browse</a></li>
+  <li><a href="@MIR_DYNAMIC_URL@/tags/" title="Browse by tags">Tags</a></li>
+  <!-- <li><a href="@MIR_DYNAMIC_URL@/mdb?section=search" title="Search the database">Search</a></li> -->
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=request" title="Perform queries using Web Services">Query services</a></li>
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=submit" title="Submit a new data type">Submit new</a></li>
+  <li><a href="@MIR_DYNAMIC_URL@/export/" title="Exports of the database">Export</a></li>
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=news" title="News about MIRIAM">News</a><a href="@MIR_STATIC_URL@/rss/MiriamNews.xml" title="MIRIAM News Feed"><img src="http://www.ebi.ac.uk/miriam/img/xml_rss2.gif" alt="RSS logo" align="bottom" /></a></li>
+  <!-- 
+  <li class="leftmenudivider">&nbsp;</li>
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=mym" title="My MIRIAM">myMIRIAM</a></li>
+  -->
+  <li class="leftmenudivider">&nbsp;</li>
+  <li class="clickme">
+    <span>Web Services</span>
+    <ul>
+        <li><a href="@MIR_DYNAMIC_URL@/mdb?section=ws" title="Web Services Information">Doc / Library</a></li>
+        <li><a href="@MIR_STATIC_URL@/lib-doc/index.html" title="JavaDoc of the library">JavaDoc</a></li>
+        <li><a href="@MIR_DYNAMIC_URL@/mdb?section=ws_help" title="Web Services available">Services available</a></li>
+        <li><a href="http://www.ebi.ac.uk/miriamws/main/MiriamWebServices?wsdl" title="Web Services Description Language">WSDL</a></li>
+    </ul>
+  </li>
+  <!-- 'clickmeopen': to have it expanded by default -->
+  <li class="clickme">
+  	<a href="@MIR_DYNAMIC_URL@/mdb?section=docs" title="Documents about MIRIAM">Documents</a>
+  	<ul>
+  		<li><a href="http://biomodels.net/miriam/" title="MIRIAM Guidelines" class="external">MIRIAM Guidelines</a></li>
+  		<li><a href="@MIR_DYNAMIC_URL@/mdb?section=faq" title="Frequently Asked Questions">FAQ</a></li>
+  		<li><a href="@MIR_DYNAMIC_URL@/mdb?section=media" title="RFC, Presentations, posters, ...">Documentation</a></li>
+  		<li><a href="@MIR_DYNAMIC_URL@/mdb?section=use" title="Use of MIRIAM Guidelines and MIRIAM Registry">Who's using MIRIAM URIs?</a></li>
+  		<li><a href="@MIR_DYNAMIC_URL@/mdb?section=uris" title="URI based identification systems">Identification systems</a></li>
+  		<li><a href="@MIR_DYNAMIC_URL@/qualifiers/" title="BioModels.net Qualifiers">BioModels.net Qualifiers</a></li>
+  	</ul>
+  </li>
+</ul>
+
+<div id="search_in_menu" style="padding-top:10px; padding-bottom:0px; text-align:right;">
+	<form action="@MIR_DYNAMIC_URL@/search" method="get">
+    	<input type="text" id="searchField" size="15" name="query" style="width:143px;" />
+    	<input type="submit" class="submit_button" value="Search" />
+	</form>
+</div>
+
+<ul class="sidemenu">
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=contribute#team" title="MIRIAM contact">Contact</a></li>
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=support&amp;info=generic" title="MIRIAM Support">Support</a></li>
+  <li><a href="http://sourceforge.net/projects/identifiers-org/" title="MIRIAM Resources and Identifiers.org on SourceForge.net">SourceForge project</a></li>
+  <li class="leftmenudivider">&nbsp;</li>
+  <li><a href="@MIR_DYNAMIC_URL@/mdb?section=signin" title="Access for curators">Curator Sign in</a></li>
+  <li class="leftmenudivider">&nbsp;</li>
+</ul>
+
+<a href="http://www.ebi.ac.uk/compneur/" title="Computational Neurobiology Group"><img src="@MIR_STATIC_URL@/img/logo_compneur_small.png" alt="Computational Neurobiology Logo" title="EBI Computational Neurobiology" height="50" width="75" border="0" /></a>
+<br />
+<a href="http://sourceforge.net/projects/identifiers-org/" title="SourceForge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=188431&amp;type=13" width="120" height="30" border="0" alt="SourceForge.net Logo" /></a>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlib-version>1.2</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	
+	<short-name>MiriamCustomTags</short-name>
+	<uri>MiriamCustomTags</uri>
+	<description>Custom JSP tags for MIRIAM Registry</description>
+    
+    
+    <tag>
+        <name>menuSelect</name>
+        <description>select the correct menu to display according to the rights of the user</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerMenuSelect</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>user</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>arrayBrowse</name>
+        <description>browse a SQL result</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerDbBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>searchBrowse</name>
+        <description>browse the result of a search</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerSearchBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>simpleDataTypeBrowse</name>
+        <description>browse a list of SimpleDataType</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerSimpleDataTypeBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>tagsCloud</name>
+        <description>display the set of tags</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerTagsCloud</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>resourcesBrowse</name>
+        <description>browse the resources (physical locations) of a data type</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerResourcesBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>edit</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>resourcesEdit</name>
+        <description>edit the resources of a data type</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerResourcesEdit</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>uris</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>types</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>start</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>docBrowse</name>
+        <description>browse the documentation of a data type (the ones transformed from a URI)</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerDocBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>pool</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>docBrowseTwo</name>
+        <description>browse the documentation of a data type (the ones transformed from a URI), part two</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerDocBrowseTwo</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>urls</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>infos</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>institutions</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>locations</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>curationBrowse</name>
+        <description>browse the data types in the curation pipeline</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerCuraBrowse</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>usersBrowse</name>
+        <description>browse some information about the users registered</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerUsersPage</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+    	<name>profilesBrowseAdmin</name>
+        <description>browse the registered profiles (for administrators)</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerProfilesBrowseAdmin</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>data</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+    	<name>generateBrowsingLinks</name>
+        <description>generate the set of links for the data types browsing feature</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerGenerateBrowsingLinks</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>query</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+    	<name>generateProjectBrowsingLinks</name>
+        <description>generate the set of links for the myMIRIAM profiles browsing feature</description>
+        <tag-class>uk.ac.ebi.miriam.web.TagHandlerGenerateProjectBrowsingLinks</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>query</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

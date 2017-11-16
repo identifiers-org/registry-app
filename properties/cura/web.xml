@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app id="Miriam_ID" 
+         version="2.4" 
+         xmlns="http://java.sun.com/xml/ns/j2ee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    
+    <display-name>MIRIAM Registry</display-name>
+    
+    <context-param>
+        <param-name>version</param-name>
+        <param-value>cura</param-value>
+    </context-param>
+    
+    <context-param>
+        <description>Email address of the administrator.</description>
+        <param-name>admin.email</param-name>
+        <param-value>sarala@ebi.ac.uk</param-value>
+    </context-param>
+    
+    <context-param>
+        <description>Email addresses of the curators, separated by a comma.</description>
+        <param-name>curators.email</param-name>
+        <param-value>juty@ebi.ac.uk,laibe@ebi.ac.uk</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>www</param-name>
+        <param-value>https://www.ebi.ac.uk/miriam/static/cura/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>graphics</param-name>
+        <param-value>https://www.ebi.ac.uk/miriam/static/cura/img/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>exportDir</param-name>
+        <param-value>/tmp/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>webServicesEndpoint</param-name>
+        <param-value>https://www.ebi.ac.uk/miriamws/main/MiriamWebServices</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>miriam_db_pool</param-name>
+        <param-value>miriam</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>auth_db_pool</param-name>
+        <param-value>auth</param-value>
+    </context-param>
+    
+    <servlet>
+        <description>Registry Web Engine</description>
+        <display-name>WebEngine</display-name>
+        <servlet-name>WebEngine</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.WebEngine</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebEngine</servlet-name>
+        <url-pattern>/mdb</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays the home page</description>
+        <display-name>HomePage</display-name>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletHomePage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/displayHomePage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Sign In</description>
+        <display-name>SignIn</display-name>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletSignIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>OpenID</description>
+        <display-name>OpenId</display-name>
+        <servlet-name>OpenId</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletOpenId</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenId</servlet-name>
+        <url-pattern>/openId</url-pattern>
+    </servlet-mapping>
+
+    
+    <servlet>
+        <description>Sign Out</description>
+        <display-name>SignOut</display-name>
+        <servlet-name>SignOut</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletSignOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOut</servlet-name>
+        <url-pattern>/signOut</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Password reset</description>
+        <display-name>PassReset</display-name>
+        <servlet-name>PassReset</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletPassReminder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PassReset</servlet-name>
+        <url-pattern>/passReset</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Password change</description>
+        <display-name>PassChange</display-name>
+        <servlet-name>PassChange</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletPassChange</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PassChange</servlet-name>
+        <url-pattern>/passChange</url-pattern>    
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Update user information</description>
+        <display-name>UpdateUserInfo</display-name>
+        <servlet-name>UpdateUserInfo</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUpdateUserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUserInfo</servlet-name>
+        <url-pattern>/updateUserInfo</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Browse data collections</description>
+        <display-name>Datatypes</display-name>
+        <servlet-name>Datatypes</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDbBrowse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Datatypes</servlet-name>
+        <url-pattern>/datatypes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Datatypes</servlet-name>
+        <url-pattern>/collections</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Basic search</description>
+        <display-name>SimpleSearch</display-name>
+        <servlet-name>SimpleSearch</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletSimpleSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimpleSearch</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Request Access</description>
+        <display-name>RequestAccess</display-name>
+        <servlet-name>RequestAccess</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletRequestAccess</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestAccess</servlet-name>
+        <url-pattern>/requestAccess</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Browse tags</description>
+        <display-name>TagBrowse</display-name>
+        <servlet-name>TagBrowse</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagBrowse</servlet-class>
+    </servlet>
+    <!-- old, kept for backward compatibility -->
+    <servlet-mapping>
+        <servlet-name>TagBrowse</servlet-name>
+        <url-pattern>/metadata</url-pattern>
+    </servlet-mapping>
+    <!-- new -->
+    <servlet-mapping>
+        <servlet-name>TagBrowse</servlet-name>
+        <url-pattern>/tags</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Search by tag(s)</description>
+        <display-name>TagSearch</display-name>
+        <servlet-name>TagSearch</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagSearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagSearch</servlet-name>
+        <url-pattern>/tagSearch</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Delete the association between a data type and a tag</description>
+        <display-name>DeleteTag</display-name>
+        <servlet-name>DeleteTag</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagDelete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteTag</servlet-name>
+        <url-pattern>/deleteTag</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Add an association between a data type and an already existing tag</description>
+        <display-name>AddExistingTag</display-name>
+        <servlet-name>AddExistingTag</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagAdd</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddExistingTag</servlet-name>
+        <url-pattern>/addExistingTag</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Add a new tag and create a new association between it and the current data type</description>
+        <display-name>AddNewTag</display-name>
+        <servlet-name>AddNewTag</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagNew</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewTag</servlet-name>
+        <url-pattern>/addNewTag</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edit the information (name, definition) of a tag</description>
+        <display-name>TagEditInfo</display-name>
+        <servlet-name>TagEditInfo</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagEditInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagEditInfo</servlet-name>
+        <url-pattern>/tagEditInfo</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edit the data types associated with a tag</description>
+        <display-name>TagEditLinks</display-name>
+        <servlet-name>TagEditLinks</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagEditLinks</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagEditLinks</servlet-name>
+        <url-pattern>/tagEditLinks</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Complete information about a data type</description>
+        <display-name>DataTypeInfo</display-name>
+        <servlet-name>DataTypeInfo</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataTypeInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataTypeInfo</servlet-name>
+        <url-pattern>/dataTypeInfo</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays the examples of annotations for a data type</description>
+        <display-name>UsageExample</display-name>
+        <servlet-name>UsageExample</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAnnotationDisplay</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsageExample</servlet-name>
+        <url-pattern>/usage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edition of the examples of annotation about a data type</description>
+        <display-name>AnnotationEdit</display-name>
+        <servlet-name>AnnotationEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAnnotationEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnnotationEdit</servlet-name>
+        <url-pattern>/annoEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Add a new example of annotation from an existing tag</description>
+        <display-name>AddExistingAnnotation</display-name>
+        <servlet-name>AddExistingAnnotation</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAnnotationAdd</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddExistingAnnotation</servlet-name>
+        <url-pattern>/addExistingAnnotation</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Tags associated with a data type</description>
+        <display-name>Tags</display-name>
+        <servlet-name>Tags</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTags</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Tags</servlet-name>
+        <url-pattern>/tagsDisplay</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Editing page of the tags associated with a data type</description>
+        <display-name>TagEdit</display-name>
+        <servlet-name>TagEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagEdit</servlet-name>
+        <url-pattern>/tagEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Adds a new data type to the database</description>
+        <display-name>DataTypeAdd</display-name>
+        <servlet-name>DataTypeAdd</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataTypeAdd</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataTypeAdd</servlet-name>
+        <url-pattern>/addDataType</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edits a data type (displays the form)</description>
+        <display-name>DataTypeEdit</display-name>
+        <servlet-name>DataTypeEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataTypeEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataTypeEdit</servlet-name>
+        <url-pattern>/dataTypeEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edits a data type (part 2: updates the database)</description>
+        <display-name>DataTypeEditPart2</display-name>
+        <servlet-name>DataTypeEditPart2</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataTypeEditPart2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataTypeEditPart2</servlet-name>
+        <url-pattern>/dataTypeEditPart2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Deprecate a data collection</description>
+        <display-name>DataCollectionDeprecate</display-name>
+        <servlet-name>DataCollectionDeprecate</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataCollectionDeprecate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataCollectionDeprecate</servlet-name>
+        <url-pattern>/dataCollectionDeprecate</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Deprecate a data collection (final step)</description>
+        <display-name>DataCollectionDeprecate2</display-name>
+        <servlet-name>DataCollectionDeprecate2</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDataCollectionDeprecate2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataCollectionDeprecate2</servlet-name>
+        <url-pattern>/dataCollectionDeprecate2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Exports page with basic statistics</description>
+        <display-name>Exports</display-name>
+        <servlet-name>Exports</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletExports</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Exports</servlet-name>
+        <url-pattern>/export</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>XML exports of the whole Registry</description>
+        <display-name>XMLExport</display-name>
+        <servlet-name>XMLExport</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.xml.ServletXMLExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XMLExport</servlet-name>
+        <url-pattern>/XMLExport</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Generates the instant XML export for the whole Registry</description>
+        <display-name>InstantXmlExport</display-name>
+        <servlet-name>InstantXmlExport</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.xml.ServletInstantXmlExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InstantXmlExport</servlet-name>
+        <url-pattern>/export/xml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InstantXmlExport</servlet-name>
+        <url-pattern>/export/xml/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Generates the RDF export for the whole Registry</description>
+        <display-name>RDFExport</display-name>
+        <servlet-name>RDFExport</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletWholeRdfExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RDFExport</servlet-name>
+        <url-pattern>/export/rdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RDFExport</servlet-name>
+        <url-pattern>/export/rdf/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Void dataset description</description>
+        <display-name>VoidDatasetDescription</display-name>
+        <servlet-name>VoidDatasetDescription</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletVoidDatasetDescription</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VoidDatasetDescription</servlet-name>
+        <url-pattern>/void</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Generates the RDF export for a given data collection</description>
+        <display-name>CollectionRDFExport</display-name>
+        <servlet-name>CollectionRDFExport</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletCollectionRdfExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollectionRDFExport</servlet-name>
+        <url-pattern>/rdf</url-pattern>
+    </servlet-mapping>
+    
+    <!-- not used currently -->
+    <servlet>
+        <description>Statistics of the resources and their usage</description>
+        <display-name>Stats</display-name>
+        <servlet-name>Stats</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletStats</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Stats</servlet-name>
+        <url-pattern>/stats</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>User dedicated page</description>
+        <display-name>UserPage</display-name>
+        <servlet-name>UserPage</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUserPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserPage</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Users managemement page</description>
+        <display-name>UsersPage</display-name>
+        <servlet-name>UsersPage</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUsersPage</servlet-class>    
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersPage</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays data types in the curation pipeline (pending, canceled, published or all)</description>
+        <display-name>Curation</display-name>
+        <servlet-name>Curation</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletCuration</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Curation</servlet-name>
+        <url-pattern>/curation</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Display a specific data type in the curation pipeline</description>
+        <display-name>CurationData</display-name>
+        <servlet-name>CurationData</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletCurationData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CurationData</servlet-name>
+        <url-pattern>/curationData</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Delete a data type in the curation pipeline</description>
+        <display-name>DeleteCuraDataType</display-name>
+        <servlet-name>DeleteCuraDataType</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDeleteCuraDataType</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCuraDataType</servlet-name>
+        <url-pattern>/deleteCuraDataType</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edit a data type in the curation pipeline</description>
+        <display-name>CuraDataEdit</display-name>
+        <servlet-name>CuraDataEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletCuraDataEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CuraDataEdit</servlet-name>
+        <url-pattern>/curaDataEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Publish a data type (from curation pipeline to public website)</description>
+        <display-name>PublishDataType</display-name>
+        <servlet-name>PublishDataType</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletPublishDataType</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PublishDataType</servlet-name>
+        <url-pattern>/publishDataType</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Publication of a data type requested</description>
+        <display-name>PublishDataTypeRequested</display-name>
+        <servlet-name>PublishDataTypeRequested</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletPublicationRequested</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PublishDataTypeRequested</servlet-name>
+        <url-pattern>/publishDataTypeRequested</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edition of the tags</description>
+        <display-name>TagsEdit</display-name>
+        <servlet-name>TagsEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletTagsEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TagsEdit</servlet-name>
+        <url-pattern>/tagsEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Query via the support form (part1: display of the form)</description>
+        <display-name>SupportQuery</display-name>
+        <servlet-name>SupportQuery</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletSupportQuery</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SupportQuery</servlet-name>
+        <url-pattern>/support</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Query via the support form (part2: processing of the form)</description>
+        <display-name>SupportProcess</display-name>
+        <servlet-name>SupportProcess</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletSupportProcess</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SupportProcess</servlet-name>
+        <url-pattern>/supportProcess</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Global report of the regular resources health check</description>
+        <display-name>ResourcesCheck</display-name>
+        <servlet-name>ResourcesCheck</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletResourcesCheck</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourcesCheck</servlet-name>
+        <url-pattern>/resourcesCheck</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Details of the health check for a specific resource</description>
+        <display-name>ResourceCheckDetails</display-name>
+        <servlet-name>ResourceCheckDetails</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletResourceCheckDetails</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourceCheckDetails</servlet-name>
+        <url-pattern>/resourceCheckDetails</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>History of the health check for a specific resource</description>
+        <display-name>ResourceCheckHistory</display-name>
+        <servlet-name>ResourceCheckHistory</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletResourceCheckHistory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourceCheckHistory</servlet-name>
+        <url-pattern>/resourceCheckHistory</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Check keyword update</description>
+        <display-name>UpdateCheckKeyword</display-name>
+        <servlet-name>UpdateCheckKeyword</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUpdateCheckKeyword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCheckKeyword</servlet-name>
+        <url-pattern>/updateCheckKeyword</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Dynamic display of the BioModels.net qualifiers</description>
+        <display-name>Qualifiers</display-name>
+        <servlet-name>Qualifiers</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletQualifiers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Qualifiers</servlet-name>
+        <url-pattern>/qualifiers</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edition of the BioModels.net qualifiers</description>
+        <display-name>QualifiersEdit</display-name>
+        <servlet-name>QualifiersEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletEditQualifiers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QualifiersEdit</servlet-name>
+        <url-pattern>/editQualifiers</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Adds a new BioModels.net qualifier</description>
+        <display-name>AddQualifier</display-name>
+        <servlet-name>AddQualifier</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAddQualifier</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddQualifier</servlet-name>
+        <url-pattern>/addQualifier</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Generates the XML export of the BioModels.net qualifiers</description>
+        <display-name>QualifiersXML</display-name>
+        <servlet-name>QualifiersXML</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.xml.ServletQualifiersXmlExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QualifiersXML</servlet-name>
+        <url-pattern>/qualifiers/xml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QualifiersXML</servlet-name>
+        <url-pattern>/qualifiers/xml/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Generates the RDF export of the BioModels.net qualifiers</description>
+        <display-name>QualifiersRDF</display-name>
+        <servlet-name>QualifiersRDF</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.xml.ServletQualifiersRdfExport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QualifiersRDF</servlet-name>
+        <url-pattern>/qualifiers/rdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QualifiersRDF</servlet-name>
+        <url-pattern>/qualifiers/rdf/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays (public) general information about the health of a resource</description>
+        <display-name>ResourceHealth</display-name>
+        <servlet-name>ResourceHealth</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletResourceHealth</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourceHealth</servlet-name>
+        <url-pattern>/resource</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays the list of resources</description>
+        <display-name>Resources</display-name>
+        <servlet-name>Resources</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletResources</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resources</servlet-name>
+        <url-pattern>/resources</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays some miscellaneous information for a data collection</description>
+        <display-name>Miscellaneous</display-name>
+        <servlet-name>Miscellaneous</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletMisc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Miscellaneous</servlet-name>
+        <url-pattern>/misc</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays some restriction(s) information for a data collection</description>
+        <display-name>Restrictions</display-name>
+        <servlet-name>Restrictions</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletRestrictions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Restrictions</servlet-name>
+        <url-pattern>/restrictions</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays the available web services for a given data type</description>
+        <display-name>WebServices</display-name>
+        <servlet-name>WebServices</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletWebServices</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebServices</servlet-name>
+        <url-pattern>/webservices</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Edits the available web services for a given data type</description>
+        <display-name>WebServicesEdit</display-name>
+        <servlet-name>WebServicesEdit</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletWebServicesEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebServicesEdit</servlet-name>
+        <url-pattern>/webServicesEdit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Updates one Web Services for a given data type</description>
+        <display-name>WebServicesUpdate</display-name>
+        <servlet-name>WebServicesUpdate</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletWebServicesUpdate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebServicesUpdate</servlet-name>
+        <url-pattern>/webServicesUpdate</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Creates a new Web Services for a given data type</description>
+        <display-name>WebServicesCreate</display-name>
+        <servlet-name>WebServicesCreate</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletWebServicesCreate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebServicesCreate</servlet-name>
+        <url-pattern>/webServicesCreate</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Displays the whole list of possible annotation, classified by format</description>
+        <display-name>Annotations</display-name>
+        <servlet-name>Annotations</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAnnotationsDisplay</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Annotations</servlet-name>
+        <url-pattern>/annotations</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Check Resource Health</description>
+        <display-name>CheckResourceHealth</display-name>
+        <servlet-name>CheckResourceHealth</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletCheckResourceHealth</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckResourceHealth</servlet-name>
+        <url-pattern>/checkResourceHealth</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Admin Profiles</description>
+        <display-name>AdminProfiles</display-name>
+        <servlet-name>AdminProfiles</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAdminProfiles</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProfiles</servlet-name>
+        <url-pattern>/adminProfiles</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Admin Profile</description>
+        <display-name>AdminProfile</display-name>
+        <servlet-name>AdminProfile</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAdminProfile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProfile</servlet-name>
+        <url-pattern>/adminProfile</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Update myMIRIAM profile key</description>
+        <display-name>UpdateMyMiriamProjectKey</display-name>
+        <servlet-name>UpdateMyMiriamProjectKey</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUpdateMyMiriamProjectKey</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMyMiriamProjectKey</servlet-name>
+        <url-pattern>/updateMyMiriamProjectKey</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Update the data collections associated to a myMIRIAM profile</description>
+        <display-name>UpdateMyMiriamDatatypes</display-name>
+        <servlet-name>UpdateMyMiriamDatatypes</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletUpdateMyMiriamDatatypes</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMyMiriamDatatypes</servlet-name>
+        <url-pattern>/updateMyMiriamDatatypes</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Debug info</description>
+        <display-name>DebugInfo</display-name>
+        <servlet-name>DebugInfo</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletDebugInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DebugInfo</servlet-name>
+        <url-pattern>/debug</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Load balancer health check (every 3s)</description>
+        <display-name>LoadBalancerCheck</display-name>
+        <servlet-name>LoadBalancerCheck</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletLoadBalancerCheck</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadBalancerCheck</servlet-name>
+        <url-pattern>/ping</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- Ajax stuff -->
+    
+    
+    <servlet>
+        <description>Get the tags corresponding to a given format via Ajax</description>
+        <display-name>AjaxGetAnnotationTags</display-name>
+        <servlet-name>AjaxGetAnnotationTags</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAjaxAnnotationTags</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxGetAnnotationTags</servlet-name>
+        <url-pattern>/ajaxGetAnnotationTags</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Get the details of a tag via Ajax</description>
+        <display-name>AjaxTagDetails</display-name>
+        <servlet-name>AjaxTagDetails</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAjaxTagDetails</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxTagDetails</servlet-name>
+        <url-pattern>/ajaxTagDetails</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>Adds a new restriction to a data collection via Ajax</description>
+        <display-name>addRestriction</display-name>
+        <servlet-name>addRestriction</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.web.ServletAjaxAddRestriction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addRestriction</servlet-name>
+        <url-pattern>/addRestriction</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- Web Services -->
+    
+    
+    <servlet>
+        <description>getDataTypeURN request</description>
+        <display-name>MIRIAM getDataTypeURN</display-name>
+        <servlet-name>MiriamGetDataTypeURN</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURN</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURN</servlet-name>
+        <url-pattern>/getDataTypeURN.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeURNs request</description>
+        <display-name>MIRIAM getDataTypeURNs</display-name>
+        <servlet-name>MiriamGetDataTypeURNs</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURNs</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURNs</servlet-name>
+        <url-pattern>/getDataTypeURNs.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeURL request</description>
+        <display-name>MIRIAM getDataTypeURL</display-name>
+        <servlet-name>MiriamGetDataTypeURL</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURL</servlet-name>
+        <url-pattern>/getDataTypeURL.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeURLs request</description>
+        <display-name>MIRIAM getDataTypeURLs</display-name>
+        <servlet-name>MiriamGetDataTypeURLs</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURLs</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURLs</servlet-name>
+        <url-pattern>/getDataTypeURLs.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeURI request</description>
+        <display-name>MIRIAM getDataTypeURI</display-name>
+        <servlet-name>MiriamGetDataTypeURI</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURI</servlet-name>
+        <url-pattern>/getDataTypeURI.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeURIs request</description>
+        <display-name>MIRIAM getDataTypeURIs</display-name>
+        <servlet-name>MiriamGetDataTypeURIs</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeURIs</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeURIs</servlet-name>
+        <url-pattern>/getDataTypeURIs.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeAllURIs request</description>
+        <display-name>MIRIAM getDataTypeAllURIs</display-name>
+        <servlet-name>MiriamGetDataTypeAllURIs</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeAllURIs</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeAllURIs</servlet-name>
+        <url-pattern>/getDataTypeAllURIs.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeDef request</description>
+        <display-name>MIRIAM getDataTypeDef</display-name>
+        <servlet-name>MiriamGetDataTypeDef</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeDef</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeDef</servlet-name>
+        <url-pattern>/getDataTypeDef.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getURN request</description>
+        <display-name>MIRIAM getURN</display-name>
+        <servlet-name>MiriamGetURN</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetURN</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetURN</servlet-name>
+        <url-pattern>/getURN.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getURL request</description>
+        <display-name>MIRIAM getURL</display-name>
+        <servlet-name>MiriamGetURL</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetURL</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetURL</servlet-name>
+        <url-pattern>/getURL.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getURI request</description>
+        <display-name>MIRIAM getURI</display-name>
+        <servlet-name>MiriamGetURI</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetURI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetURI</servlet-name>
+        <url-pattern>/getURI.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataEntries request</description>
+        <display-name>Miriam getDataEntries</display-name>
+        <servlet-name>MiriamGetDataEntries</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataEntries</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataEntries</servlet-name>
+        <url-pattern>/getDataEntries.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataResources request</description>
+        <display-name>Miriam getDataResources</display-name>
+        <servlet-name>MiriamGetDataResources</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataResources</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataResources</servlet-name>
+        <url-pattern>/getDataResources.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>isDeprecated request</description>
+        <display-name>Miriam isDeprecated</display-name>
+        <servlet-name>MiriamIsDeprecated</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletIsDeprecated</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamIsDeprecated</servlet-name>
+        <url-pattern>/isDeprecated.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getOfficialURI request</description>
+        <display-name>Miriam getOfficialURI</display-name>
+        <servlet-name>MiriamGetOfficialURI</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetOfficialURI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetOfficialURI</servlet-name>
+        <url-pattern>/getOfficialURI.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypePattern request</description>
+        <display-name>Miriam getDataTypePattern</display-name>
+        <servlet-name>MiriamGetDataTypePattern</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypePattern</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypePattern</servlet-name>
+        <url-pattern>/getDataTypePattern.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getDataTypeSynonyms request</description>
+        <display-name>Miriam getDataTypeSynonyms</display-name>
+        <servlet-name>MiriamGetDataTypeSynonyms</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetDataTypeSynonyms</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetDataTypeSynonyms</servlet-name>
+        <url-pattern>/getDataTypeSynonyms.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getName request</description>
+        <display-name>Miriam getName</display-name>
+        <servlet-name>MiriamGetName</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetName</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetName</servlet-name>
+        <url-pattern>/getName.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getNames request</description>
+        <display-name>Miriam getNames</display-name>
+        <servlet-name>MiriamGetNames</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetNames</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetNames</servlet-name>
+        <url-pattern>/getNames.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>getLocations request</description>
+        <display-name>Miriam getLocations</display-name>
+        <servlet-name>MiriamGetLocations</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletGetLocations</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamGetLocations</servlet-name>
+        <url-pattern>/getLocations.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <description>checkRegExp request</description>
+        <display-name>Miriam checkRegExp</display-name>
+        <servlet-name>MiriamCheckRegExp</servlet-name>
+        <servlet-class>uk.ac.ebi.miriam.wsi.ServletCheckRegExp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiriamCheckRegExp</servlet-name>
+        <url-pattern>/checkRegExp.do</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- Health filter requested by EBI External Services in order to prevent the acces_log filling with logs from the Load Balancer -->
+    <filter>
+		<filter-name>HealthFilter</filter-name>
+		<filter-class>uk.ac.ebi.es.HealthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HealthFilter</filter-name>
+		<url-pattern>/jmxproxy/*</url-pattern>
+	</filter-mapping> 
+    
+    
+    <!-- UrlRewriteFilter  -->
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        </filter>
+        <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- Quartz scheduler -->
+    <context-param>
+        <param-name>config-file</param-name>
+        <param-value>quartz.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>shutdown-on-unload</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>start-scheduler-on-load</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+    </listener>
+    
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    
+    <!-- email -->
+    <resource-ref>
+        <res-ref-name>mail/Session</res-ref-name>
+        <res-type>javax.mail.Session</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    
+    <!-- database pool -->
+<!--    <resource-ref>
+        <description>Database Connection Pooling</description>
+        <res-ref-name>jdbc/miriam</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>-->
+    
+    <welcome-file-list>
+        <welcome-file>mdb</welcome-file>
+    </welcome-file-list>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error_404.jsp</location>
+    </error-page>
+</web-app>

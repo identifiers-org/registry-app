@@ -1,0 +1,259 @@
+<h2>Use of MIRIAM Guidelines and MIRIAM Resources</h2>
+
+<p style="color:#e33e3e;">
+  <b>The information on this page is being continually updated. If you have any information you wish to contribute, feel free to <a href="mdb?section=contact" title="Contact details">contact us</a>!</b>
+</p>
+
+
+<h2>Table of contents</h2>
+<ul>
+	<li><a href="#MIRIAMGeneral" title="MIRIAM Introduction">General MIRIAM Information</a></li>
+	<li><a href="#URNSyntax" title="MIRIAM URN Syntax">MIRIAM URN syntax</a></li>
+	<li><a href="#Tools" title="Tools Using MIRIAM">Tools using MIRIAM Registry or MIRIAM Guidelines</a>
+       <!--
+	   <ul>
+	      <li><a href="#Arcadia" title="Arcadia visualisation Tool">Arcadia: A visualisation tool for metabolic pathways</a></li>
+	      <li><a href="#BioUML" title="BioUML visualisation workbench">BioUML visualisation</a></li>
+	      <li><a href="#BioModelsDatabase" title="BioModels model repository">BioModels Database</a></li>
+	      <li><a href="#CellDesigner" title="CellDesigner modeling tool">CellDesigner: A modeling tool of biochemical networks</a></li>
+	      <li><a href="#COPASI" title="COPASI Simulator">COPASI biochemical network simulator</a></li>
+	      <li><a href="#E-MeP" title="E-MeP">European Membrane Protein Consortium (E-MeP)</a></li>
+	      <li><a href="#libSBML" title="libSBML library">libSBML library for SBML</a></li>
+	      <li><a href="#libAnnotationSBML" title="libAnnotationSBL library">libAnnotationSBML java library</a></li>
+	      <li><a href="#SAINT" title="SAINT Model Annotation Tool">SAINT SBML Model Annotator</a></li>
+	      <li><a href="#SBML_converters" title="Model format conversion tools">SBML converters</a></li>
+	      <li><a href="#SBMLeditor" title="SBML editing tool">SBMLeditor: A tool for the creation and editing of SBML files</a></li>
+	      <li><a href="#SBML2LaTeX" title="SBML conversion into human readable format">SBML2LaTeX: A tool to generate human-readable SBMl model descriptions</a></li>
+	      <li><a href="#SemanticSBML" title="SemanticSBML Model manipulation tool">SemanticSBML: annotation, checking, and merging of systems biology models</a></li>
+	      <li><a href="#Snazer" title="Snazer">Snazer: Simulation and Networks Analyzer</a></li>
+	      <li><a href="#SBW" title="Systems Biology Workbench">Systems Biology Workbench</a></li>
+	      <li><a href="#VirtualCell" title="Virtual Cell modeling and analysis">Virtual Cell Modelling and Analysis Software</a></li>
+	      <li><a href="#Others" title="Other tools">Other tools</a>
+	         <ul>
+			    <li><a href="#PathText">PathText</a></li>
+			    <li><a href="#Payao">Payao</a></li>
+			    <li><a href="#BridgeDb">BridgeDb</a></li>
+			    <li><a href="#MEMOSys">MEMOSys</a></li>
+			    <li><a href="#PathwayEditor">PathwayEditor</a></li>
+			    <li><a href="#GetBonNie">GetBonNie</a></li>
+			    <li><a href="#SBMM">SBMM</a></li>
+			    <li><a href="#cPath">cPath</a></li>
+	         </ul>
+	      </li>
+	   </ul>
+       -->
+    </li>
+	<li><a href="#URNs" title="MIRIAM URN users">File formats and Databases that use MIRIAM URNs</a>
+	   <!--
+	   <ul>
+	      <li><a href="#SBML_format" title="SBML">Systems Biology Markup Language</a></li>
+	      <li><a href="#SED-ML_format" title="SED-ML">Simulation Experiment Description Markup Language</a></li>
+	      <li><a href="#SBRML_format" title="SBRML">Systems Biology Results Markup Language</a></li>
+	      <li><a href="#CellML_format" title="CellML">CellML format</a></li>
+	      <li><a href="#BioPax_format" title="BioPaX">Biological Pathway Exchange format</a></li>
+	      <li><a href="#PSI-MI_format" title="PSI-MI">Proteomics Standards Initiative 'Molecular Interaction' format</a></li>
+	      <li><a href="#COPASI_format" title="CopasiML">COPASI file format</a></li>
+	      <li><a href="#Sabio-RK_format" title="SABIO">System for the Analysis of Biochemical Pathways-Reaction Kinetics format</a></li>
+	      <li><a href="#B-Net_format" title="B-Net">B-Net format</a></li>
+	      <li><a href="#SBML_format" title="SBML">Systems Biology Markup Language</a></li>
+	   </ul>
+	   -->
+	</li>
+	<li><a href="#Notable_works" title="Large scale MIRIAM efforts">Large Scale modelling efforts using MIRIAM</a>
+	   <!--
+	   <ul>
+	      <li><a href="#Yeast_reconstruction" title="Consensus Yeast 1.0">Consensus yeast metabolic reconstruction</a></li>
+	      <li><a href="#Human_reconstruction" title="Consensus Human 1.0">Consensus human metabolic reconstruction</a></li>
+	      <li><a href="#Yeast_reconstruction2" title="Yeast reconstruction">Yeast molecular interaction network reconstruction</a></li>
+	   </ul>
+	   -->
+	</li>
+	<li><a href="#Contact" title="Contact us">Contact us</a></li>
+</ul>
+
+
+<h2 id="MIRIAMGeneral">General MIRIAM information</h2>
+
+<p>
+  The MIRIAM project is actually composed of two parts, the <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMGuidelines">MIRIAM Guidelines</a> and <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMResources">MIRIAM Registry</a>:
+</p>
+
+<ul>
+  <li><em>MIRIAM</em> is an effort to establish the essential, minimal set of information that is sufficient to annotate a model in such a way as to enable its reuse. The requirements to achieve <em>MIRIAM Guidelines</em> compliance are available on the <a href="http://biomodels.net/miriam/" title="MIRIAM Guidelines">MIRIAM Guidelines page</a>. This standard also describes the syntax by which annotations should be encoded: MIRIAM URIs. A brief summary of the syntax is provided <a href="#URNSyntax">below</a>, while more information can be found <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMURI">here.</a></li>
+  <li><a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a> are composed of a database and associated services to provide support for generating and interpreting <em>MIRIAM <acronym title="Uniform Resource Identifiers">URIs</acronym></em>.
+   </li>
+</ul>
+
+<p>The manner in which MIRIAM is used within the modelling, and other, communities can be described in numerous ways, and are listed below in order of increasing 'complexity':</p>
+<ul>
+  <li>the use of the MIRIAM Guidelines to achieve annotational compliance for reusability (modelling standards)</li>
+  <li>the ability of a tool to simply transfer, in unadulterated and uninterpreted fashion, a MIRIAM URN from one document to another (format support by tools)</li>
+  <li>the ability of a tool to read, write or modify a MIRIAM URI (annotation editing support by tools)</li>
+  <li>the ability to interpret, through resolution, a MIRIAM URN, for example to display a hyperlink for the URN (integration of tools with MIRIAM Registry)</li>
+  <li>the ability to perform complex queries or aggregations of data based upon URNs, or to the resolved locations of a URN (higher level integration with MIRIAM Registry, combined with analytical strategies)</li>
+</ul>
+
+
+<h2 id="URNSyntax">MIRIAM URN syntax</h2>
+<p>
+  A detailed explanation of the construction of a MIRIAM URN can be found <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMURI">here</a> Briefly, a <em>MIRIAM <acronym title="Uniform Resource Namespace">URN</acronym></em> is composed of a) a statement of the naming convention in use, b) a definition of the <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#DataType">data type</a>, and c) the identifier which specifies an entity within this data type. For example, <code>urn:miriam:pubmed:123456</code> is composed of:
+</p>
+<ul>
+  <li><b><code>urn:miriam</code></b> defines the syntax to be a URN using the MIRIAM scheme and syntax</li>
+  <li><b><code>urn:miriam:pubmed</code></b> additionally defines the <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#DataType">data type</a> as being <a href="@MIR_DYNAMIC_URL@/collections/MIR:00000015">'PubMed'</a></li>
+  <li><b><code>urn:miriam:pubmed:123456</code></b> identifies the publication having the <acronym title="PubMed unique IDentifier">PMID</acronym> '123456' within the <a href="@MIR_DYNAMIC_URL@/collections/MIR:00000015">'PubMed' data type</a></li>
+</ul> 
+
+
+<h2 id="Tools">Tools using MIRIAM Registry or MIRIAM Guidelines</h2>
+
+<h3 id="Arcadia">Arcadia</h3>
+<p>
+  <a href="http://arcadiapathways.sourceforge.net/">Arcadia</a> is a visualisation tool for metabolic pathways. It is able to read <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> files, and generate from them an <a href="http://www.sbgn.org/" title="Systems Biology Graphical Notation">SBGN</a> diagram, using semantic information encoded in the SBML file. <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">SBO</a> provides information essential to determine the appropriate SBGN glyph to incorporate in the visualisation, and these may be provided as 'sboTerm' or as MIRIAM URN annotations. Work is currently in progress to link MIRIAM URNs displayed in SBGN diagrams to online resources. In the future, MIRIAM annotations may also be used to make decisions on appropriate glyph selection where <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">SBO</a> terms are not available.  
+</p>
+
+
+<h3 id="BioUML">BioUML</h3>
+<p><a href="http://www.biouml.org/">BioUML</a> is an open source intergrated framework for systems biology. It consists of a workbench component which adopts a visual modeling approach, able to represent pathways encoded as <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a>, <a href="http://www.cellml.org/" title="CellML">CellML</a>, or <a href="http://www.biopax.org/" title="BioPAX">BioPAX</a>. Editable pathway graphs are integrated with many databases, including <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">SBO</a>.
+</p>
+
+
+<h3 id="BioModelsDatabase">BioModels Database</h3>
+<p><a href="http://www.ebi.ac.uk/biomodels-main/">BioModels Database</a> is a database of curated quantitative models in Biology that have been described in peer-reviewed  publications. Models are annotated and cross-referenced with relevant data resources, such as publications, databases of compounds and pathways, controlled vocabularies, etc. Models deposited in the curated branch of the database comply with the <a href="http://www.ebi.ac.uk/biomodels-main/faq#COMPLIANCE" title="MIRIAM Guidelines Compliance">MIRIAM Guidelines</a>, and contain annotations using the <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=faq#MIRIAMURI" title="MIRIAM URI format">MIRIAM syntax</a>. Each of these annotations may be resolved to a URL using <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMResolution" title="Resolving MIRIAM URIs">MIRIAM Registry</a>, allowing the display of clickable links.
+</p>
+
+
+<h3 id="BridgeDb">BridgeDb</h3>
+<p><a href="http://www.bridgedb.org/">BridgeDb</a> is a software framework that provides gene, protein and metabolite identifier mapping services. BridgeDb relies upon  MIRIAM URNs as globally unique identifiers.</p>
+
+
+<h3 id="CellDesigner">CellDesigner</h3>
+<p><a href="http://www.celldesigner.org/">CellDesigner</a> is a visual editor of gene-regulatory and biochemical networks, which also links directly to <a href="http://www.celldesigner.org/help/CDH_Database_01.html">various resource databases</a> such as <a href="http://www.ncbi.nlm.nih.gov/entrez/">PubMed</a>. Networks are depicted in <a href="http://www.sbgn.org/" title="Systems Biology Graphical Notation">SBGN</a>, and stored as <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> files. CellDesigner provides an option to save files containing <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">SBO</a> annotations. CellDesigner version <a href="http://www.celldesigner.org/help/CDH_NotesMiriam_02.html#NotesMiriam0201" title="MIRIAM in CellDesigner v4.1">4.1</a> allows the creation of MIRIAM annotations, as well as a means to resolve them to retrieve information from referenced URLs.
+</p>
+
+
+<h3 id="COPASI">COPASI</h3>
+<p><a href="http://www.copasi.org/">COPASI</a> is a tool for the simulation and analysis of biochemical networks. It supports models in the <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> format. COPASI allows the incorporation of MIRIAM style annotations into model files, storing both the reference to the external resource, and the relationship of that reference to the model component, using <a href="http://biomodels.net/qualifiers/" title="MIRIAM qualifiers">MIRIAM qualifiers</a>. COPASI is not currently able to export MIRIAM annotations to SBML files, though a solution is being sought. More information on supported MIRIAM annotations can be found <a href="http://www.copasi.org/tiki-index.php?page=DocumentationMiriam&amp;structure=DocumentationNew">here</a>. In addition, <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a> is used to update the list of available data types, prior to the creation of any new annotations. More detailed information on this process can be found <a href="http://www.copasi.org/tiki-index.php?page=OD.Annotating.Models.and.Model.Elements&amp;structure=OD">here</a>. Information on the COPASI file format can be found <a href="#COPASI_format">here</a>. 
+</p>
+
+
+<h3 id="cPath">cPath</h3>
+<p><a href="http://cbio.mskcc.org/cpath/">cPath</a> is a web application for collecting, storing, and querying biological pathway data, which can be exported to third-party software, such as Cytoscape, for visualization and analysis. Recent publication suggests integration of the resources listed in MIRIAM Registry to facilitate data integration.</p>
+
+
+<h3 id="E-MeP">European Membrane Protein Consortium</h3>
+<p>The <a href="http://www.e-mep.org/">European Membrane Protein Consortium (E-MeP)</a> is a European initiative devoted to the structural biology of integral membrane proteins. The E-MeP Consortium focuses particularly on membrane protein production, purification, and crystallisation; X-ray crystallography and structure determination; technology development, with a focus on high-throughput methods. For their internal perennial identification needs, the consortium used <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMURI" title="MIRIAM URI format">MIRIAM URIs</a>, as well as the resolving system of <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a>.
+</p>
+
+
+<h3 id="GetBonNie">GetBonNie</h3>
+<p><a href="http://cellsignaling.unm.edu/GetBonNie/">GetBonNie</a> is a web-based application for building, analyzing, and sharing rule-based models encoded in the BioNetGen language (BNGL). It is designed to encourage compliance with the MIRIAM Guidelines.</p>
+
+
+<h3 id="libSBML">libSBML</h3>
+<p><a href="http://sbml.org/Software/libSBML">libSBML</a> is a free, open-source application programming interface to read, write, manipulate, translate, and validate SBML files. It is written in ISO C and C++ but can be used from most commonly used programing languages. While libSBML provides the basic facilities for reading and writing MIRIAM annotations from and to models, it is beyond the scope of libSBML to provide interpretation of these terms. This function is provided by <a href="#libAnnotationSBML">other</a> libraries. 
+</p>
+
+
+<h3 id="libAnnotationSBML">libAnnotationSBML</h3>
+<p><a href="http://sbml.org/Community/Programs/libAnnotationSBML">libAnnotationSBML</a> is a java library which has been developed for the specific purpose of exploiting SBML annotations. The libAnnotationSBML library acts as a layer on top of <a href="#libSBML">libSBML</a>, linking SBML annotations to the web services that describe the annotated terms. The links between MIRIAM-compliant annotations in the SBML files and the physical locations that are referenced for each annotation is built by querying <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a>, thereby retrieving the details of each of these data types including names, URNs and physical URLs linking to specific resources.</p>
+
+
+<h3 id="MEMOSys">MEMOSys</h3>
+<p><a href="https://memosys.i-med.ac.at/MEMOSys/">MEMOSys</a>, the web based Metabolic Model System (MEMOSys) is a platform for the management, storage, and development of metabolic models. It incorporates a versioning system, providing a complete reconstruction history, and a search system. Models contain references to external databases, stored using MIRIAM URNs, and are presented to the user as hyperlinks.</p>
+
+
+<h3 id="PathText">PathText</h3>
+<p><a href="http://www.nactem.ac.uk/pathtext/" title="PathText">PathText</a> is a system designed to integrate pathway visualisation, text mining and annotation tools. It handles SBML files, and can use MIRIAM URNs to generate specific queries to assist in text mining of information.</p>
+
+
+<h3 id="PathwayCommons">Pathway Commons</h3>
+<p>The next version of <a href="http://www.pathwaycommons.org/" title="Pathway Commons">Pathway Commons</a> (currently under development) is using MIRIAM URNs for their identifier needs.</p>
+
+
+<h3 id="PathwayEditor">Pathway Editor</h3>
+<p><a href="http://www.lipidmaps.org/pathways/pathwayeditor.html">Pathway Editor</a> is a program that allows pathway creation and download fof existing pathways from selected sources such as KEGG. It uses an SBML plugin, allowing the ability to read and edit MIRIAM URNs.</p>
+
+
+<h3 id="Payao">Payao</h3>
+<p><a href="http://www.payaologue.org/">Payao</a> is a collaborative web-based platform to enable community-level sharing, annotation and curation of models. It reads SBML files, displays them using <a href="#CellDesigner">CellDesigner</a> (SBGN compliant), and will allow addition of MIRIAM URNs as tags within representations.</p>
+
+
+<h3 id="SABIO-RK_format">SABIO-RK</h3>
+<p><a href="http://sabio.villa-bosch.de/">SABIO-RK</a>: System for the Analysis of Biochemical Pathways - Reaction Kinetics (SABIO-RK) is a web-accessible curated database offering information about biochemical reactions and their kinetic properties. Data about biochemical reactions and their kinetic parameters (with their respective rate equations) can be exported in SBML, allowing its import into simulation and modelling programs supporting SBML.</p>
+
+<h3 id="SAINT">SAINT</h3>
+<p><a href="http://saint-annotate.sourceforge.net/project-summary.html">SAINT</a> (SBML Annotation Integration Interface) is an interactive <a href="http://www.cisban.ac.uk/saint">web tool</a> to annotate models with MIRIAM URNs. SAINT accepts SBML-formatted files and integrates information from multiple databases automatically, using a query translation service, and presents the user with potential new annotations which can be incorporated into a model.</p> 
+
+
+<h3 id="SBML_converters">SBML converters</h3>
+<p><a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> is one of a number of formats in which models can be encoded. Others include <a href="http://www.cellml.org/" title="CellML">CellML</a> and <a href="http://www.biopax.org/" title="BioPAX">BioPAX</a>. There are a variety of converters available to inter-convert between SBML and other encoding formats, all of which are available <a href="http://www.ebi.ac.uk/compneur-srv/sbml/converters/" title="SBML converters">here</a>. On the most basic level, the converters are all able to read MIRIAM annotations from SBML files, and reencode them to the desired format. Some converters, for example <a href="http://www.ebi.ac.uk/compneur-srv/sbml/converters/SBMLtoBioPax.html">SBML to BioPaX</a>, additionally use the annotations to query MIRIAM Registry web services, to assist in more precise representation in the target format. The converters that generate graphical representations, for example <a href="http://www.ebi.ac.uk/compneur-srv/sbml/converters/SBMLtoSVG.html">SBML to SVG</a>, also make use of <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMResources">MIRIAM Registry</a> to generate <a href="http://www.sbgn.org/" title="Systems Biology Graphical Notation">SBGN</a> diagrams.
+</p>
+
+
+<h3 id="SBMLeditor">SBMLeditor</h3>
+<p><a href="http://www.ebi.ac.uk/compneur-srv/SBMLeditor.html">SBMLeditor</a> is a low-level editing tool to facilitate the creation and editing of <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> format files. The editor, written in Java, is capable of parsing controlled annotations in this format, and validates them against the specification. In addition, the editor allows new annotations to be entered through a user dialogue. 
+</p>
+
+
+<h3 id="SBML2LaTeX">SBML2LaTeX</h3>
+<p><a href="http://www.ra.cs.uni-tuebingen.de/software/SBML2LaTeX/index.htm">SBML2LaTeX</a> is a tool to convert <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> files into a human-readable report. This report can be generated in a variety of formats, including PDF and <a href="http://en.wikipedia.org/wiki/LaTeX" title="Find out more about LaTeX">LaTeX</a>. This tool is available as a stand-alone java program, which requires libSBML 3.2 or higher, or <a href="http://webservices.cs.uni-tuebingen.de/tool_runner?tool_id=sbml2latex1" title="use SBML2LaTeX online">online</a> through a Graphical User Interface. Using this tool, MIRIAM URNs with a model file are converted into hyperlinked URLs in the human-readable documents generated, allowing manual confirmation of annotations within model files. The conversion of URNs to resolvable URLs is accomplished through MIRIAM Registry.</p>
+
+
+<h3 id="SBMM">SCMM</h3>
+<p><a href="http://www.sbmm.uma.es/">Systems Biology Metabolic Modeling assistant</a> (SBMM) is a web application to retrieve  basic metabolic information through queries, to build metabolic models, to annotate them in SBML files with MIRIAM URNs, and to generate SBGN compliant visualisations.</p>
+
+
+<h3 id="SemanticSBML">SemanticSBML</h3>
+<p><a href="http://www.semanticsbml.org/">SemanticSBML</a> is a tool designed to facilitate the creation and editing of <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> model annotations, and to further leverage on those annotations to enable model merging. The editor displays the SBML model file as a tree, where the node annotations are editable with MIRIAM URNs and <a href="http://www.ebi.ac.uk/sbo/" title="Systems Biology Ontology">SBO</a> terms. Annotations can also be automatically added by the tool, based on string matching between SBML file and database files. MIRIAM annotations provide a convergence point through which models can be merged, following the resolution of identified conflicts. The <a href="http://sourceforge.net/projects/semanticsbml/">tool</a> is written in python, and runs on Linux and Windows systems. An <a href="http://www.semanticsbml.org/webinterface.html">online version</a> is also available.
+</p>
+
+
+<h3 id="Snazer">Snazer</h3>
+<p><a href="https://www.cosbi.eu/index.php/research/prototypes/snazer">Snazer</a>, the Simulation and Networks Analyzer, is a software prototype written in Java. It is designed to aid in the visualisation, manipulation and statistical analysis of reaction networks, thereby allowing biological models and their simulation results to be managed together and shared. Snazer is able to import <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> models, and exports to a propriety XML format, as well as to <a href="http://graphml.graphdrawing.org/">GraphML</a>. Information embedded in the graph nodes as MIRIAM annotations is presented in the user interface. 
+</p>
+
+
+<h3 id="SBW">Systems Biology Workbench</h3>
+<p>The <a href="http://sys-bio.org/sbwWiki/doku.php?id=sysbio:sbw">Systems Biology Workbench</a> (SBW) is an open source software framework that allows heterologous applications, written is diverse programming languages, to use each others capabilities via a binary-encoded message system. The system provides <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> support services based on <a href="#libSBML">libSBML</a>, and includes a series of SBML translators for models implemented as 'programs', such as <a href="http://www.mathworks.com/products/matlab/" title="MATrix LABoratory">MATLAB</a>. <em><em>Ask Nico for more info!!</em></em>.
+</p>
+
+
+<h3 id="VirtualCell">Virtual Cell</h3>
+<p>The <a href="http://www.nrcam.uchc.edu/">Virtual Cell</a> (VCell) is a distributed application for use in computational modeling and analysis. The application, run through a web browser, requires new users to register to the system, and requires Java to use the interface. VCell is able to import and export <a href="http://sbml.org/" title="Systems Biology Markup Language">SBML</a> models, and permits the introduction and modification of MIRIAM-compliance annotations, as well as of MIRIAM URNs. 
+</p>
+
+
+
+<h2 id="URNs">File formats and Databases that use MIRIAM URNs</h2>
+<p>MIRIAM URNs are used as an unambiguous, standardised and perennial identifier in a variety of formats:</p>
+<ul>
+  <li id="SBML_format"><a href="http://www.sbml.org/">SBML</a>: a computer-readable format for the representation of models of biological processes. SBML uses a subset of <a href="http://www.w3.org/TR/PR-rdf-syntax/" title="RDF specification">RDF</a>, a defined syntax for the representation of metadata, combined with MIRIAM URNs to create annotation. Further information can be found <a href="http://sbml.org/Community/Wiki/About_annotations_in_Level_2" title="MIRIAM URNs, RDF and SBML">here</a>.</li>
+  <li id="SED-ML_format"><a href="http://biomodels.net/sed-ml/">SED-ML</a>: Simulation Experiment Description Markup Language (SED-ML) is an XML-based format for encoding simulation experiments, following the requirements defined in the <a href="http://biomodels.net/miase" title="Minimum Information about a Simulation Experiment">MIASE</a> guidelines. These define, for instance, the model to be used in a simualtion, parameters which need to be modified prior to a simulation, and algorithms to be used. MIRIAM URNs are used by SED-ML in defining the subject model of an experimental simulation.</li>
+  <li id="SBRML_format"><a href="http://www.comp-sys-bio.org/tiki-index.php?page=SBRML">SBRML</a>: Systems Biology Results Markup Language (SBRML) is a means of specifying quantitative results in the context of a systems biology models. As with SBML, it able to accomodate MIRIAM URNs for annotation.</li>
+  <li id="CellML_format"><a href="http://www.cellml.org/">CellML</a>: a standard based on the XML markup language, developed to store computer-based mathematical models. While MIRIAM Guidelines compliant annotations are already encodable within CellML, using for example <a href="http://dublincore.org/" title="Dublin Core Metadata standard">Dublin Core</a>, a system for utilising MIRIAM URNs is currently <a href="http://www.ncbi.nlm.nih.gov/pubmed/19380315" title="Reference for MIRIAM URNs in CellML">in progress</a>.</li>
+  <li id="BioPax_format"><a href="http://www.biopax.org/">BioPAX</a>: a format for the exchange and visualisation of biological pathway data. We are currently working with this community in order to standardise the perennial identification of the cross-refererences.</li>
+  <li id="PSI-MI_format"><a href="http://www.psidev.info/">PSI-MI</a>: the Proteomics Standards Initiative's 'Molecular Interaction' format is a community standard data model for the representation and exchange of protein interaction data. We are currently working with this group in order to standardise the database names used in their <a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=MI" title="MI ontology through OLS">controlled vocabularies</a>.</li>
+  <li id="COPASI_format"><a href="http://www.copasi.org/tiki-index.php?page_ref_id=128">CopasiML</a>: CopasiML is the native file format for <a href="#COPASI" title="COPASI tool">COPASI</a>, and is XML-based. It differs from SBML in that it also stores information regarding simulation instructions or plotting of results, which does not fit the SBML schema; SBML defers this type of data to <a href="#SED-ML_format">SED-ML</a>.</li>
+  <li id="B-Net_format"><a href="http://www.comp-sys-bio.org/yeastnet/v4/simpleSearch.php">B-Net</a>: the YeastNet <a href="http://www.comp-sys-bio.org/yeastnet/">portal</a> provides access to the <a href="#yeast consensus">consensus yeast metabolic network reconstruction</a>. This highly annotated network is periodically updated through community collaboration. The model itself is made available as SBML files, annotated with MIRIAM URNs, or can be queried through the relational database B-Net. Queries generate participating reactions, which themselves may also be downloaded as MIRIAM URN annotated SBML files.</li>
+</ul>
+
+
+<h2 id="Notable_works">Large Scale modeling efforts using MIRIAM</h2>
+<p>
+  Some of the large scale modeling efforts that have used the MIRIAM Guidelines, MIRIAM URIs for annotation, and MIRIAM Registry are highlighted below.
+</p>
+
+<ul>
+  <li id="Yeast_reconstruction"><a href="http://www.comp-sys-bio.org/yeastnet/" title="YeastNet portal">Consensus yeast metabolic reconstruction</a>: a community-level, collaborative effort was used to generate a yeast metabolic consensus model. This work entailed a large annotational effort, using MIRIAM URIs, and verification of correct annotation using MIRIAM Registry. The yeast metabolic reconstruction contains 1857 reactions, with 4861 model component annotations using MIRIAM URIs.</li>
+  <li id="Human_reconstruction">Consensus human metabolic reconstruction: created in analogous manner to that for the <a href="#Yeast reconstruction">yeast consensus model</a>, this is another community-level, collaborative effort to generate a consensus model. To date, this metabolic reconstruction contains 8866 reactions, with 66968 model component annotations using MIRIAM URNs. This model is not yet published.</li>
+  <li id="Yeast_reconstruction2">Yeast molecular interaction network reconstruction: this reconstruction integrates protein synthesis pathways, a metabolic network, and a protein-protein interaction network. The total number of different molecular species and their connecting interactions in this reconstruction is ~67,000, with 36265 model component annotations using MIRIAM URNs.</li>
+</ul>
+
+
+<h2 id="Contact">Contact us</h2>
+<p>
+  Please <a href="mdb?section=contact" title="Contact information">contact us</a> if you would like to add your tool to this list, or with any inaccuracies or concerns you wish to draw to our attention.
+</p>
+
+<br />

@@ -1,0 +1,273 @@
+<h2>URI based identification systems</h2>
+
+<!-- table of contents -->
+<div class="toc_box">
+    <div class="toc_box_heading">
+        Table of contents
+    </div> 
+    <div class="toc_box_content"><!-- style="overflow: visible; display: block;" -->
+        <ul>
+            <li><a href="#ExistingSchemes" title="Existing Schemes">Existing Schemes</a>
+                <ul>
+                    <li><a href="#LSID" title="Life Science Identifiers">LSID</a></li>
+                    <li><a href="#LSRN" title="Life Science Record Name">LSRN</a></li>
+                    <li><a href="#SharedName" title="Shared Names">Shared Names</a></li>
+                    <li><a href="#PURL" title="Persistent Uniform Resource Locators">PURL</a></li>
+		<li><a href="#DOI" title="Digital Object Identifiers">DOI</a></li>
+                    <li><a href="#MIRIAM" title="MIRIAM URIs and MIRIAM Registry">MIRIAM URIs</a></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="#Comparison" title="Identifier schemes characteristics comparison">Identifier scheme characteristics comparison</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<p style="color:#e33e3e; font-weight:bold;">
+  We have tried to provide objective information on this page. If you believe it contains inaccuracies, omissions or misinterpretations, then please <a href="@MIR_DYNAMIC_URL@/mdb?section=contribute#team" title="Contact details">contact us</a> so that we can rectify the situation.
+</p>
+
+<p>
+    The major purpose of any identification schemes should be to address the following issues:
+</p>
+<ul>
+	<li>persistence: association of an identifier <b>permanently</b> with a piece of information</li>
+	<li>uniqueness: association of a <b>single</b> identifier with a piece of information</li>
+	<li>unambiguousness: association of an identifier <b>unmistakably</b> with a piece of information</li>
+</ul>
+<p>
+	There are several <abbr title="Uniform Resource Identifier">URI</abbr> schemes, besides the MIRIAM one. The most common or well-known efforts are described below, together with explanation of some technical points that the systems entail. An additional point that should be borne in mind is that there is a difference between a physical resource (URL) and  a URI. Both can be used as identifiers, but have different limitations.
+</p>
+
+
+<h3 id="ExistingSchemes">Existing Schemes</h3>
+
+
+<h4 id="LSID">Life Science Identifiers</h4>
+<p>
+    <a href="http://en.wikipedia.org/wiki/LSID" title="LSID on Wikipedia">LSIDs</a> are <em>Life Science Identifiers</em>, and were developed by IBM to provide location-independent resource identifiers. For a data provider to associate their records with LSIDs, they are required to register a namespace identifier with the <a href="http://www.tdwg.org/activities/online-services/lsid-authority-ids/" title="LSID Authority">LSID Authority</a>. LSIDs take the form 'URN label:Authority identifier:Namespace Identifier:Object Identifier:Optional Revision Identifier', for example: <code>urn:lsid:ubio.org:namebank:11815</code>.
+</p>
+<h5>Current limitations:</h5>
+<ul>
+    <li>To use LSIDs, <b>data providers</b> must register their resources with the LSID Authority.</li> 
+    <li>LSIDs, as they do not use HTTP URIs, are not directly resolvable.</li>
+    <li>Resolving an LSID will only ever generate a single referenced URL.</li>
+</ul>
+
+
+<h4 id="LSRN">Life Science Record Names</h4>
+<p>
+    <a href="http://lsrn.org/" title="LSRN website">LSRNs</a> are <em>Life Science Record Names</em>, and are used to identify records in Life Science databases. This effort comprises a centralised repository of identifiers and schemas, and defines a prefix (e.g GO: for <a href="http://www.geneontology.org/" title="Gene Ontology">Gene Ontology</a>) for registered databases. It also provides mappings of LSRNs to current URL records. The <a href="http://www.lsrn.org/lsrn/registry.html" title="LSRN Schema Registry">registry</a> itself is based on the cross-referenced resources used in <a href="http://www.geneontology.org/cgi-bin/xrefs.cgi" title="Geneontology cross-references">Gene Ontology</a> and similar sources. While an LSRN itself is not a valid URI, it can be used to construct one: LSRNs take the form 'database_abbreviation:record_identifier', for example: <code>PMID:18078503</code>, which can be transformed into <a href="http://lsrn.org/PMID:18078503" title="PMID:18078503 via LSRN">http://lsrn.org/PMID:18078503</a>.
+</p>
+<p style="color:#e33e3e; font-weight:bold;">
+  Note: The information stored by the LSRN repository has been subsumed into the MIRIAM Registry. LSRN will not be developed further (deprecated), and has been replaced by <a href="#MIRIAM" title="MIRIAM URIs">MIRIAM URIs</a> using the Identifiers.org resolving system. 
+</p>
+
+<h5>Current limitations:</h5>
+<ul>
+    <li>The registry is available to edit by anyone. Some changes (for example the ones dealing with the resolvability) must be specifically approved or rejected by an editor, others are directly committed without any review.</li>
+    <li>There are no services provided to interact with the registry (for example to generate LSRNs).</li>
+    <li>An LSRN needs to be modified to generate a URI.</li>
+    <li style="color:#e33e3e; font-weight:bold;"> Replaced by <a href="#MIRIAM" title="MIRIAM URIs">MIRIAM URIs</a>. </li>
+</ul>
+
+
+<h4 id="SharedName">Shared Names</h4>
+<p>
+    The <a href="http://sharedname.org" title="Shared Names">Shared Names</a> initiative aims to assign URIs as names for publicly available biomedical information records. While still a developing effort, initial population of the list of Shared Names will be drawn from <a href="http://www.geneontology.org/cgi-bin/xrefs.cgi" title="Geneontology cross-references">Gene Ontology</a>, <a href="http://www.expasy.org/links.html" title="Enzyme cross-references">Enzyme</a> and <a href="http://pfam.sanger.ac.uk/about" title="Pfam Database">Pfam</a> database cross-references. The Shared Name URIs are proposed to resolve to selectable format encodings of a record, for example html, rdf, xml. Amongst the issues that remain to be resolved are the form of the URI itself, which may be of a form similar to http://sharename.org/uniprot/Q9ULZ0. The URI would be resolved to a URL through redirection using a set of active servers, and probably including the <a href="#PURL" title="PURL information">PURL</a> server.
+</p>
+<h5>Current limitations:</h5>
+<ul>
+    <li>Shared Names is currently in a conceptual phase, with no working examples.</li>
+    <li>The main entry page and the <a href="http://sharedname.org/page/Issues" title="Shared Names issues">issues list</a> would appear to suggest that no progress has been made recently.</li>
+    <li>This initiative is hard to judge in its present state, due to its immaturity.</li>
+</ul>
+
+
+<h4 id="PURL">PURLs</h4>
+<p>
+    <a href="http://en.wikipedia.org/wiki/PURL" title="Persistent Uniform Resource Locators on Wikipedia">PURLs</a> are <em>Persistent Uniform Resource Locators</em>, and were introduced in 1995 by the <a href="www.oclc.org/" title="Online Computer Library Center">OCLC</a> to provide a single URL that permanently identifies a resource on the World Wide Web. It functions as a simple redirection from an intermediate resolution service, which associates the PURL with a target URL endpoint, returning the target to the client. This provides a persistent URI, in the form of a URL, where the location to which it resolves may be modified over time, as necessary. The advantage of PURLS lies in their URL form, which means there are directly usable on the Web. An example of a PURL is: <a href="http://purl.obofoundry.org/obo/OBI_0000225" title="PURL for: OBI_0000225" class="external">http://purl.obofoundry.org/obo/OBI_0000225</a>.
+</p>
+<h5>Current limitations:</h5>
+<ul>
+    <li>Resolving a PURL will only ever generate a single referenced URL.</li>
+    <li>The ability to generate a PURL requires registration with the system.</li>
+    <li>Registration must be completed for each PURL resolver.</li>
+    <li>Unique identifiers are problematic, since there may be different resolvers, registered by different users, which resolve to the same physical URL.</li>
+    <li>There is no centralised governance of PURL Resolvers, and so no means to search for existing services which may be reused.</li>
+</ul>
+
+
+<h4 id="DOI">DOI</h4>
+<p>
+    <a href="http://www.doi.org/" title="Digital Object Identifiers">DOIs</a> are <em>Digital Object Identifiers</em>, and were first used by applications in 2000. They were created as a system by The International Digital Object Identifier Foundation (<a href="http://www.doi.org/welcome.html" title="IDF on DOI site">IDF</a>) as a means to provide a persistent identifier for objects on the World Wide Web. Once assigned, as with PURLs, a DOI is resolved through a simple redirection.
+</p>
+<h5>Current limitations:</h5>
+<ul>
+    <li>To use DOIs, <b>data providers</b> must register with an IDF appointed agency, which requires a fee, though the system overall is 'not-for-profit'.</li>
+    <li>Resolving a DOI will only ever generate a single referenced URL.</li>
+    <li>DOIs do not reuse data providers' identifiers.</li>
+</ul>
+
+
+<h4 id="MIRIAM">MIRIAM URIs</h4>
+<p>
+    The <a href="http://www.ebi.ac.uk/miriam/" title="MIRIAM Registry">MIRIAM Registry</a> system was originally created to provide support for the use of MIRIAM URIs, which are part of the <a href="http://biomodels.net/miriam/" title="Minimal Information Required In the Annotation of Models">MIRIAM Guidelines</a>. Namespace information stored in the MIRIAM Registry can be used to generate URIs, which themselves can be resolved through the <a href="http://identifiers.org/" title="Identifiers.org resolving layer">Identifiers.org</a> system. This system resolves URIs to an intermediate page listing all possible resolving locations for an identifier. An example of a <a href="http://identifiers.org/pubmed/22140103" title="identifiers.org resolving">MIRIAM URI</a> resolved through the Identifiers.org system. Nowadays, these URIs can, and are, being used outside the context of models. 
+</p>
+<h5>Current limitations:</h5>
+<ul>
+    <li>The ability to use a MIRIAM URI requires the existence of the corresponding <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#DataCollection" title="MIRIAM data collection">data collection</a> in the MIRIAM Registry. Requests for new data collections can be made using <a href="@MIR_DYNAMIC_URL@/mdb?section=submit" title="Submit a new data collection to MIRIAM Registry">this form</a> and can be submitted freely by anyone.</li>
+
+</ul>
+<h5>Advantages:</h5>
+<ul>
+    <li>Since MIRIAM URIs use HTTP URLs, they are directly resolvable.</li>
+    <li>MIRIAM URIs do not belong to data providers, and do not need to be registered by them.</li>
+    <li>Anybody can submit new data collections and therefore contribute to the creation of new MIRIAM URIs. The <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#RegistryRequirements" title="Requirements for new data collections">requirements for new data collections are listed on the website</a>.</li>
+    <li>The data provided by MIRIAM Registry is curated: everything has been checked and can be trusted. Errors and modifications to existing entries can also be made.</li>
+    <li>MIRIAM Registry has a dedicated team of curators and developers, and is not reliant of editors to approve additional resources.</li>
+    <li>MIRIAM Registry is continuously updating its records in order to offer the most up to date information available.</li>
+    <li>MIRIAM URIs resolve to an intermediate page, listing all possible resolving locations (or resources), and users of the system can select the most appropriate hyperlink for their needs.</li>
+    <li>The resolvability of MIRIAM URIs is monitored daily (automatically). This allows rapid identification of any changes in the way the data can be accessed for any resources, and allows curators to take remediatory action.</li>
+    <li>MIRIAM URIs are used and supported by numerous tools and data resources.</li> <!-- , cf. <a href="@MIR_DYNAMIC_URL@/mdb?section=use" title="MIRIAM URIs usage and support">the usage page</a> for more information -->
+    <li>MIRIAM Registry provides programmatic access to its data via <a href="mdb?section=ws" title="MIRIAM Registry Web Services">SOAP and REST Web Services</a></li>
+    <li>MIRIAM Registry provides access to its entire dataset via an <a href="@MIR_DYNAMIC_URL@/export/" title="MIRIAM Registry export">XML export</a>.</li>
+</ul>
+
+
+<!--
+CREATE A MATRIX
+
+Unique and unambiguous
+  an identifier must never be assigned to two different objects
+Perennial
+  the identifier is constant and its lifetime is permanent
+Standards compliant
+  must conform on existing standards, such as URI
+Resolvable
+  identifiers must be able to be transformed into locations of online resources storing the object or information about the object
+Free for use
+  everybody should be able to use and create identifiers, freely and at no cost
+
+-->
+
+
+<h3 id="Comparison">Identifier scheme characteristics comparison</h3>
+
+<table id="matrix_shemes" class="nothing">
+	<!-- characteristics -->
+	<tr>
+		<th>Scheme</th>
+		<th>Uniqueness</th>
+		<th>Standard compliance</th>
+		<th>Resolvability</th>
+		<th>Creation</th>
+		<th>Curation</th>
+	</tr>
+	<!-- identifier schemes (by alphabetical order, except MIRIAM URI, at the end) -->
+	<tr>
+		<td class="matrix_shemes_header">DOI</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_bad">no</td>
+		<td class="matrix_shemes_med"><abbr title="Requires modification to the identifier and the usage of a provided resolver">yes (*)</abbr></td>
+		<td class="matrix_shemes_bad" style="background-color: white;"><img src="@MIR_STATIC_URL@/img/red_access.png" title="Assignment of DOI names requires a fee and agreement to follow the defined standard and rules" alt="red lock icon" /> (*)</td>   <!-- cf. section 9.1 from http://www.doi.org/handbook_2000/intro.html -->
+		<td class="matrix_shemes_bad">no</td>
+	</tr>
+	<tr>
+		<td class="matrix_shemes_header">LSID</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_bad">no</td>
+		<td class="matrix_shemes_med" style="background-color: white;"><img src="@MIR_STATIC_URL@/img/orange_access.png" title="LSIDs are decentralized, collaborative and free. Individual institutions - the custodians of data - manage the deployment of LSIDs for their own shareable data assets rather than relying on a centralized issuing authority. No activity for the past 3 years." alt="red lock icon" /> (*)</td>   <!-- cf. http://wiki.tdwg.org/twiki/bin/view/GUID/AustralasianBiodiversityFederationLsidPolicy -->
+		<td class="matrix_shemes_bad">no</td>
+	</tr>
+	<tr>
+		<td class="matrix_shemes_header">LSRN</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_bad">no</td>
+		<td class="matrix_shemes_med"><abbr title="Requires modification to the identifier and the usage of a provided resolver">yes (*)</abbr></td>
+		<td class="matrix_shemes_good" style="background-color: white;"><img src="@MIR_STATIC_URL@/img/green_access.png" title="Everybody can suggest new data providers" alt="green lock icon" /> (*)</td>
+		<td class="matrix_shemes_bad">no</td>
+	</tr>
+	<tr>
+		<td class="matrix_shemes_header">PURL</td>
+		<td class="matrix_shemes_bad">no</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good" style="background-color: white;"><img src="@MIR_STATIC_URL@/img/green_access.png" title="Everybody can create new URLs" alt="green lock icon" /></td>
+		<td class="matrix_shemes_bad">no</td>
+	</tr>
+	<tr>
+		<td class="matrix_shemes_header">Shared Name</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_na"><abbr title="System not yet implemented">? (*)</abbr></td>
+		<td class="matrix_shemes_na"><abbr title="System not yet implemented">? (*)</abbr></td>
+	</tr>
+	<tr>
+		<td class="matrix_shemes_header">MIRIAM URI</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good">yes</td>
+		<td class="matrix_shemes_good"><abbr title="Using Identifiers.org URLs">yes (*)</abbr></td>
+		<td class="matrix_shemes_good" style="background-color: white;"><img src="@MIR_STATIC_URL@/img/green_access.png" title="Everybody can suggest new data providers" alt="green lock icon" /></td>
+		<td class="matrix_shemes_good">yes</td>
+	</tr>
+</table>
+
+<p>
+	<b>(*)</b> If you move your mouse above the cell marked with an asterisk, you'll be able to see more information.
+</p>
+<br />
+
+<h4>Uniqueness</h4>
+<p style="padding-left: 1em;">
+	Whether or not two different identifiers (in a given scheme) can be assigned to the same entity.
+</p>
+<p style="padding-left: 1em;">
+	For example, one can find the following (different) PURLs which identify the same thing: 
+</p>
+<ul>
+	<li>http://purl.org/obo/go_0005829</li>
+	<li>http://purl.uniprot.org/go/0005829</li>
+	<li>http://purl.obofoundry.org/obo/go_0005829</li>
+</ul>
+
+<h4>Standard compliance</h4>
+<p style="padding-left: 1em;">
+	Represents the adherence of a scheme to a defined, publicly available standard, which in some way meets community approval (for example <a href="http://tools.ietf.org/html/rfc3986" title="RFC3986: Uniform Resource Identifier (URI): Generic Syntax">URI</a>, <a href="http://tools.ietf.org/html/rfc2141" title="RFC2141: URN Syntax">URN</a>, ...).
+</p>
+
+<h4>Resolvability</h4>
+<p style="padding-left: 1em;">
+	Represents the capacity for an identifier (employing a particular scheme) to be resolved to physical location(s) on the World Wide Web. Even though many of these solutions were initially designed to simply identify a piece of information, it is now becoming increasingly important to be able to access the data or information about the data.
+</p>
+<p style="padding-left: 1em;">
+    URLs based technologies can theoretically directly handle this kind of access. However, solutions like Shared Names and PURLs still requires the usage of a resolver; which provides the necessary redirection work between the persistent URL and the non persistent one actually used by a specific resource. Also, solutions based on PURLs (so potentially true for Shared Names too) have another, more important, drawback: there can be only a one to one mapping between the identifier (a URL in this case) and the physical location where the information can be obtained.
+</p>
+<p style="padding-left: 1em;">
+    Solutions relying on a resolver can theoretically (and in the case of MIRIAM Registry, <b>actually do</b>) handle a one to many mapping between the identifier (a URI) and the physical locations (URLs) which serve the data. The key difference between these two methodologies lies in whether the identifier for the information is separated from the resource that actually provides that information. Schemes such as PURL lock the two pieces of information together, hence are only able to provide a one-to-one mapping. URI Schemes, such as MIRIAM, dissociate the identifier from the physical resource, facilitating a more flexible one-to-many mapping. 
+</p>
+<p style="padding-left: 1em;">
+    All solutions providing resolvability are initially liable to the <a href="http://en.wikipedia.org/wiki/SPOF" title="Single point of failure">single point of failure</a> situation. But all of these solutions can overcome this issue by setting up mirrors of their resolvers.
+</p>
+
+<h4>Creation</h4>
+<p style="padding-left: 1em;">
+	Describes the procedure by which an identifier for a particular scheme can be created. We mainly focus on the openness (publicly available and accessible) and cost of this creation procedure. The timeliness of the process is not considered.
+</p>
+
+<h4>Curation</h4>
+<p style="padding-left: 1em;">
+	Whether there exists a central system/procedure to ensure that the identifiers created adhere to their scheme.  This should includes various elements, some related to the scheme (such as validity, consistency, coherency, etc.), others related to the attached physical locations (such as existence, maintenance, etc.).
+</p>
+
+<h4>Other characteristics</h4>
+
+<h5>Coverage</h5>
+<p style="padding-left: 1em;">
+  It is important, when comparing such technologies, to consider the coverage of these solutions: which datasets can be identified. Unfortunately, such measure is not easy to obtain for most solutions, except for LSRN and MIRIAM Registry.
+</p>
+
+<br />

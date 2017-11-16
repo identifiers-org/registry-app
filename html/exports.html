@@ -1,0 +1,70 @@
+<p>
+    Access to the various exports provided by the Registry.
+</p>
+
+<h3>XML</h3>
+
+<p>
+    On demand generation of the whole Registry's dataset in <abbr title="eXtensible Markup Language">XML</abbr>:
+</p>
+<p style="padding-left: 2em;">
+    <a href="@MIR_DYNAMIC_URL@/export/xml/" title="XML export of the Registry">Download dataset (in XML)</a>
+</p>
+
+
+<h5>Custom download</h5>
+
+<p>
+    Alternatively, with this option, you can choose the name of the returned file:
+</p>
+
+<form method="post" action="../XMLExport">
+    <p>
+        File name (without any extension): <input type="text" name="getNameParam" size="30" id="fileName" style="margin-left: 1em;" /> <input type="submit" value="Generate and download" class="submit_button" style="margin-left: 1em;" />
+    </p>
+</form>
+
+
+<!-- <em style="padding-left:1em; color:rgb(230,85,85);">Updated</em> -->
+<h5>XML Schema</h5>
+
+<p style="padding-left: 2em;">
+    <a href="@MIR_STATIC_URL@/xml/MiriamXML.xsd" title="Download XML Schema used for the Registry XML export">Download XML Schema</a> 
+</p>
+
+
+<h3>RDF</h3>
+
+<p>
+	On demand generation of the whole Registry's dataset in <a href="http://www.w3.org/TR/PR-rdf-syntax/" title="Resource Description Framework" class="external">RDF</a>:
+</p>
+<ul>
+	<li><a href="@MIR_DYNAMIC_URL@/export/registry.rdf" title="Registry dataset descriptor in RDF/XML">Download dataset (in RDF/XML)</a></li>
+	<li><a href="@MIR_DYNAMIC_URL@/export/registry.ttl" title="Registry dataset descriptor in Turtle">Download dataset (in Turtle)</a></li>
+</ul>
+
+<h3>Dataset descriptor (VoID)</h3>
+<p>
+	On demand generation of the Registry's dataset descriptor (using the <a href="http://www.w3.org/TR/ld-glossary/#void" title="Vocabulary of Interlinked Datasets" class="external">VoID</a> vocabulary):
+</p>
+<ul>
+	<li><a href="@MIR_DYNAMIC_URL@/void.rdf" title="Registry dataset descriptor in RDF/XML">Download dataset descriptor (in RDF/XML)</a></li>
+	<li><a href="@MIR_DYNAMIC_URL@/void.ttl" title="Registry dataset descriptor in Turtle">Download dataset descriptor (in Turtle)</a></li>
+</ul>
+
+<!--
+<h3>SQL dump</h3>
+
+<p>
+    <acronym title="Structured Query Language">SQL</acronym> dump of the structure and the content of the database (to be able to run your own local copy of the Registry).
+</p>
+<p style="padding-left: 2em;">
+    <i>Coming soon...</i>
+</p>
+-->
+
+<!-- some useful scripts -->
+<script type="text/javascript">
+    // focus sur le champ de saisie du login
+    document.forms[0]['getNameParam'].focus();
+</script>

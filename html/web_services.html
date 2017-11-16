@@ -1,0 +1,187 @@
+<h2 class="icon icon-functional" data-icon="t">Web Services</h2>
+
+<p>
+	MIRIAM Registry provides some SOAP and REST Web Services for programmatic access.
+</p>
+
+
+<h3>Services available</h3>
+
+<h4>SOAP Web Services</h4>
+<p>
+	All the services provided are listed in detail <a href="mdb?section=ws_help" title="Available services">here</a>.
+</p>
+<p>
+	Alternatively, you can access to the <abbr title="Web Services Description Language">WSDL</abbr> file <a href="http://www.ebi.ac.uk/miriamws/main/MiriamWebServices?wsdl" title="WSDL file of MIRIAM Web Services">here</a>.
+</p>
+
+<h4>REST Web Services</h4>
+<p>
+    REST Web Services are now available from <a href="http://www.ebi.ac.uk/miriamws/main/rest/" title="MIRIAM Registry REST Web Services">http://www.ebi.ac.uk/miriamws/main/rest/</a> for you to test and give us feedback! <span style="color:red; font-weight:bold;padding-left:1em;">BETA</span>
+</p>
+
+<h3>Java Library</h3>
+<p>
+	In order to communicate with the SOAP Web Services of MIRIAM Registry in a Java program, you can use the library provided below. It is distributed under the terms of the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" title="GNU Lesser General Public License, version 2.1">GNU Lesser General Public License</a> as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+</p>
+
+<h4>Get the library via Maven</h4>
+<p>
+    The library is available from the EBI Maven repository.
+</p>
+<p>
+    You just need to add the following to your <em>pom.xml</em> to get it and all its dependencies:
+</p>
+<pre class="source">
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;uk.ac.ebi.miriam&lt;/groupId&gt;
+      &lt;artifactId&gt;miriam-lib&lt;/artifactId&gt;
+      &lt;version&gt;1.1.6&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  
+  &lt;repositories&gt;
+	&lt;repository&gt;
+	  &lt;id&gt;ebi-repo&lt;/id&gt;
+	  &lt;name&gt;The EBI internal repository&lt;/name&gt;
+	  &lt;url&gt;http://www.ebi.ac.uk/~maven/m2repo&lt;/url&gt;
+	  &lt;releases&gt;
+	    &lt;enabled&gt;true&lt;/enabled&gt;
+	  &lt;/releases&gt;
+	  &lt;snapshots&gt;
+	    &lt;enabled&gt;false&lt;/enabled&gt;
+	  &lt;/snapshots&gt;
+	&lt;/repository&gt;
+  &lt;/repositories&gt;
+</pre>
+<p>
+    You may still need to manually add some Sun JARs, cf. <a href="http://maven.apache.org/guides/mini/guide-coping-with-sun-jars.html" title="Maven documentation: Coping with Sun JARs">this page from the Maven documentation</a> for more information.
+</p>
+
+<h4>Get the library via SourceForge</h4>
+<p>	
+	Two versions are available for download from <a href="http://sourceforge.net/projects/identifiers-org/files/Miriam%20Java%20Library/" title="Download MIRIAM Registry library from SourceForge.net">the SourceForge project</a> (latest release: 1.1.6):
+</p>
+<ul>
+	<li>light version (you need a couple of external jars to use it)</li>
+	<li>standalone version (all the dependencies are included in the jar)</li>
+</ul>
+<p>
+	Here are all the dependencies (for the light version):
+</p>
+<ul>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/axis.jar" title="axis.jar">axis</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/commons-discovery-0.2.jar" title="commons-discovery-0.2.jar">commons-discovery</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/commons-logging-1.1.jar" title="commons-logging-1.1.jar">commons-logging</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/jaxrpc.jar" title="jaxrpc.jar">jaxrpc</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/log4j-1.2.8.jar" title="log4j-1.2.8.jar">log4j</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/saaj.jar" title="saaj.jar">saaj</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/wsdl4j-1.5.1.jar" title="wsdl4j-1.5.1.jar">wsdl4j</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/activation-1.1.jar" title="activation-1.1.jar">activation</a></li>
+	<li><a href="http://www.ebi.ac.uk/miriam/static/main/MiriamLib/dependencies/mail-1.4.jar" title="mail-1.4.jar">mail</a></li>
+</ul>
+<p>
+	Note: you can find the latest version of each of these packages on their official web site.
+</p>
+<p>
+    Java 1.5 (or newer) is required in order to use the library. 
+</p>
+
+<h4>JavaDoc</h4>
+<p>
+	The documentation (javadoc) can be found <a href="http://www.ebi.ac.uk/miriam/static/main/lib-doc/index.html" title="documentation of the library">here</a>.
+</p>
+
+<h4>Tutorial</h4>
+<p>
+	Here is a sample program to show how to use the library:
+</p>
+<pre class="source">
+import uk.ac.ebi.miriam.lib.*;
+
+public class WebServicesTesting
+{
+    public static void main(String[] args)
+    {
+        // Creation of the link to the Web Services
+        MiriamLink link = new MiriamLink();
+        
+        // Sets the address to access the Web Services
+        link.setAddress("http://www.ebi.ac.uk/miriamws/main/MiriamWebServices");
+        
+        // Gets some information about the library
+        System.out.println("Are you using the latest Java library available:");
+        System.out.println("\t" + link.isLibraryUpdated());
+        
+        // Gets the physical locations corresponding to a Identifiers.org URI
+        System.out.println("Physical locations available for the entity identified by official Identifiers.org URI: 'http://identifiers.org/taxonomy/9606':");
+        for (String loc: link.getLocations(link.convertURL("http://identifiers.org/taxonomy/9606")))
+        {
+            System.out.println("\t- " + loc);
+        }
+        
+        // Gets the physical locations corresponding to a MIRIAM URN
+        System.out.println("Physical locations available for the entity identified by outdated MIRIAM URN: 'urn:miriam:ec-code:1.1.1.1':");
+        for (String loc: link.getLocations("urn:miriam:taxonomy:9606"))
+        {
+            System.out.println("\t- " + loc);
+        }
+		
+        // Gets the physical locations corresponding to an obsolete MIRIAM URN
+        System.out.println("Physical locations available for the entity identified by obsolete MIRIAM URN: 'urn:miriam:obo.go:GO%3A0045202':");
+        for (String loc: link.getLocations("urn:miriam:obo.go:GO%3A0045202"))
+        {
+            System.out.println("\t- " + loc);
+        }
+        
+        // Converts an obsolete URI into the valid one
+        System.out.println("Get the official Identifiers.org URI of the obsolete URI: urn:lsid:ec-code.org:chebi:CHEBI:17891");
+        System.out.println("\t" + link.convertURN("urn:lsid:ec-code.org:1.1.1.1"));
+		
+        // Tests if the identifier of an entity matches the pattern stored for its data collection
+        System.out.println("Is 'X62158' a valid identifier for a UniProt entity? ");
+        System.out.println("\t" + link.checkRegExp("X62158", "uniprot"));  
+        
+        // and much more...
+    }
+}
+</pre>
+
+<p>
+  And the result should be:
+</p>
+
+<div class="xround"><b class="xtop"><b class="xb1">&nbsp;</b><b class="xb2">&nbsp;</b><b class="xb3">&nbsp;</b><b class="xb4">&nbsp;</b></b><div class="xboxcontent">
+<pre class="indentParagraph">
+	Are you using the latest Java library available:
+		true
+	Physical locations available for the entity identified by official Identifiers.org URI: 'http://identifiers.org/taxonomy/9606':
+		- http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=9606
+		- http://www.uniprot.org/taxonomy/9606
+		- http://www.ebi.ac.uk/ena/data/view/Taxon:9606
+		- http://purl.bioontology.org/ontology/NCBITAXON/obo:NCBITaxon_9606
+	Physical locations available for the entity identified by outdated MIRIAM URN: 'urn:miriam:ec-code:1.1.1.1':
+		- http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=9606
+		- http://www.uniprot.org/taxonomy/9606
+		- http://www.ebi.ac.uk/ena/data/view/Taxon:9606
+		- http://purl.bioontology.org/ontology/NCBITAXON/obo:NCBITaxon_9606
+	Physical locations available for the entity identified by obsolete MIRIAM URN: 'urn:miriam:obo.go:GO%3A0045202':
+		- http://www.ebi.ac.uk/QuickGO/GTerm?id=GO%3A0045202
+		- http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO%3A0045202
+		- http://www.informatics.jax.org/searches/GO.cgi?id=GO%3A0045202
+		- http://purl.bioontology.org/ontology/GO/GO%3A0045202
+		- http://www.pantherdb.org/panther/category.do?categoryAcc=GO%3A0045202
+	Get the official Identifiers.org URI of the obsolete URI: urn:lsid:ec-code.org:chebi:CHEBI:17891
+		http://identifiers.org/ec-code/1.1.1.1
+	Is 'X62158' a valid identifier for a UniProt entity? 
+		false
+</pre>
+</div><b class="xbottom"><b class="xb4">&nbsp;</b><b class="xb3">&nbsp;</b><b class="xb2">&nbsp;</b><b class="xb1">&nbsp;</b></b></div>
+
+<!-- 
+<h2>Warning!</h2>
+<p class="warning">
+	This version of the library is a beta. You are welcome to inform us of any special features found.
+</p>
+-->

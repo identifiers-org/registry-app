@@ -1,0 +1,283 @@
+<h2>MIRIAM URN Scheme: Request for Community Feedback</h2>
+
+
+<p>Dear MIRIAM Resources user,</p>
+
+<p>
+    MIRIAM Resources continues to grow in size and number of users. We are in constant discussions with both our current user base, as well as with new potential groups and users in order to improve the services we provide. With reference to some recent discussions with various groups who are looking at adopting MIRIAM URNs, we would like to poll our existing and future users on some potential changes, in particular regarding the encoding of MIRIAM URNs.
+</p>
+<p>
+    Detailed below is the list of topics for which we would appreciate any input you may have.
+</p>
+<p>
+    Finally, please take a few minutes to fill our very short <a href="http://www.surveymonkey.com/s/SF6H9HX" title="MIRIAM URN survey" class="external">online survey</a>. 
+</p>
+
+<p>
+    Thank you.
+</p>
+
+
+<!--				TABLE OF CONTENTS		-->
+
+<h2>Table of contents</h2>
+<ul>
+	<li><a href="#Intro" title="Introduction">Introduction</a></li>
+	<li><a href="#XML-URNs" title="URNs in XML">Specific usages of MIRIAM URNs in XML based formats</a>
+		<ul>
+			<li><a href="#Id_tags" title="Identifiers as tags">Usage of identifiers as XML tags</a></li>
+			<li><a href="#tag_tech" title="Tags technical requirements">Technical requirements for XML tags</a></li>
+			<li><a href="#MIRIAM_tags" title="MIRIAM tags">Potential issues with using MIRIAM URNs as tag names</a></li>	
+		</ul>
+	</li>
+	<li><a href="#Colons" title="colon usage">Usage of ':' in identifiers of MIRIAM URNs</a></li>
+	<li><a href="#PotentialSolutions" title="Potential solutions">Possible solutions</a>
+		<ul>
+			<li><a href="#remove_idspace" title="idspace removal">Removal of the "idspace name" for OBO ontologies</a></li>
+			<li><a href="#fuse_idspace" title="idspace fusion">Fusion of the "idspace name" with the MIRIAM data type namespace</a></li>
+			<li><a href="#altern_colon" title="Alternative colon encoding">Different encoding for ':'</a></li>
+			<li><a href="#use_URLs" title="Switch to URLs">Drop URNs and use URLs</a></li>
+			<li><a href="#split_encoding" title="Split current encoding">Split across "%3A" encoding</a></li>
+		</ul>
+	</li>
+	<li><a href="#Summary" title="Summary">Summary / Discussion</a></li>
+</ul>
+
+
+<h2 id="Intro">1. Introduction</h2>
+
+<p>
+    <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#MIRIAMResources" title="MIRIAM Resources FAQ">MIRIAM Resources</a> retains information for a plethora of identifier formats, registered against various <a href="@MIR_DYNAMIC_URL@/mdb?section=faq#DataType" title="collections FAQ">data types</a>. In some cases, this can lead to some confusion on how they should be encoded within XML file formats. First we would like to discuss whether there will ever be a need from the community to create XML elements which are named/identified by MIRIAM URNs (<a href="#Id_tags">section 2.1</a>). Also, as a related topic, we would like to get some feedback on whether the current handling of identifiers containing a colon character (':') is appropriate (<a href="#Colons">section 3.0</a>) or whether the community would like to adopt a new policy (<a href="#PotentialSolutions">section 4</a>). Moreover, we would also like to discuss some other associated issues, such as identifiers which contain intrinsic redundancies (<a href="#remove_idspace">section 4.1</a>), as exemplified by many of the <a href="http://www.obofoundry.org/" title="Open Biomedical ontologies" class="external">OBO ontologies</a>.
+</p>
+
+
+<h2 id="XML-URNs">2. Specific usages of MIRIAM URNs in XML based formats</h2>
+
+<h3 id="Id_tags" style="padding-top:10px;">2.1. Usage of identifiers as XML tags</h3>
+
+<p>
+    The <a href="http://purl.obolibrary.org/obo/obi" title="Ontology for Biomedical Investigations (OBI)" class="external">Ontology for Biomedical Investigations</a> incorporates terms from the <a href="http://code.google.com/p/information-artifact-ontology/" title="Information Artifact Ontology (IAO)" class="external">Information Artifact Ontology</a> as properties. In such case, the IAO term identifier is used as a tag name. This results, when implemented in <a href="http://obi.svn.sourceforge.net/viewvc/obi/releases/2010-10-26/merged/merged-obi.owl" title="OBI-OWL" class="external">RDF/XML</a>, in snippets as exemplified by the following:</p>
+<pre>
+&lt;rdf:RDF xmlns:obo="http://purl.obolibrary.org/obo/" [...]>
+ [...]
+  &lt;owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_1110114">
+    &lt;rdfs:label xml:lang="en">contact to pathogen carrying biological vector&lt;/rdfs:label>
+    &lt;obo:<b>IAO_0000115</b> rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a process in which a vector [...] &lt;/obo:<b>IAO_0000115></b>
+    &lt;obo:<b>IAO_0000117</b> xml:lang="en">IEDB&lt;/obo:<b>IAO_0000117></b>
+    [...]
+  &lt;/owl:Class>
+ [...]
+</pre>
+
+<p>
+    In the example above, you can see several IAO terms, such as IAO:0000117 (written as "IAO_0000117"), used as an 'XML tag'. In this instance, the colon character (':') is arbitrarily transformed into an underscore ('_'), and the subsequent identifier can then be used legally (<a href="#tag_tech">section 2.2</a>) as a tag name. Moreover, the declaration of the "obo" namespace allows unambiguous identification of the underlying concept via the <a href="http://www.purlz.org/" title="PURLs" class="external">Persistent URL</a>: http://purl.obolibrary.org/obo/IAO_0000117. This PURL being a simple redirection towards an online location where information about the term can be obtained.
+</p>
+
+
+<h3 id="tag_tech" style="padding-top:10px;">2.2. Technical requirements for XML tags</h3>
+
+<p>
+     The fact is that in XML (and therefore all XML-based formats such as RDF/XML), there is a cascading list of requirements that must be met to generate a valid tag name:
+</p>
+
+<ol>
+	<li>The names for tags must be of the type <a href="http://www.w3.org/TR/REC-xml-names/#NT-QName" title="W3C Recommendation: QName" class="external">QName</a></li>
+	<li>QName must be composed of: NCName ':' NCName (where the preceeding NCName constitutes the namespace prefix)</li>
+	<li><a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName" title="W3C Recommendation: NCName" class="external">NCName</a> is defined as: Name - (Char* ':' Char*). Importantly this means that NCName is an XML Name which does not include the colon character (":").</li>
+	<li><a href="http://www.w3.org/TR/REC-xml/#NT-Name" title="W3C Recommendation: NT-Name" class="external">XML Name</a> can be composed of:
+		<ul>
+   			<li>NameStartChar  (NameChar)*</li>
+   			<li>NameStartChar ::=  ":" | [A-Z] | "_" | [a-z] | [some other Unicode stuff] </li>
+   			<li>NameChar ::=  NameStartChar | "-" | "." | [0-9] | [some other Unicode stuff]</li>
+		</ul>
+	</li>
+</ol>
+
+<p>
+    In summary, an XML tag cannot start with a digit, cannot contain ':' (except to separate the namespace prefix and local part -or tag name-) and cannot contain '%'.
+</p>
+
+
+<h3 id="MIRIAM_tags" style="padding-top:10px;">2.3. Potential issues with using MIRIAM URNs as tag names</h3>
+
+<p>
+    There are several potential issues if users want to adopt this type of tag name identification. First of all, identifiers that incorporate a colon character must be transformed in some way. Moreover, purely numerical identifiers cannot be used in this context without modification (the addition of a prefix is mandatory).
+</p>
+
+<p>
+    To enable MIRIAM URNs to be properly usable as legitimate tag names in XML-based formats, several changes would be required. For example, identifiers that incorporate a colon character must be transformed, and the "%3A" transformation itself is not appropriate. In addition, simply removing the colon and any preceeding text to leave a bare numerical identifier is itself also not a feasible option. Therefore, this issue is particularly relevant for MIRIAM data types that incorporate a colon within their identifier syntax, and for those that are referenced purely by numerical identifiers.
+</p>
+
+<p>
+    If you remain unconvinced regarding that the current URI scheme cannot be used for such cases, please look at the examples below (a-e). To convince yourself, feel free to use the <a href="http://validator.w3.org/" title="W3C XML online validator" class="external">online validator</a>. Potential solutions are proposed in <a href="#PotentialSolutions">section 4</a>, and 'colon' usage is discussed in <a href="#Colons">section 3</a>.
+</p>
+
+<p>a) Using a MIRIAM URN simply as is (so, incorporating the '%3A' encoding for a colon):</p>
+<pre>   
+   &lt;test xmlns="Random_namespace">
+ 	&lt;urn:miriam:obo.chebi:CHEBI%3A12345>...some term information...&lt;/urn:miriam:obo.chebi:CHEBI%3A12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML due to the use of '%' characters, and inability to determine a QName (too many colon characters).</p>
+
+
+<p>b) Using a MIRIAM URN, without the '%3A' colon encoding:</p>
+<pre>
+   &lt;test xmlns="Random_namespace">
+   	&lt;urn:miriam:obo.chebi:CHEBI:12345>...some term information...&lt;/urn:miriam:obo.chebi:CHEBI:12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML due to the inability to determine a QName, and also 'urn:' is detected as a namespace, but has not been declared. Therefore both errors are due to too many colon characters.</p>
+
+
+<p>c) Using a '%3A' stripped URN, but declaring 'urn' as a namespace prefix:</p>
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:urn="MIRIAM_URNs_namespace">
+   	&lt;urn:miriam:obo.chebi:CHEBI:12345>...some term information...&lt;/urn:miriam:obo.chebi:CHEBI:12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML due to the inability to parse the QName. There are still too many colon characters, where there should be only one to separate the namespace prefix and the local part (or tag name).</p>
+
+
+<p>d) Declaring a 'mir' namespace composed of the stem of the MIRIAM URN and not using the '%3A' encoding. Any other namespace can be used for this example, and would have identical problems.</p>
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:mir="urn:miriam:obo.chebi">
+   	&lt;mir:CHEBI:12345>...some term information...&lt;/mir:CHEBI:12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML due to the inability to parse the QName. There are too many colon characters, where there should be only one to separate the namespace prefix and the local part (or tag name).</p>
+
+
+<p>e) Declaring a 'mir' namespace composed of the stem of the MIRIAM URN:</p>
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:mir="urn:miriam:obo.chebi">
+   	&lt;mir:CHEBI%3A12345>...some term information...&lt;/mir:CHEBI%3A12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML due to the presence of an illegal '%' character in the tag name.</p>
+
+
+<p>f) Using the entire MIRIAM URN as a namespace, leaving only the digit identifier as tag name:</p>
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:mir="urn:miriam:obo.chebi:CHEBI%3A">
+   	&lt;mir:12345>...some term information...&lt;/mir:12345>
+   &lt;/test>
+</pre>
+<p>Invalid XML since a tag name cannot start with a digit. Note that this problem would show up with any data type using identifiers composed purely of digits, such as PubMed, Taxonomy, EC Code, ...</p>
+
+
+<h2 id="Colons">3. Usage of ':' in identifiers of MIRIAM URNs</h2>
+
+<p>The colon character is present in various identifiers schemes referenced by MIRIAM Resources, with the OBO ontologies forming a significant part of this subset. Despite the meaning of the prefix as a namespace, in most situations prefix and string of digits are used together as the identifier of a term. Therefore, a computer program will not process the term "0000188" as being of the Gene Ontology data type, since the prefix is required, "GO:0000188", to specify the namespace of Gene Ontology. As a consequence, currently a MIRIAM URN for a Gene Ontology term must contain the following parts:</p>
+<ol>
+  <li>"urn" to specify that the string must be parsed as a Unified Resource Name;</li>
+  <li>"miriam" to specify that the URN must be understood as a MIRIAM URI;</li>
+  <li>"obo.go" to specify that the identifier belongs to the subdomain GO of OBO, identifying the data type 'Gene Ontology';</li>
+  <li>"GO:0000188" to specify the dataset identifier within the data type Gene Ontology.</li>
+</ol>
+<p>The resulting URN being "urn:miriam:obo.go:GO%3A0000188". The replacement of ":" by %3A is discussed below.</p>
+
+<p>':' is a restricted character, used as a separator in URNs. In order to handle the fact that the last ':' of those MIRIAM URNs is semantically different from the others, MIRIAM URNs use the percent-encoding form (hence the '%3A'). This %3A-encoded form corresponds to the hexadecimal representation of the ":". This solution was chosen as it is the way described and required by the <a href="http://www.ietf.org/rfc/rfc3986.txt" title="URI Generic Syntax RFC" class="external">URI RFC</a>. Therefore, currently the correct way of referring to "GO:0000188" or "CHEBI:15422" is "urn:miriam:obo.go:GO%3A0000188" and "urn:miriam:obo.chebi:CHEBI%3A15422", respectively</p>
+
+<p>The problems are:</p>
+<ol>
+  <li>the confusion generated by the '%3A';</li>
+  <li>the need to convert ':' in '%3A' and back when one generates or parses MIRIAM URNs (although Web Services provide this feature);</li>
+  <li>the redundancy between the data type namespace and the OBO namespace (e.g. duplicated go/GO and chebi/CHEBI);</li>
+  <li>the <a href="#split_encoding" title="Split across '%3A' encoding">impracticality</a> to use the generated URN as a tag name (cf. <a href="#XML-URNs">section 2</a>.).</li>
+</ol>
+
+
+<h2 id="PotentialSolutions">4. Possible solutions</h2>
+
+<p>There are a number of possible solutions, or solution-enabling steps, to the issue of ':' inclusion within identifiers and using MIRIAM URNs as tag names within XML-based formats. These are illustrated below (<a href="#remove_idspace">sections 4.1</a> through <a href="#split_encoding">4.5</a>).</p>
+
+
+<h3 id="remove_idspace" style="padding-top:10px;">4.1. Removal of the "idspace name" for OBO ontologies</h3>
+
+<p>One possibility is to get rid of the OBO "ID-Space" (the part before the ':' that becomes encoded as "%3A"), which is redundant with the MIRIAM namespace ("obo.go"), and only keep the digits (or OBO "Local-ID") in the identifier portion of MIRIAM URNs. For example "urn:miriam:obo.go:GO%3A0000188" would become "urn:miriam:obo.go:0000188".</p>
+
+<p>As an aside, this solution would also remove the redundancy seen between the data type identifier, "obo.go", and in the dataset identifier "GO:0000188". This change could also be applied to all data types with an invariable prefix in their identifier scheme. Note that this is already what is done with the Enzyme Nomenclature. It should, however, also be borne in mind that some data types in MIRIAM do specify that the "ID-Space" is part of their official identifier. Something like "urn:miriam:obo.go:0000188" would therefore be MIRIAM-specific.</p>
+
+<p>Important note: this solution does not solve the usage of URNs in XML tags, since the identifier to be used as a tag name would then be composed of bare digits, which cannot be used to start a tag name. This would have to be part of a larger potential solution.</p>
+
+
+<h3 id="fuse_idspace" style="padding-top:10px;">4.2 Fusion of the "idspace name" with the MIRIAM data type namespace</h3>
+
+<p>One possibility similar to the previous one is to use the "ID-Space" as the data type MIRIAM namespace, and only keep the digits (or "Local-ID") in the identifier portion of MIRIAM URNs. For example "urn:miriam:obo.go:GO%3A0000188" would become "urn:miriam:obo.GO:0000188" or "urn:miriam:GO:0000188".</p>
+
+<p>As an aside, this solution would also remove the redundancy seen between the data type identifier, "obo.go", and in the dataset identifier "GO:0000188". This change could also be applied to all data types with an invariable prefix in their identifier scheme.</p>
+
+<p>Important note: this solution does not solve the usage of URNs in XML tags, since the identifier to be used as a tag name would then be composed of bare digits, which cannot be used to start a tag name. This would have to be part of a larger potential solution.</p>
+
+
+<h3 id="altern_colon" style="padding-top:10px;">4.3. Different encoding for ':'</h3>
+
+<p>We could follow the decision taken by various groups working with OWL, and arbitrarily replace the ":" with an "_". For example "urn:miriam:obo.go:GO%3A0006915" would become "urn:miriam:obo.go:GO_0006915".</p>
+
+<p>If this action was taken, we could generate valid tag names:</p>
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:mir="urn:miriam:obo.go">
+   	&lt;mir:GO_0000188>...some term information...&lt;/mir:GO_0000188>
+   &lt;/test>
+</pre>
+
+<p>While users would still have to convert ":" into "_" and back, as they do currently with "%3A", there is at least a valid correspondance between ':' and its '%3A' encoding. The correspondence, however, between ":" and "_" relies on an arbitrary decision that must be known and incorporated explicitly into the software tools handling MIRIAM URNs.</p>
+
+
+<h3 id="use_URLs" style="padding-top:10px;">4.4. Drop URNs and use URLs</h3>
+
+<p>
+    Initially, both URLs and URNs were used in MIRIAM Resources. In January 2008, the decision to use URNs was voted upon during the <a href="http://sbgn.org/Events/SBGN-3.5" title="Super-hackathon about Standards and Ontologies for Systems Biology" class="external">Super-hackathon about Standards and Ontologies for Systems Biology</a>. The main reason (although not the only one) behind this choice was to explicitly disambiguate the physical locations where data resides (URLs), from its identification (URN). It was thought that having a URI of a form akin to that of a URL, but being unresolvable, would be confusing. Therefore the current MIRIAM URN syntax was adopted.
+</p>
+
+<p>
+     Consequently, another potential solution would be to revert back to, or allow optional use of, the parallel URL form, or indeed to move fully to the URL format. Such a transition would, for example, result in a URI of one of the following forms:
+</p>
+
+<ul>
+    <li>http://biomodels.net/miriam/obo/go/GO:0000188</li>
+    <li>http://biomodels.net/miriam/obo/go/0000188</li>
+    <li>http://biomodels.net/miriam/obo/go/GO_0000188</li>
+    <li>http://biomodels.net/miriam/obo/GO_0000188</li>
+</ul>
+
+<p>
+    One should emphasise that using a URL form for MIRIAM URIs would *not* be the same as using a <a href="http://www.purlz.org/" title="Persistent Uniform Resource Locator" class="external">PURL</a>. We would still associate several alternative resources or locations to the same dataset.
+</p>
+
+<p>
+    Important note: this would solve the usage in XML tags if there is implementation of several rules in order to manage identifiers containing special characters, such as ":". For example, the first two example URLs would not solve the usage in XML tags.
+</p>
+
+
+<h3 id="split_encoding" style="padding-top:10px;">4.5. Split across "%3A" encoding</h3>
+
+<p>
+    Since tag names cannot begin with a digit, it is possible to split the "%3A" colon encoding between a namespace declaration, and a tag name, thus:
+</p>
+
+<pre>
+   &lt;test xmlns="Random_namespace" xmlns:mir="urn:miriam:obo.go:GO%3">
+   	&lt;mir:A0006915>...some term information...&lt;/mir:A0006915>
+   &lt;/test>
+</pre>
+
+<p>
+    The advantage of this approach is that it is valid, and requires much less work to implement. The disadvantages are that it is not an aesthetically pleasing solution, and would probably be harder to be interpreted by a person. The fact that the OBO namespace would be dropped from the tag name makes the result confusing. In the example above, one may assume the existence of an identifier "A0006915", where there is none.
+</p>
+
+<p>
+    Note: this solution still requires the "%3A" encoding.
+</p>
+
+
+<h2 id="Summary">5. Summary / Discussion</h2>
+
+<p>
+    We would be very happy to hear your opinion about these possible issues and suggested solutions. For this purpose, we have set up a <a href="http://www.surveymonkey.com/s/SF6H9HX" title="MIRIAM URN survey">very short survey</a>. The results will be made public, and we will announce any further decisions.
+</p>
+
+<p>
+    If you have any related queries or concerns, feel free to <a href="http://www.ebi.ac.uk/miriam/main/mdb?section=contribute#team" title="Contact information">contact us</a>.
+</p>

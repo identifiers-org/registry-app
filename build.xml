@@ -1,0 +1,281 @@
+<!--
+Ant build for MIRIAM Registry (Web Application)
+
+Generation of the war for the Tomcat server [ alpha | demo | main ]
+    ant [-Dapp.version=[demo|main|alpha]]
+
+* default target:  war    
+* default version: alpha
+
+Examples:
+    Generate war for current official main site:
+        ant -Dapp.version=main
+
+Camille Laibe <camille.laibe@ebi.ac.uk>
+20150630
+-->
+
+<project name="MIRIAM Registry" default="war" basedir=".">
+
+    <!-- Properties used for the build -->
+    <property name="app.name" value="miriam" />
+    <property name="app.version" value="dev" />   <!-- default version -->
+    <property name="build" value="deploy" />
+    <property name="sources" value="src" />
+    <property name="web" value="WebContent" />
+    <property name="lib.app" value="lib/app" />
+    <property name="lib.build" value="lib/build/" />
+	<property name="lib.tomcat" value="lib/tomcat" />
+    <property name="lib.exclude" value="lib/exclude" />
+    <property name="html" value="html" />   <!-- HTML sources -->
+	<property name="html.generated" value="build/html" />
+	<property name="package" value="dist" />
+    <property name="properties" value="properties" />
+	<!-- compilation params -->
+    <property name="debug" value="on" />
+    <property name="optimize" value="off" />
+    <property name="target" value="1.6" /> <!-- also used for source -->
+    
+    
+    <!-- Properties to be put in the 'miriam.properties' file -->
+    <property name="email.admin" value="sarala@ebi.ac.uk" />
+    <property name="email.cura" value="juty@ebi.ac.uk,laibe@ebi.ac.uk,sarala@ebi.ac.uk" />   <!-- if several curators, separate addresses by a comma -->
+    <property name="database.pool" value="miriam" />
+    
+    <!-- These libraries are needed to be included in the CLASSPATH -->
+    <path id="classpath">
+        <fileset dir="${lib.tomcat}">
+            <include name="*.jar" />
+        </fileset>
+        <fileset dir="${lib.app}">
+            <include name="*.jar" />
+        </fileset>
+        <fileset dir="${lib.exclude}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+    <path id="build.classpath">
+        <fileset dir="${lib.build}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+	<!-- Loads the <svn> task -->
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="build.classpath" />
+	<svnSetting id="svn.settings"
+		javahl="false" 
+		svnkit="true" 
+		failonerror="true" />
+    
+	<!-- Retrieves information about the SVN status of the local repository -->
+    <target name="svn.info.retrieval">
+        <svn refid="svn.settings">
+            <status path="." 
+            	lastChangedDateProperty="svn.lastModif" 
+            	lastChangedRevisionProperty="svn.lastRevision" 
+            	lastCommitAuthorProperty="svn.lastAuthor" />
+        	<wcversion path="." prefix="svn.workingCopy." />
+        </svn>
+    </target>
+    
+    <!-- Initialisation -->
+    <target name="init" depends="svn.info.retrieval" description="Initialisation: setting Timestamps">
+        <!-- initialisation of Timestamps -->
+        <tstamp>
+            <format property="DATE_SUFFIX" pattern="yyyyMMdd-kkmm" />
+            <format property="DATE_SIMPLE" pattern="MMM yyyy" />
+        </tstamp>
+    	<!-- loads all the properties from the file corresponding to the proper version -->
+    	<property file="${properties}/${app.version}/config.properties" />
+    	<!-- displays general info -->
+    	<echo>MIRIAM Registry</echo>
+    	<echo>----------------</echo>
+    	<echo>Component: Web App</echo>
+    	<echo>Version:   ${app.version}</echo>
+    	<echo>Date:      ${DATE_SUFFIX}</echo>
+    	<echo>Variables:</echo>
+    	<echo>  path to war: ${path.war}</echo>
+    	<echo>  url static:  ${url.static}</echo>
+    	<echo>  url app:     ${url.app}</echo>
+    	<echo>Build:</echo>
+	    <echo>  Latest revision: ${svn.lastRevision} (${svn.workingCopy.revision.max}: working copy)</echo>
+	    <echo>  Author:          ${svn.lastAuthor}</echo>
+        <echo>  Date:            ${svn.lastModif}</echo>
+    </target>
+
+    <!-- This section prepares the directory structure needed for Web applications -->
+    <target name="prepare" depends="init, clean" description="Create build directories">
+        <echo>Prepares the build directories...</echo>
+        <mkdir dir="${build}/WEB-INF/classes" />
+        <mkdir dir="${build}/WEB-INF/lib" />
+        <mkdir dir="${build}/export" />
+    </target>
+
+    <!-- This section compiles the Java files -->
+    <target name="build" depends="prepare" description="Compiles Java files" >
+        <echo>Compiles the Java classes...</echo>
+        <javac srcdir="${sources}" 
+        	   destdir="${build}/WEB-INF/classes" 
+        	   debug="${debug}" 
+			   target="${target}" 
+        	   source="${target}"
+			   optimize="${optimize}">
+            <include name="**/*.java" />
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
+    <!-- Generates the 'miriam.properties' file -->
+    <target name="gen-properties-file" depends="prepare" description="Generates the 'miriam.properties' file">
+        <echo>Generates the 'miriam.properties' file...</echo>
+        <propertyfile file="${build}/WEB-INF/classes/miriam.properties" comment=" MIRIAM Registry properties file">
+            <entry key="app_version" value="${app.version}" />
+            <entry key="email_admin" value="${email.admin}" />
+            <entry key="email_cura" value="${email.cura}" />
+            <entry key="database_pool" value="${database.pool}" />
+        </propertyfile>
+    </target>
+
+    <!-- This section copies the HTML and JSP pages to the appropriate locations -->
+    <!-- The "build" folder is an exact copy of what will be in the web container -->
+    <target name="pre-war" depends="build, gen-properties-file" description="Copies HTML, JSP and XML files">
+        <echo>Copies the HTML, JSP and XML files to the build directory...</echo>
+        <copy todir="${build}">
+            <fileset dir="${web}">
+                <include name="*.html" />
+                <include name="*.jsp" />
+                <include name="*.js" />
+            	<!-- pages needed authentication -->
+            	<!--<exclude name="TO COMPLETE" />-->
+            </fileset>
+        	<!-- transforms all relative links containing the tokens below to absolute links -->
+            <!-- please use @MIR_DYNAMIC_URL@ and @MIR_STATIC_URL@ in the static pages links -->
+            <filterset>
+                <filter token="MIR_DYNAMIC_URL" value="${url.app}" />
+                <filter token="MIR_STATIC_URL" value="${url.static}" />
+            </filterset>
+        </copy>
+        <!--to point to local js-->
+        <copy todir="${build}/js">
+            <fileset dir="${html}/js">
+                <include name="MiriamDynamicForms.js" />
+            </fileset>
+            <filterset>
+                <filter token="MIR_DYNAMIC_URL" value="${url.app}" />
+                <filter token="MIR_STATIC_URL" value="${url.static}" />
+            </filterset>
+        </copy>
+        <!--to point to local img-->
+        <copy todir="${build}/img">
+            <fileset dir="${html}/img">
+                <include name="Logo_Google_2013_Official.svg" />
+                <include name="Yahoo!_logo.svg" />
+            </fileset>
+            <filterset>
+                <filter token="MIR_DYNAMIC_URL" value="${url.app}" />
+                <filter token="MIR_STATIC_URL" value="${url.static}" />
+            </filterset>
+        </copy>
+        <copy todir="${build}/WEB-INF">
+            <fileset dir="${web}/WEB-INF">
+                <include name="web.xml" />
+                <include name="*.tld" />
+                <include name="**/*.tag" />
+            </fileset>
+        </copy>
+    	<replace file="${build}/WEB-INF/tags/loginBox.tag" token="@MIR_DYNAMIC_URL@" value="${url.app}" />
+        <copy todir="${build}/WEB-INF/lib">
+            <fileset dir="${lib.app}">
+                <include name="*.jar" />
+            </fileset>
+            <fileset dir="${lib.tomcat}">
+                <include name="*.jar" />
+            </fileset>
+        </copy>
+        <copy todir="${build}/WEB-INF/classes">
+            <fileset dir="${properties}/${app.version}">
+                <include name="log4j.properties" />
+                <include name="quartz.properties" />
+                <include name="quartz-jobs.xml" />
+            </fileset>
+        </copy>
+        <copy todir="${build}/WEB-INF">
+            <fileset dir="${properties}/${app.version}">
+                <include name="urlrewrite.xml" />
+            </fileset>
+        </copy>
+    	<copy todir="${build}/WEB-INF">
+    	    <fileset dir="${properties}/${app.version}">
+    	        <include name="web.xml" />
+            </fileset>
+        </copy>
+    	<!-- customises the debug.jsp file -->
+        <replace file="${build}/debug.jsp" token="[APP_VERSION]" value="${app.version}" />
+        <replace file="${build}/debug.jsp" token="[SVN_REVISION_NUMBER]" value="${svn.lastRevision}" />
+        <replace file="${build}/debug.jsp" token="[SVN_REVISION_AUTHOR]" value="${svn.lastAuthor}" />
+        <replace file="${build}/debug.jsp" token="[SVN_REVISION_DATE]" value="${svn.lastModif}" />
+    </target>
+	
+    <!-- This section ONLY update the static pages of the web app -->
+	<!-- File permissions are not retained when files are copied with <copy>, they end up with the default UMASK permissions instead, and this might not be the one created for Compneur if the build is launched from an IDE! -->
+    <target name="generate-static-html" depends="init" description="Updates the static elements provided by the web server (file permissions not retained)">
+        <echo>Generates the static pages, ready to be copied on the web server...</echo>
+    	<echo>Generated files are in: ${html.generated}</echo>
+    	<!-- deletes all previously generated files -->
+    	<delete includeEmptyDirs="true">
+    		<fileset dir="${html.generated}" includes="**/*" defaultexcludes="no" />
+    	</delete>
+    	<!-- copies HTML files, RSS feed, JS files and CSS, with token replacement -->
+        <copy todir="${html.generated}">
+            <fileset dir="${html}">
+            	<include name="**/*.html" />
+            	<include name="**/MiriamNews.xml" />
+            	<include name="**/*.js" />
+            	<include name="**/*.css" />
+			</fileset>
+            <!-- transforms all contained relative links to absolute links -->
+            <!-- please use @MIR_DYNAMIC_URL@ and @MIR_STATIC_URL@ in the static pages links -->
+            <filterset>
+                <filter token="MIR_DYNAMIC_URL" value="${url.app}" />   <!-- do I really need that??? -->
+                <filter token="MIR_STATIC_URL" value="${url.static}" />
+            </filterset>
+        </copy>
+    	<!-- copies all non HTML files, without token replacement (because 'filterset' corrupts binary files) -->
+    	<copy todir="${html.generated}">
+    	    <fileset dir="${html}">
+    	        <exclude name="**/*.html" />
+    	    	<exclude name="**/*.js" />
+    	    	<exclude name="**/MiriamNews.xml" />
+    	    	<exclude name="**/*.css" />
+    		</fileset>
+    	</copy>
+    </target>
+    
+    <!-- This section cleans the build folder -->
+    <target name="clean" description="Clean the Web Container">
+        <echo>Cleans the build directory...</echo>
+        <delete dir="${build}" verbose="false" includeEmptyDirs="true" />
+    </target>
+    
+    <!-- This section copies the 'context.xml', but keep it outside the .war file
+    DOES NOT WORK: the context file needs to be customised
+    <target name="context" description="Creates the 'context.xml' file for the application">
+        <echo>Creates the 'context.xml' file</echo>
+    	// perhaps needs the deletion of the previously generated context file (not overwrite apparently)
+        <copy file="context.xml" toFile="${package}/miriam-${app.version}.xml" overwrite="true" />
+        <replace file="${package}/miriam-${app.version}.xml" token="[VERSION]" value="${app.version}" />
+    	<replace file="${package}/miriam-${app.version}.xml" token="[PATH_WAR]" value="${path.war}" />
+    </target>
+    -->
+	
+    <!-- This section creates a war file to deploy the web application -->
+    <target name="war" depends="pre-war" description="Builds a war file for deployment">
+        <echo>Builds the war file...</echo>
+        <!--<property name="war.file" value="${app.name}-${app.version}_${DATE_SUFFIX}.war" />-->
+        <property name="war.file" value="${app.name}-${app.version}.war" />
+        <war destfile="${package}/${app.version}/${war.file}" webxml="${build}/WEB-INF/web.xml">
+            <fileset dir="${build}" excludes="**/web.xml" />
+        </war>
+    </target>
+
+</project>
